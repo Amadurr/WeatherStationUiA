@@ -1,0 +1,16 @@
+--cpu Cortex-M4.fp
+".\objects\main.o"
+".\objects\lamp_control.o"
+".\objects\uart_print.o"
+".\objects\switch_monitor.o"
+".\objects\svc_table.o"
+".\objects\nrf_drv_gpiote.o"
+".\objects\nrf_drv_uart.o"
+".\objects\nrf_drv_common.o"
+"C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\LIB\ARM\RTX_CM4.lib"
+".\objects\rtx_conf_cm.o"
+".\objects\arm_startup_nrf52.o"
+".\objects\system_nrf52.o"
+--ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\test.map" -o .\Objects\test.axf

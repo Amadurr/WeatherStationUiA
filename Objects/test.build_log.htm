@@ -1,0 +1,137 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.21.1.0
+Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: are Kringle, uia, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.21a
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 3 (build 300)
+Assembler:       Armasm.exe V5.06 update 3 (build 300)
+Linker/Locator:  ArmLink.exe V5.06 update 3 (build 300)
+Library Manager: ArmAr.exe V5.06 update 3 (build 300)
+Hex Converter:   FromElf.exe V5.06 update 3 (build 300)
+CPU DLL:         SARMCM3.DLL V5.21a
+Dialog DLL:      DCM.DLL V1.13.8.0
+Target DLL:      Segger\JL2CM3.dll V2.99.23.0
+Dialog DLL:      TCM.DLL V1.14.14.0
+ 
+<h2>Project:</h2>
+D:\nRF5_SDK_12.0.0_12f24da\examples\peripheral\ELE217_RTX_LAB_4\test.uvprojx
+Project File Date:  11/07/2016
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'nRF_Drivers'
+compiling uart_print.c...
+uart\uart_print.h(17): warning:  #1295-D: Deprecated declaration UartPrint - give arg types
+  void UartPrint();
+uart\uart_print.c(20): error:  #20: identifier "mut" is undefined
+  	mut = osMutexCreate(osMutex(mut_print));
+uart\uart_print.c: 1 warning, 1 error
+compiling lamp_control.c...
+.\uart\uart_print.h(17): warning:  #1295-D: Deprecated declaration UartPrint - give arg types
+  void UartPrint();
+lamp_control.c(43): warning:  #767-D: conversion from pointer to smaller integer
+  			osDelay(50*(uint8_t)arg);
+lamp_control.c(49): warning:  #767-D: conversion from pointer to smaller integer
+  			osDelay(50*(uint8_t)arg);
+lamp_control.c: 3 warnings, 0 errors
+compiling main.c...
+.\uart\uart_print.h(17): warning:  #1295-D: Deprecated declaration UartPrint - give arg types
+  void UartPrint();
+switch_monitor.h(39): warning:  #1295-D: Deprecated declaration SwitchMonitor - give arg types
+  void SwitchMonitor();
+main.c(24): error:  #20: identifier "dataSender" is undefined
+  
+sThreadDef (dataSender,osPriorityNormal,1,0);
+main.c(26): error:  #20: identifier "dataReciever" is undefined
+  
+sThreadDef (dataReciever,osPriorityNormal,1,0);
+main.c(28): error:  #20: identifier "SPI" is undefined
+  
+sThreadDef (SPI,osPriorityNormal,1,0);
+main.c: 2 warnings, 3 errors
+compiling data_Transfer.c...
+.\uart\uart_print.h(17): warning:  #1295-D: Deprecated declaration UartPrint - give arg types
+  void UartPrint();
+switch_monitor.h(39): warning:  #1295-D: Deprecated declaration SwitchMonitor - give arg types
+  void SwitchMonitor();
+data_Transfer.c(30): error:  #41: expression must have arithmetic or pointer type
+  		if(event)
+data_Transfer.c(36): warning:  #1-D: last line of file ends without a newline
+  }
+data_Transfer.c(9): warning:  #177-D: variable "spi" was declared but never referenced
+  static const nrf_drv_spi_t spi = NRF_DRV_SPI_INSTANCE(SPI_INSTANCE);  /**< SPI instance. */
+data_Transfer.c(13): warning:  #550-D: variable "m_tx_buf" was set but never used
+  static uint8_t       m_tx_buf[] = TEST_STRING;           /**< TX buffer. */
+data_Transfer.c: 5 warnings, 1 error
+compiling nrf_drv_twi.c...
+compiling nrf_drv_gpiote.c...
+compiling switch_monitor.c...
+switch_monitor.h(39): warning:  #1295-D: Deprecated declaration SwitchMonitor - give arg types
+  void SwitchMonitor();
+.\uart\uart_print.h(17): warning:  #1295-D: Deprecated declaration UartPrint - give arg types
+  void UartPrint();
+switch_monitor.c: 2 warnings, 0 errors
+compiling nrf_drv_uart.c...
+compiling nrf_drv_common.c...
+compiling nrf_drv_spi.c...
+".\Objects\test.axf" - 5 Error(s), 13 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.4.5.0.pack
+                ::CMSIS:RTOS:1.0 (API)
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: RTOS Version: 1.0
+   * Component: CORE Version: 4.3.0
+   * Component: Keil RTX Version: 4.80.0
+
+Package Vendor: NordicSemiconductor
+                http://developer.nordicsemi.com/nRF5_SDK/pieces/nRF_DeviceFamilyPack/NordicSemiconductor.nRF_DeviceFamilyPack.8.7.1.pack
+                NordicSemiconductor::Device:Startup:8.7.1
+                Nordic Semiconductor nRF ARM devices Device Family Pack.
+   * Component: Startup Version: 8.7.1
+
+<h2>Collection of Component include folders:</h2>
+  D:\nRF5_SDK_12.0.0_12f24da\examples\peripheral\ELE217_RTX_LAB_4\RTE
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC
+  C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.7.1\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ::CMSIS:RTOS:1.0 (API)
+
+   * Component: ARM::CMSIS:CORE:4.3.0
+
+   * Component: ARM::CMSIS:RTOS:Keil RTX:4.80.0
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Mutex.c
+      Include file:  CMSIS\RTOS\RTX\INC\cmsis_os.h
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\main.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Thread.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MailQueue.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Timer.c
+      Source file:   CMSIS\RTOS\RTX\Templates\RTX_Conf_CM.c
+      Library file:  CMSIS\RTOS\RTX\LIB\ARM\RTX_CM4.lib
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MemPool.c
+      Include file:  CMSIS\RTOS\RTX\UserCodeTemplates\osObjects.h
+      Source file:   CMSIS\RTOS\RTX\SRC\ARM\SVC_Table.s
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MsgQueue.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Semaphore.c
+
+   * Component: NordicSemiconductor::Device:Startup:8.7.1
+      Source file:   Device\Source\system_nrf52.c
+      Source file:   Device\Source\arm\arm_startup_nrf52.s
+      Include file:  Device\Include\system_nrf52.h
+Target not created.
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>

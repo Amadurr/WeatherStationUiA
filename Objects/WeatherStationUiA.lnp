@@ -1,0 +1,15 @@
+--cpu Cortex-M4.fp
+".\objects\main.o"
+".\objects\svc_table.o"
+".\objects\data_transfer.o"
+".\objects\nrf_drv_gpiote.o"
+".\objects\nrf_drv_common.o"
+".\objects\nrf_drv_spi.o"
+".\objects\nrf_drv_twi.o"
+"C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\LIB\ARM\RTX_CM4.lib"
+".\objects\rtx_conf_cm.o"
+".\objects\arm_startup_nrf52.o"
+".\objects\system_nrf52.o"
+--ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\WeatherStationUiA.map" -o .\Objects\WeatherStationUiA.axf
