@@ -372,8 +372,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\bsp\bsp.c</PathWithFileName>
-      <FilenameWithoutPath>bsp.c</FilenameWithoutPath>
+      <PathWithFileName>..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\bsp\</PathWithFileName>
+      <FilenameWithoutPath>bsp\</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

@@ -405,9 +405,9 @@
           <GroupName>Board Support</GroupName>
           <Files>
             <File>
-              <FileName>bsp.c</FileName>
+              <FileName>bsp\</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\bsp\bsp.c</FilePath>
+              <FilePath>..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\bsp\</FilePath>
             </File>
             <File>
               <FileName>bsp_btn_ble.c</FileName>
@@ -1007,9 +1007,9 @@
           <GroupName>Board Support</GroupName>
           <Files>
             <File>
-              <FileName>bsp.c</FileName>
+              <FileName>bsp\</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\bsp\bsp.c</FilePath>
+              <FilePath>..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\bsp\</FilePath>
             </File>
             <File>
               <FileName>bsp_btn_ble.c</FileName>
