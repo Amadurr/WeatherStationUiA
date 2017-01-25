@@ -407,7 +407,7 @@
 // <2=> Red 
 // <3=> Green 
 // <4=> Yellow 
-// <5=> Blue 
+// <5=> Blue x
 // <6=> Magenta 
 // <7=> Cyan 
 // <8=> White 
