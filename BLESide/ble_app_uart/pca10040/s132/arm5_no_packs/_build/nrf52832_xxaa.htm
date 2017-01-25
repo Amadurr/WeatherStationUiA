@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\_build\nrf52832_xxaa.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\_build\nrf52832_xxaa.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Wed Jan 18 11:02:45 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Wed Jan 25 08:46:10 2017
 <BR><P>
 <H3>Maximum Stack Usage =        432 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -512,9 +512,9 @@ Global Symbols
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_op_alloc
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_SetPendingIRQ
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_led_indication
+<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;conn_params_negotiation
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_led_indication
 <LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_button_event_handler
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;conn_params_negotiation
 <LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpiote_event_handler
 </UL>
 
@@ -582,10 +582,10 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adv_data_encode
 </UL>
-<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_adv_mode_slow
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_adv_mode_fast
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_advertising_restart_without_whitelist
+<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_advertising_restart_without_whitelist
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_advertising_init
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_adv_mode_slow
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_adv_mode_fast
 </UL>
 
 <P><STRONG><a name="[8b]"></a>ble_advertising_init</STRONG> (Thumb, 278 bytes, Stack size 32 bytes, ble_advertising.o(i.ble_advertising_init))
@@ -618,10 +618,10 @@ Global Symbols
 <P><STRONG><a name="[8e]"></a>ble_advertising_start</STRONG> (Thumb, 250 bytes, Stack size 48 bytes, ble_advertising.o(i.ble_advertising_start))
 <BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = ble_advertising_start &rArr; set_adv_mode_slow &rArr; ble_advdata_set &rArr; adv_data_encode &rArr; uuid_list_encode &rArr; uuid_list_sized_encode
 </UL>
-<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_adv_mode_slow
+<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fs_queued_op_count_get
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_adv_mode_slow
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_adv_mode_fast
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adv_mode_next_avail_get
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fs_queued_op_count_get
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_advertising_restart_without_whitelist
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_advertising_on_ble_evt
@@ -640,9 +640,9 @@ Global Symbols
 <P><STRONG><a name="[95]"></a>ble_conn_params_on_ble_evt</STRONG> (Thumb, 120 bytes, Stack size 16 bytes, ble_conn_params.o(i.ble_conn_params_on_ble_evt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = ble_conn_params_on_ble_evt &rArr; conn_params_negotiation &rArr; app_timer_start &rArr; app_util_critical_region_enter
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_timer_stop
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;conn_params_negotiation
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_timer_stop
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_srv_is_notification_enabled
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;conn_params_negotiation
 </UL>
 <BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_evt_dispatch
 </UL>
@@ -1232,6 +1232,24 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uuid_list_encode
 </UL>
 
+<P><STRONG><a name="[97]"></a>conn_params_negotiation</STRONG> (Thumb, 78 bytes, Stack size 24 bytes, ble_conn_params.o(i.conn_params_negotiation))
+<BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = conn_params_negotiation &rArr; app_timer_start &rArr; app_util_critical_region_enter
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;is_conn_params_ok
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_timer_start
+</UL>
+<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_conn_params_on_ble_evt
+</UL>
+
+<P><STRONG><a name="[b9]"></a>is_conn_params_ok</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, ble_conn_params.o(i.is_conn_params_ok))
+<BR><BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;conn_params_negotiation
+</UL>
+
+<P><STRONG><a name="[36]"></a>update_timeout_handler</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, ble_conn_params.o(i.update_timeout_handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = update_timeout_handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> ble_conn_params.o(i.ble_conn_params_init)
+</UL>
 <P><STRONG><a name="[91]"></a>adv_mode_next_avail_get</STRONG> (Thumb, 80 bytes, Stack size 0 bytes, ble_advertising.o(i.adv_mode_next_avail_get))
 <BR><BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_advertising_start
 </UL>
@@ -1252,24 +1270,6 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_advertising_start
 </UL>
 
-<P><STRONG><a name="[97]"></a>conn_params_negotiation</STRONG> (Thumb, 78 bytes, Stack size 24 bytes, ble_conn_params.o(i.conn_params_negotiation))
-<BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = conn_params_negotiation &rArr; app_timer_start &rArr; app_util_critical_region_enter
-</UL>
-<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_timer_start
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;is_conn_params_ok
-</UL>
-<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_conn_params_on_ble_evt
-</UL>
-
-<P><STRONG><a name="[b9]"></a>is_conn_params_ok</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, ble_conn_params.o(i.is_conn_params_ok))
-<BR><BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;conn_params_negotiation
-</UL>
-
-<P><STRONG><a name="[36]"></a>update_timeout_handler</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, ble_conn_params.o(i.update_timeout_handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = update_timeout_handler
-</UL>
-<BR>[Address Reference Count : 1]<UL><LI> ble_conn_params.o(i.ble_conn_params_init)
-</UL>
 <P><STRONG><a name="[9c]"></a>rx_char_add</STRONG> (Thumb, 220 bytes, Stack size 72 bytes, ble_nus.o(i.rx_char_add))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = rx_char_add
 </UL>
