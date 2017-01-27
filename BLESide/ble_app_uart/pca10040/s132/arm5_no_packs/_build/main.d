@@ -1,4 +1,5 @@
 .\_build\main.o: ..\..\..\main.c
+.\_build\main.o: ..\arm5_no_packs\definitions.h
 .\_build\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\_build\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\nordic_common.h
