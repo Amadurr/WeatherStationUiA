@@ -61,3 +61,4 @@
 .\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\boards\boards.h
 .\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\boards\pca10040.h
 .\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\bsp\bsp_btn_ble.h
+.\_build\main.o: ..\arm5_no_packs\BLEFunctions.h
