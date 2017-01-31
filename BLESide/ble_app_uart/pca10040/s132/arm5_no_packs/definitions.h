@@ -17,6 +17,15 @@
 #include "app_util_platform.h"
 #include "bsp.h"
 #include "bsp_btn_ble.h"
+#include "sdk_config.h"
+#include "nrf_drv_spis.h"
+#include "nrf_gpio.h"
+#include "boards.h"
+#include "app_error.h"
+#include <string.h>
+#define NRF_LOG_MODULE_NAME "APP"
+#include "nrf_log.h"
+#include "nrf_log_ctrl.h"
 
 #define IS_SRVC_CHANGED_CHARACT_PRESENT 0                                           /**< Include the service_changed characteristic. If not enabled, the server's database cannot be changed for the lifetime of the device. */
 

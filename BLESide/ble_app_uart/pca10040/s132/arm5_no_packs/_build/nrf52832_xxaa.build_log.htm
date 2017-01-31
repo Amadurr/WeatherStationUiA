@@ -22,16 +22,31 @@ Dialog DLL:      TCM.DLL V1.14.14.0
  
 <h2>Project:</h2>
 C:\Users\Christer\Desktop\Schoolwork\ELE-217-G\Project Spring 2017\WeatherStationUiA\BLESide\ble_app_uart\pca10040\s132\arm5_no_packs\ble_app_uart_pca10040_s132.uvprojx
-Project File Date:  01/27/2017
+Project File Date:  01/31/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'nrf52832_xxaa'
-compiling BLEFunctions.c...
+compiling main.c...
+..\..\..\main.c(37): warning:  #223-D: function "uart_init" declared implicitly
+      uart_init();
+..\..\..\main.c(39): warning:  #223-D: function "buttons_leds_init" declared implicitly
+      buttons_leds_init(&erase_bonds);
+..\..\..\main.c(40): warning:  #223-D: function "ble_stack_init" declared implicitly
+      ble_stack_init();
+..\..\..\main.c(41): warning:  #223-D: function "gap_params_init" declared implicitly
+      gap_params_init();
+..\..\..\main.c(42): warning:  #223-D: function "services_init" declared implicitly
+      services_init();
+..\..\..\main.c(43): warning:  #223-D: function "advertising_init" declared implicitly
+      advertising_init();
+..\..\..\main.c(44): warning:  #223-D: function "conn_params_init" declared implicitly
+      conn_params_init();
+..\..\..\main.c: 7 warnings, 0 errors
 linking...
-Program Size: Code=13948 RO-data=1200 RW-data=184 ZI-data=9624  
+Program Size: Code=14832 RO-data=1232 RW-data=200 ZI-data=9648  
 FromELF: creating hex file...
-".\_build\nrf52832_xxaa.axf" - 0 Error(s), 0 Warning(s).
+".\_build\nrf52832_xxaa.axf" - 0 Error(s), 7 Warning(s).
 
 <h2>Software Packages used:</h2>
 

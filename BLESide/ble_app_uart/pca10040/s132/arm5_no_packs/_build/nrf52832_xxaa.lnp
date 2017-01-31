@@ -14,6 +14,7 @@
 ".\_build\nrf_drv_common.o"
 ".\_build\nrf_drv_gpiote.o"
 ".\_build\nrf_drv_uart.o"
+".\_build\nrf_drv_spis.o"
 ".\_build\app_button.o"
 ".\_build\app_error.o"
 ".\_build\app_error_weak.o"

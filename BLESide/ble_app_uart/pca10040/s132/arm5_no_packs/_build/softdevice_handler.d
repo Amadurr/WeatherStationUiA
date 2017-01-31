@@ -4,7 +4,7 @@
 .\_build\softdevice_handler.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\nordic_common.h
 .\_build\softdevice_handler.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\softdevice\s132\headers\nrf_sdm.h
 .\_build\softdevice_handler.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\softdevice\s132\headers\nrf_svc.h
-.\_build\softdevice_handler.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\_build\softdevice_handler.o: C:\Keil_v5\ARM\ARMCC\include\stdint.h
 .\_build\softdevice_handler.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf.h
 .\_build\softdevice_handler.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52.h
 .\_build\softdevice_handler.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h

@@ -61,4 +61,13 @@
 .\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\boards\boards.h
 .\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\boards\pca10040.h
 .\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\bsp\bsp_btn_ble.h
-.\_build\main.o: ..\arm5_no_packs\BLEFunctions.h
+.\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_slave\nrf_drv_spis.h
+.\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_spis.h
+.\_build\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_common.h
+.\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_os.h
+.\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_macros.h
+.\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log.h
+.\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_internal.h
+.\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log_ctrl.h
+.\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_ctrl_internal.h
