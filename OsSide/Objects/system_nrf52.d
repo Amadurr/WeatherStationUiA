@@ -13,3 +13,4 @@
 .\objects\system_nrf52.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf51_to_nrf52.h
 .\objects\system_nrf52.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52_name_change.h
 .\objects\system_nrf52.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\compiler_abstraction.h
+.\objects\system_nrf52.o: ..\..\nRF5_SDK_12.2.0\components\toolchain\system_nrf52.h

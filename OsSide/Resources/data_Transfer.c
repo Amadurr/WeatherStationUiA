@@ -23,6 +23,10 @@ extern osThreadId tid_SPI;
 osMessageQId switch_butt_q;
 osMessageQDef(switch_butt_q, 0x10, unsigned_int);
 
+osMailQDef(PcalQ, 16, inMail_t);
+osMailQId PcalQ_Id;
+
+
 void spi_event_handler(nrf_drv_spi_evt_t const * p_event)
 {
 	spi_xfer_done = true;
@@ -95,4 +99,54 @@ void buttEncoder()
 void __SVC_1			(void)
 {
 	return;
+}
+void Pcal_Handler()
+{
+	//init TWI
+	//init pcal
+	ret_code_t errcode;
+	osEvent evt;
+	inMail_t *rptr;
+	inMail_t *sptr;
+	PcalQ_Id = osMailCreate(osMailQ(PcalQ),NULL);
+	while(1)
+	{
+		evt = osMailGet(PcalQ_Id, osWaitForever);
+		if(evt.status == osEventMail)
+		{
+			rptr = evt.value.p;
+			if(rptr->rId == 0x01)
+			{
+				if((rptr->flags&0x01) == 1)
+				{
+					//getdata
+					pcal_drv_read(rptr->p);
+					{
+						
+					}
+				}
+				else
+				{
+					//writedata
+				}
+			}
+		}
+	}
+}
+uint8_t recieveMail(inMail_t *rptr, uint8_t rId)
+{
+	if(rptr->rId == rId)
+		return 1;
+	else
+		return 0;
+		osMailPut(PcalQ_Id, rptr);
+}
+uint8_t sendMail(uint8_t flags, pcal_data_t *package, inMail_t *sptr, uint8_t sId, uint8_t rId)
+{
+	sptr = osMailAlloc(PcalQ_Id, osWaitForever);
+	sptr->sId = sId;
+	sptr->rId = rId;
+	sptr->p = package;
+	sptr->flags = flags;
+	osMailPut(PcalQ_Id, sptr);
 }

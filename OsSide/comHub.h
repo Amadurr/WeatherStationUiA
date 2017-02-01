@@ -1,6 +1,6 @@
 
-#ifndef DATA_TRANSFER_H__
-#define DATA_TRANSFER_H__
+#ifndef COMHUB_H__
+#define COMHUB_H__
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
@@ -14,4 +14,4 @@ typedef struct{
 }inMail_t; //internal Mail
 
 
-#endif //DATA_TRANSFER_H__
+#endif //COMHUB_H__
