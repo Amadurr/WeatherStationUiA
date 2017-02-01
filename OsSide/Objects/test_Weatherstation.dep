@@ -1,29 +1,103 @@
 Dependencies for Project 'test', Target 'Weatherstation': (DO NOT MODIFY !)
-F (.\main.c)(0x5881DD24)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\config -I ..\nRF5_SDK_12.2.0\components -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\common -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\delay -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\hal -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\timer -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\uart -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master -I ..\nRF5_SDK_12.2.0\components\libraries\log -I ..\nRF5_SDK_12.2.0\components\libraries\log\src -I ..\nRF5_SDK_12.2.0\components\libraries\util -I ..\nRF5_SDK_12.2.0\components\toolchain -I ..\nRF5_SDK_12.2.0\external\segger_rtt -I ..\nRF5_SDK_12.2.0 -I .\Drivers -I .\Drivers\uart -I .\Drivers\pcal -I .\Drivers\bsp -I .\Resources-IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DNRF52 -DNRF52832 -DBOARD_PCA10040 -DNRF52_PAN_12 -DNRF52_PAN_15 -DNRF52_PAN_20 -DNRF52_PAN_30 -DNRF52_PAN_31 -DNRF52_PAN_36 -DNRF52_PAN_51 -DNRF52_PAN_53 -DNRF52_PAN_54 -DNRF52_PAN_55 -DNRF52_PAN_58 -DNRF52_PAN_62 -DNRF52_PAN_63 -DNRF52_PAN_64 -DCONFIG_GPIO_AS_PINRESET -DBSP_DEFINES_ONLY -DNRF52-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main.c)(0x5881DD24)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\config -I ..\..\nRF5_SDK_12.2.0\components -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\delay -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\timer -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\uart -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master -I ..\..\nRF5_SDK_12.2.0\components\libraries\log -I ..\..\nRF5_SDK_12.2.0\components\libraries\log\src -I ..\..\nRF5_SDK_12.2.0\components\libraries\util -I ..\..\nRF5_SDK_12.2.0\components\toolchain -I ..\..\nRF5_SDK_12.2.0\external\segger_rtt -I ..\..\nRF5_SDK_12.2.0 -I .\Drivers -I .\Drivers\uart -I .\Drivers\pcal -I .\Drivers\bsp -I .\Resources-IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DNRF52 -DNRF52832 -DBOARD_PCA10040 -DNRF52_PAN_12 -DNRF52_PAN_15 -DNRF52_PAN_20 -DNRF52_PAN_30 -DNRF52_PAN_31 -DNRF52_PAN_36 -DNRF52_PAN_51 -DNRF52_PAN_53 -DNRF52_PAN_54 -DNRF52_PAN_55 -DNRF52_PAN_58 -DNRF52_PAN_62 -DNRF52_PAN_63 -DNRF52_PAN_64 -DCONFIG_GPIO_AS_PINRESET -DBSP_DEFINES_ONLY -DNRF52-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (osObjects.h)(0x55E7D8AA)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC\cmsis_os.h)(0x56279C3E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
-I (.\Resources\data_Transfer.h)(0x587F2D6C)
+I (.\Resources\data_Transfer.h)(0x58886B5C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
 F (.\config\sdk_config.h)(0x5881DD9F)()
 F (.\SVC_Table.s)(0x582088D8)(--cpu Cortex-M4.fp --pd "__RTX SETA 1" --pd "__EVAL SETA 1" -g --apcs=interwork -IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include--pd "__UVISION_VERSION SETA 521" --pd "_RTE_ SETA 1" --pd "NRF52 SETA 1"--list .\listings\svc_table.lst --xref -o .\objects\svc_table.o --depend .\objects\svc_table.d)
-F (.\Resources\data_Transfer.c)(0x5887109D)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\config -I ..\nRF5_SDK_12.2.0\components -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\common -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\delay -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\hal -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\timer -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\uart -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master -I ..\nRF5_SDK_12.2.0\components\libraries\log -I ..\nRF5_SDK_12.2.0\components\libraries\log\src -I ..\nRF5_SDK_12.2.0\components\libraries\util -I ..\nRF5_SDK_12.2.0\components\toolchain -I ..\nRF5_SDK_12.2.0\external\segger_rtt -I ..\nRF5_SDK_12.2.0 -I .\Drivers -I .\Drivers\uart -I .\Drivers\pcal -I .\Drivers\bsp -I .\Resources-IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DNRF52 -DNRF52832 -DBOARD_PCA10040 -DNRF52_PAN_12 -DNRF52_PAN_15 -DNRF52_PAN_20 -DNRF52_PAN_30 -DNRF52_PAN_31 -DNRF52_PAN_36 -DNRF52_PAN_51 -DNRF52_PAN_53 -DNRF52_PAN_54 -DNRF52_PAN_55 -DNRF52_PAN_58 -DNRF52_PAN_62 -DNRF52_PAN_63 -DNRF52_PAN_64 -DCONFIG_GPIO_AS_PINRESET -DBSP_DEFINES_ONLY -DNRF52-o .\objects\data_transfer.o --omf_browse .\objects\data_transfer.crf --depend .\objects\data_transfer.d)
-I (Resources\data_Transfer.h)(0x587F2D6C)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC\cmsis_os.h)(0x56279C3E)
+F (.\Resources\data_Transfer.c)(0x58886CD4)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\config -I ..\..\nRF5_SDK_12.2.0\components -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\delay -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\timer -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\uart -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master -I ..\..\nRF5_SDK_12.2.0\components\libraries\log -I ..\..\nRF5_SDK_12.2.0\components\libraries\log\src -I ..\..\nRF5_SDK_12.2.0\components\libraries\util -I ..\..\nRF5_SDK_12.2.0\components\toolchain -I ..\..\nRF5_SDK_12.2.0\external\segger_rtt -I ..\..\nRF5_SDK_12.2.0 -I .\Drivers -I .\Drivers\uart -I .\Drivers\pcal -I .\Drivers\bsp -I .\Resources-IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DNRF52 -DNRF52832 -DBOARD_PCA10040 -DNRF52_PAN_12 -DNRF52_PAN_15 -DNRF52_PAN_20 -DNRF52_PAN_30 -DNRF52_PAN_31 -DNRF52_PAN_36 -DNRF52_PAN_51 -DNRF52_PAN_53 -DNRF52_PAN_54 -DNRF52_PAN_55 -DNRF52_PAN_58 -DNRF52_PAN_62 -DNRF52_PAN_63 -DNRF52_PAN_64 -DCONFIG_GPIO_AS_PINRESET -DBSP_DEFINES_ONLY -DNRF52-o .\objects\data_transfer.o --omf_browse .\objects\data_transfer.crf --depend .\objects\data_transfer.d)
+I (Resources\data_Transfer.h)(0x58886B5C)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
-F (..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote\nrf_drv_gpiote.c)(0x00000000)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\config -I ..\nRF5_SDK_12.2.0\components -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\common -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\delay -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\hal -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\timer -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\uart -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master -I ..\nRF5_SDK_12.2.0\components\libraries\log -I ..\nRF5_SDK_12.2.0\components\libraries\log\src -I ..\nRF5_SDK_12.2.0\components\libraries\util -I ..\nRF5_SDK_12.2.0\components\toolchain -I ..\nRF5_SDK_12.2.0\external\segger_rtt -I ..\nRF5_SDK_12.2.0 -I .\Drivers -I .\Drivers\uart -I .\Drivers\pcal -I .\Drivers\bsp -I .\Resources-IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DNRF52 -DNRF52832 -DBOARD_PCA10040 -DNRF52_PAN_12 -DNRF52_PAN_15 -DNRF52_PAN_20 -DNRF52_PAN_30 -DNRF52_PAN_31 -DNRF52_PAN_36 -DNRF52_PAN_51 -DNRF52_PAN_53 -DNRF52_PAN_54 -DNRF52_PAN_55 -DNRF52_PAN_58 -DNRF52_PAN_62 -DNRF52_PAN_63 -DNRF52_PAN_64 -DCONFIG_GPIO_AS_PINRESET -DBSP_DEFINES_ONLY -DNRF52-o .\objects\nrf_drv_gpiote.o --omf_browse .\objects\nrf_drv_gpiote.crf --depend .\objects\nrf_drv_gpiote.d)
-F (..\nRF5_SDK_12.2.0\components\drivers_nrf\common\nrf_drv_common.c)(0x00000000)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\config -I ..\nRF5_SDK_12.2.0\components -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\common -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\delay -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\hal -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\timer -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\uart -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master -I ..\nRF5_SDK_12.2.0\components\libraries\log -I ..\nRF5_SDK_12.2.0\components\libraries\log\src -I ..\nRF5_SDK_12.2.0\components\libraries\util -I ..\nRF5_SDK_12.2.0\components\toolchain -I ..\nRF5_SDK_12.2.0\external\segger_rtt -I ..\nRF5_SDK_12.2.0 -I .\Drivers -I .\Drivers\uart -I .\Drivers\pcal -I .\Drivers\bsp -I .\Resources-IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DNRF52 -DNRF52832 -DBOARD_PCA10040 -DNRF52_PAN_12 -DNRF52_PAN_15 -DNRF52_PAN_20 -DNRF52_PAN_30 -DNRF52_PAN_31 -DNRF52_PAN_36 -DNRF52_PAN_51 -DNRF52_PAN_53 -DNRF52_PAN_54 -DNRF52_PAN_55 -DNRF52_PAN_58 -DNRF52_PAN_62 -DNRF52_PAN_63 -DNRF52_PAN_64 -DCONFIG_GPIO_AS_PINRESET -DBSP_DEFINES_ONLY -DNRF52-o .\objects\nrf_drv_common.o --omf_browse .\objects\nrf_drv_common.crf --depend .\objects\nrf_drv_common.d)
-F (..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master\nrf_drv_spi.c)(0x00000000)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\config -I ..\nRF5_SDK_12.2.0\components -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\common -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\delay -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\hal -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\timer -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\uart -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master -I ..\nRF5_SDK_12.2.0\components\libraries\log -I ..\nRF5_SDK_12.2.0\components\libraries\log\src -I ..\nRF5_SDK_12.2.0\components\libraries\util -I ..\nRF5_SDK_12.2.0\components\toolchain -I ..\nRF5_SDK_12.2.0\external\segger_rtt -I ..\nRF5_SDK_12.2.0 -I .\Drivers -I .\Drivers\uart -I .\Drivers\pcal -I .\Drivers\bsp -I .\Resources-IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DNRF52 -DNRF52832 -DBOARD_PCA10040 -DNRF52_PAN_12 -DNRF52_PAN_15 -DNRF52_PAN_20 -DNRF52_PAN_30 -DNRF52_PAN_31 -DNRF52_PAN_36 -DNRF52_PAN_51 -DNRF52_PAN_53 -DNRF52_PAN_54 -DNRF52_PAN_55 -DNRF52_PAN_58 -DNRF52_PAN_62 -DNRF52_PAN_63 -DNRF52_PAN_64 -DCONFIG_GPIO_AS_PINRESET -DBSP_DEFINES_ONLY -DNRF52-o .\objects\nrf_drv_spi.o --omf_browse .\objects\nrf_drv_spi.crf --depend .\objects\nrf_drv_spi.d)
-F (..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master\nrf_drv_twi.c)(0x00000000)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\config -I ..\nRF5_SDK_12.2.0\components -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\common -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\delay -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\hal -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\timer -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\uart -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master -I ..\nRF5_SDK_12.2.0\components\libraries\log -I ..\nRF5_SDK_12.2.0\components\libraries\log\src -I ..\nRF5_SDK_12.2.0\components\libraries\util -I ..\nRF5_SDK_12.2.0\components\toolchain -I ..\nRF5_SDK_12.2.0\external\segger_rtt -I ..\nRF5_SDK_12.2.0 -I .\Drivers -I .\Drivers\uart -I .\Drivers\pcal -I .\Drivers\bsp -I .\Resources-IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DNRF52 -DNRF52832 -DBOARD_PCA10040 -DNRF52_PAN_12 -DNRF52_PAN_15 -DNRF52_PAN_20 -DNRF52_PAN_30 -DNRF52_PAN_31 -DNRF52_PAN_36 -DNRF52_PAN_51 -DNRF52_PAN_53 -DNRF52_PAN_54 -DNRF52_PAN_55 -DNRF52_PAN_58 -DNRF52_PAN_62 -DNRF52_PAN_63 -DNRF52_PAN_64 -DCONFIG_GPIO_AS_PINRESET -DBSP_DEFINES_ONLY -DNRF52-o .\objects\nrf_drv_twi.o --omf_browse .\objects\nrf_drv_twi.crf --depend .\objects\nrf_drv_twi.d)
-F (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\LIB\ARM\RTX_CM4.lib)(0x5624B166)()
-F (RTE\CMSIS\RTX_Conf_CM.c)(0x587F2F54)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\config -I ..\nRF5_SDK_12.2.0\components -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\common -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\delay -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\hal -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\timer -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\uart -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master -I ..\nRF5_SDK_12.2.0\components\libraries\log -I ..\nRF5_SDK_12.2.0\components\libraries\log\src -I ..\nRF5_SDK_12.2.0\components\libraries\util -I ..\nRF5_SDK_12.2.0\components\toolchain -I ..\nRF5_SDK_12.2.0\external\segger_rtt -I ..\nRF5_SDK_12.2.0 -I .\Drivers -I .\Drivers\uart -I .\Drivers\pcal -I .\Drivers\bsp -I .\Resources-IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DNRF52 -DNRF52832 -DBOARD_PCA10040 -DNRF52_PAN_12 -DNRF52_PAN_15 -DNRF52_PAN_20 -DNRF52_PAN_30 -DNRF52_PAN_31 -DNRF52_PAN_36 -DNRF52_PAN_51 -DNRF52_PAN_53 -DNRF52_PAN_54 -DNRF52_PAN_55 -DNRF52_PAN_58 -DNRF52_PAN_62 -DNRF52_PAN_63 -DNRF52_PAN_64 -DCONFIG_GPIO_AS_PINRESET -DBSP_DEFINES_ONLY -DNRF52-o .\objects\rtx_conf_cm.o --omf_browse .\objects\rtx_conf_cm.crf --depend .\objects\rtx_conf_cm.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC\cmsis_os.h)(0x56279C3E)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master\nrf_drv_spi.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\nordic_common.h)(0x583C929F)
+I (.\config\sdk_config.h)(0x5881DD9F)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_peripherals.h)(0x583C929D)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52832_peripherals.h)(0x582F1198)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_spi.h)(0x583C929D)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52.h)(0x582F1192)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x56260B6C)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\system_nrf52.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52_bitfields.h)(0x582F1192)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf51_to_nrf52.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52_name_change.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\compiler_abstraction.h)(0x582F1198)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_spim.h)(0x583C929D)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_errors.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd\nrf_error.h)(0x583C929E)
+I (.\Drivers\pcal\drv_pcal.h)(0x58886B5C)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master\nrf_drv_twi.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_twi.h)(0x583C929D)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_twim.h)(0x583C929D)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error.h)(0x583C929E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x574E9286)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error_weak.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_internal.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_common.h)(0x583C929F)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x574E9286)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_os.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_macros.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log_ctrl.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_ctrl_internal.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util_platform.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\nrf_assert.h)(0x583C929F)
+F (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote\nrf_drv_gpiote.c)(0x583C929D)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\config -I ..\..\nRF5_SDK_12.2.0\components -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\delay -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\timer -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\uart -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master -I ..\..\nRF5_SDK_12.2.0\components\libraries\log -I ..\..\nRF5_SDK_12.2.0\components\libraries\log\src -I ..\..\nRF5_SDK_12.2.0\components\libraries\util -I ..\..\nRF5_SDK_12.2.0\components\toolchain -I ..\..\nRF5_SDK_12.2.0\external\segger_rtt -I ..\..\nRF5_SDK_12.2.0 -I .\Drivers -I .\Drivers\uart -I .\Drivers\pcal -I .\Drivers\bsp -I .\Resources-IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DNRF52 -DNRF52832 -DBOARD_PCA10040 -DNRF52_PAN_12 -DNRF52_PAN_15 -DNRF52_PAN_20 -DNRF52_PAN_30 -DNRF52_PAN_31 -DNRF52_PAN_36 -DNRF52_PAN_51 -DNRF52_PAN_53 -DNRF52_PAN_54 -DNRF52_PAN_55 -DNRF52_PAN_58 -DNRF52_PAN_62 -DNRF52_PAN_63 -DNRF52_PAN_64 -DCONFIG_GPIO_AS_PINRESET -DBSP_DEFINES_ONLY -DNRF52-o .\objects\nrf_drv_gpiote.o --omf_browse .\objects\nrf_drv_gpiote.crf --depend .\objects\nrf_drv_gpiote.d)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_common.h)(0x583C929F)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x574E9286)
+I (.\config\sdk_config.h)(0x5881DD9F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\nordic_common.h)(0x583C929F)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\compiler_abstraction.h)(0x582F1198)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_os.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_errors.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd\nrf_error.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util.h)(0x583C929E)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52.h)(0x582F1192)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x56260B6C)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\system_nrf52.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52_bitfields.h)(0x582F1192)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf51_to_nrf52.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52_name_change.h)(0x582F1198)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_macros.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote\nrf_drv_gpiote.h)(0x583C929D)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_gpiote.h)(0x583C929D)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_peripherals.h)(0x583C929D)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52832_peripherals.h)(0x582F1198)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC\RTX_CM_lib.h)(0x556D8544)
-F (RTE\Device\nRF52832_xxAA\arm_startup_nrf52.s)(0x5788AA6C)(--cpu Cortex-M4.fp --pd "__RTX SETA 1" --pd "__EVAL SETA 1" -g --apcs=interwork -IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include--pd "__UVISION_VERSION SETA 521" --pd "_RTE_ SETA 1" --pd "NRF52 SETA 1"--list .\listings\arm_startup_nrf52.lst --xref -o .\objects\arm_startup_nrf52.o --depend .\objects\arm_startup_nrf52.d)
-F (RTE\Device\nRF52832_xxAA\system_nrf52.c)(0x5788AA6C)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\config -I ..\nRF5_SDK_12.2.0\components -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\common -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\delay -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\hal -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\timer -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\uart -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master -I ..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master -I ..\nRF5_SDK_12.2.0\components\libraries\log -I ..\nRF5_SDK_12.2.0\components\libraries\log\src -I ..\nRF5_SDK_12.2.0\components\libraries\util -I ..\nRF5_SDK_12.2.0\components\toolchain -I ..\nRF5_SDK_12.2.0\external\segger_rtt -I ..\nRF5_SDK_12.2.0 -I .\Drivers -I .\Drivers\uart -I .\Drivers\pcal -I .\Drivers\bsp -I .\Resources-IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DNRF52 -DNRF52832 -DBOARD_PCA10040 -DNRF52_PAN_12 -DNRF52_PAN_15 -DNRF52_PAN_20 -DNRF52_PAN_30 -DNRF52_PAN_31 -DNRF52_PAN_36 -DNRF52_PAN_51 -DNRF52_PAN_53 -DNRF52_PAN_54 -DNRF52_PAN_55 -DNRF52_PAN_58 -DNRF52_PAN_62 -DNRF52_PAN_63 -DNRF52_PAN_64 -DCONFIG_GPIO_AS_PINRESET -DBSP_DEFINES_ONLY -DNRF52-o .\objects\system_nrf52.o --omf_browse .\objects\system_nrf52.crf --depend .\objects\system_nrf52.d)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_gpio.h)(0x583C929D)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\nrf_assert.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error.h)(0x583C929E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x574E9286)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error_weak.h)(0x583C929E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x574E9286)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common\nrf_drv_common.h)(0x583C929D)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util_platform.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\nrf_bitmask.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_internal.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log_ctrl.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_ctrl_internal.h)(0x583C929E)
+F (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common\nrf_drv_common.c)(0x583C929D)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\config -I ..\..\nRF5_SDK_12.2.0\components -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\delay -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\timer -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\uart -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master -I ..\..\nRF5_SDK_12.2.0\components\libraries\log -I ..\..\nRF5_SDK_12.2.0\components\libraries\log\src -I ..\..\nRF5_SDK_12.2.0\components\libraries\util -I ..\..\nRF5_SDK_12.2.0\components\toolchain -I ..\..\nRF5_SDK_12.2.0\external\segger_rtt -I ..\..\nRF5_SDK_12.2.0 -I .\Drivers -I .\Drivers\uart -I .\Drivers\pcal -I .\Drivers\bsp -I .\Resources-IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DNRF52 -DNRF52832 -DBOARD_PCA10040 -DNRF52_PAN_12 -DNRF52_PAN_15 -DNRF52_PAN_20 -DNRF52_PAN_30 -DNRF52_PAN_31 -DNRF52_PAN_36 -DNRF52_PAN_51 -DNRF52_PAN_53 -DNRF52_PAN_54 -DNRF52_PAN_55 -DNRF52_PAN_58 -DNRF52_PAN_62 -DNRF52_PAN_63 -DNRF52_PAN_64 -DCONFIG_GPIO_AS_PINRESET -DBSP_DEFINES_ONLY -DNRF52-o .\objects\nrf_drv_common.o --omf_browse .\objects\nrf_drv_common.crf --depend .\objects\nrf_drv_common.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common\nrf_drv_common.h)(0x583C929D)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf.h)(0x582F1198)
@@ -38,3 +112,165 @@ I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\In
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf51_to_nrf52.h)(0x582F1198)
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52_name_change.h)(0x582F1198)
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\compiler_abstraction.h)(0x582F1198)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_errors.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd\nrf_error.h)(0x583C929E)
+I (.\config\sdk_config.h)(0x5881DD9F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_common.h)(0x583C929F)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x574E9286)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\nordic_common.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_os.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_macros.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\nrf_assert.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error.h)(0x583C929E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x574E9286)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error_weak.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util_platform.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_peripherals.h)(0x583C929D)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52832_peripherals.h)(0x582F1198)
+F (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master\nrf_drv_spi.c)(0x583C929E)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\config -I ..\..\nRF5_SDK_12.2.0\components -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\delay -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\timer -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\uart -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master -I ..\..\nRF5_SDK_12.2.0\components\libraries\log -I ..\..\nRF5_SDK_12.2.0\components\libraries\log\src -I ..\..\nRF5_SDK_12.2.0\components\libraries\util -I ..\..\nRF5_SDK_12.2.0\components\toolchain -I ..\..\nRF5_SDK_12.2.0\external\segger_rtt -I ..\..\nRF5_SDK_12.2.0 -I .\Drivers -I .\Drivers\uart -I .\Drivers\pcal -I .\Drivers\bsp -I .\Resources-IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DNRF52 -DNRF52832 -DBOARD_PCA10040 -DNRF52_PAN_12 -DNRF52_PAN_15 -DNRF52_PAN_20 -DNRF52_PAN_30 -DNRF52_PAN_31 -DNRF52_PAN_36 -DNRF52_PAN_51 -DNRF52_PAN_53 -DNRF52_PAN_54 -DNRF52_PAN_55 -DNRF52_PAN_58 -DNRF52_PAN_62 -DNRF52_PAN_63 -DNRF52_PAN_64 -DCONFIG_GPIO_AS_PINRESET -DBSP_DEFINES_ONLY -DNRF52-o .\objects\nrf_drv_spi.o --omf_browse .\objects\nrf_drv_spi.crf --depend .\objects\nrf_drv_spi.d)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_common.h)(0x583C929F)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x574E9286)
+I (.\config\sdk_config.h)(0x5881DD9F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\nordic_common.h)(0x583C929F)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\compiler_abstraction.h)(0x582F1198)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_os.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_errors.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd\nrf_error.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util.h)(0x583C929E)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52.h)(0x582F1192)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x56260B6C)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\system_nrf52.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52_bitfields.h)(0x582F1192)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf51_to_nrf52.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52_name_change.h)(0x582F1198)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_macros.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master\nrf_drv_spi.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_peripherals.h)(0x583C929D)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52832_peripherals.h)(0x582F1198)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_spi.h)(0x583C929D)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_spim.h)(0x583C929D)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common\nrf_drv_common.h)(0x583C929D)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\nrf_assert.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error.h)(0x583C929E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x574E9286)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error_weak.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_gpio.h)(0x583C929D)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x574E9286)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util_platform.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_internal.h)(0x583C929E)
+F (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master\nrf_drv_twi.c)(0x583C929E)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\config -I ..\..\nRF5_SDK_12.2.0\components -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\delay -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\timer -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\uart -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master -I ..\..\nRF5_SDK_12.2.0\components\libraries\log -I ..\..\nRF5_SDK_12.2.0\components\libraries\log\src -I ..\..\nRF5_SDK_12.2.0\components\libraries\util -I ..\..\nRF5_SDK_12.2.0\components\toolchain -I ..\..\nRF5_SDK_12.2.0\external\segger_rtt -I ..\..\nRF5_SDK_12.2.0 -I .\Drivers -I .\Drivers\uart -I .\Drivers\pcal -I .\Drivers\bsp -I .\Resources-IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DNRF52 -DNRF52832 -DBOARD_PCA10040 -DNRF52_PAN_12 -DNRF52_PAN_15 -DNRF52_PAN_20 -DNRF52_PAN_30 -DNRF52_PAN_31 -DNRF52_PAN_36 -DNRF52_PAN_51 -DNRF52_PAN_53 -DNRF52_PAN_54 -DNRF52_PAN_55 -DNRF52_PAN_58 -DNRF52_PAN_62 -DNRF52_PAN_63 -DNRF52_PAN_64 -DCONFIG_GPIO_AS_PINRESET -DBSP_DEFINES_ONLY -DNRF52-o .\objects\nrf_drv_twi.o --omf_browse .\objects\nrf_drv_twi.crf --depend .\objects\nrf_drv_twi.d)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_common.h)(0x583C929F)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x574E9286)
+I (.\config\sdk_config.h)(0x5881DD9F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\nordic_common.h)(0x583C929F)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\compiler_abstraction.h)(0x582F1198)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_os.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_errors.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd\nrf_error.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util.h)(0x583C929E)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52.h)(0x582F1192)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x56260B6C)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\system_nrf52.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52_bitfields.h)(0x582F1192)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf51_to_nrf52.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52_name_change.h)(0x582F1198)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_macros.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master\nrf_drv_twi.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_twi.h)(0x583C929D)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_peripherals.h)(0x583C929D)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52832_peripherals.h)(0x582F1198)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_twim.h)(0x583C929D)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common\nrf_drv_common.h)(0x583C929D)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\nrf_assert.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error.h)(0x583C929E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x574E9286)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error_weak.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_gpio.h)(0x583C929D)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x574E9286)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util_platform.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\delay\nrf_delay.h)(0x583C929D)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_internal.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log_ctrl.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_ctrl_internal.h)(0x583C929E)
+F (.\Drivers\pcal\drv_pcal.c)(0x57FB3D6E)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\config -I ..\..\nRF5_SDK_12.2.0\components -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\delay -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\timer -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\uart -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master -I ..\..\nRF5_SDK_12.2.0\components\libraries\log -I ..\..\nRF5_SDK_12.2.0\components\libraries\log\src -I ..\..\nRF5_SDK_12.2.0\components\libraries\util -I ..\..\nRF5_SDK_12.2.0\components\toolchain -I ..\..\nRF5_SDK_12.2.0\external\segger_rtt -I ..\..\nRF5_SDK_12.2.0 -I .\Drivers -I .\Drivers\uart -I .\Drivers\pcal -I .\Drivers\bsp -I .\Resources-IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DNRF52 -DNRF52832 -DBOARD_PCA10040 -DNRF52_PAN_12 -DNRF52_PAN_15 -DNRF52_PAN_20 -DNRF52_PAN_30 -DNRF52_PAN_31 -DNRF52_PAN_36 -DNRF52_PAN_51 -DNRF52_PAN_53 -DNRF52_PAN_54 -DNRF52_PAN_55 -DNRF52_PAN_58 -DNRF52_PAN_62 -DNRF52_PAN_63 -DNRF52_PAN_64 -DCONFIG_GPIO_AS_PINRESET -DBSP_DEFINES_ONLY -DNRF52-o .\objects\drv_pcal.o --omf_browse .\objects\drv_pcal.crf --depend .\objects\drv_pcal.d)
+I (Drivers\pcal\drv_pcal.h)(0x58886B5C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_peripherals.h)(0x583C929D)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52832_peripherals.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52.h)(0x582F1192)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x56260B6C)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\system_nrf52.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52_bitfields.h)(0x582F1192)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf51_to_nrf52.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52_name_change.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\compiler_abstraction.h)(0x582F1198)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master\nrf_drv_twi.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\nordic_common.h)(0x583C929F)
+I (.\config\sdk_config.h)(0x5881DD9F)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_twi.h)(0x583C929D)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_twim.h)(0x583C929D)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_errors.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd\nrf_error.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error.h)(0x583C929E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x574E9286)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error_weak.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_internal.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_common.h)(0x583C929F)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x574E9286)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_os.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_macros.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log_ctrl.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_ctrl_internal.h)(0x583C929E)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util_platform.h)(0x583C929F)
+I (..\..\nRF5_SDK_12.2.0\components\libraries\util\nrf_assert.h)(0x583C929F)
+F (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\LIB\ARM\RTX_CM4.lib)(0x5624B166)()
+F (RTE\CMSIS\RTX_Conf_CM.c)(0x587F2F54)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\config -I ..\..\nRF5_SDK_12.2.0\components -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\delay -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\timer -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\uart -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master -I ..\..\nRF5_SDK_12.2.0\components\libraries\log -I ..\..\nRF5_SDK_12.2.0\components\libraries\log\src -I ..\..\nRF5_SDK_12.2.0\components\libraries\util -I ..\..\nRF5_SDK_12.2.0\components\toolchain -I ..\..\nRF5_SDK_12.2.0\external\segger_rtt -I ..\..\nRF5_SDK_12.2.0 -I .\Drivers -I .\Drivers\uart -I .\Drivers\pcal -I .\Drivers\bsp -I .\Resources-IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DNRF52 -DNRF52832 -DBOARD_PCA10040 -DNRF52_PAN_12 -DNRF52_PAN_15 -DNRF52_PAN_20 -DNRF52_PAN_30 -DNRF52_PAN_31 -DNRF52_PAN_36 -DNRF52_PAN_51 -DNRF52_PAN_53 -DNRF52_PAN_54 -DNRF52_PAN_55 -DNRF52_PAN_58 -DNRF52_PAN_62 -DNRF52_PAN_63 -DNRF52_PAN_64 -DCONFIG_GPIO_AS_PINRESET -DBSP_DEFINES_ONLY -DNRF52-o .\objects\rtx_conf_cm.o --omf_browse .\objects\rtx_conf_cm.crf --depend .\objects\rtx_conf_cm.d)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC\cmsis_os.h)(0x56279C3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC\RTX_CM_lib.h)(0x556D8544)
+F (RTE\Device\nRF52832_xxAA\arm_startup_nrf52.s)(0x5788AA6C)(--cpu Cortex-M4.fp --pd "__RTX SETA 1" --pd "__EVAL SETA 1" -g --apcs=interwork -IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include--pd "__UVISION_VERSION SETA 521" --pd "_RTE_ SETA 1" --pd "NRF52 SETA 1"--list .\listings\arm_startup_nrf52.lst --xref -o .\objects\arm_startup_nrf52.o --depend .\objects\arm_startup_nrf52.d)
+F (RTE\Device\nRF52832_xxAA\system_nrf52.c)(0x5788AA6C)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\config -I ..\..\nRF5_SDK_12.2.0\components -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\delay -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\timer -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\uart -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master -I ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master -I ..\..\nRF5_SDK_12.2.0\components\libraries\log -I ..\..\nRF5_SDK_12.2.0\components\libraries\log\src -I ..\..\nRF5_SDK_12.2.0\components\libraries\util -I ..\..\nRF5_SDK_12.2.0\components\toolchain -I ..\..\nRF5_SDK_12.2.0\external\segger_rtt -I ..\..\nRF5_SDK_12.2.0 -I .\Drivers -I .\Drivers\uart -I .\Drivers\pcal -I .\Drivers\bsp -I .\Resources-IH:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-D__UVISION_VERSION="521" -D_RTE_ -DNRF52 -DNRF52832 -DBOARD_PCA10040 -DNRF52_PAN_12 -DNRF52_PAN_15 -DNRF52_PAN_20 -DNRF52_PAN_30 -DNRF52_PAN_31 -DNRF52_PAN_36 -DNRF52_PAN_51 -DNRF52_PAN_53 -DNRF52_PAN_54 -DNRF52_PAN_55 -DNRF52_PAN_58 -DNRF52_PAN_62 -DNRF52_PAN_63 -DNRF52_PAN_64 -DCONFIG_GPIO_AS_PINRESET -DBSP_DEFINES_ONLY -DNRF52-o .\objects\system_nrf52.o --omf_browse .\objects\system_nrf52.crf --depend .\objects\system_nrf52.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52.h)(0x582F1192)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x56260B6C)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x5625F7B0)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\system_nrf52.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52_bitfields.h)(0x582F1192)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf51_to_nrf52.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52_name_change.h)(0x582F1198)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\compiler_abstraction.h)(0x582F1198)
+I (..\..\nRF5_SDK_12.2.0\components\toolchain\system_nrf52.h)(0x583C92B3)

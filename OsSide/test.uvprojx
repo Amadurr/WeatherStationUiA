@@ -399,6 +399,11 @@
               <FileType>1</FileType>
               <FilePath>.\Resources\data_Transfer.c</FilePath>
             </File>
+            <File>
+              <FileName>comHub.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\comHub.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -423,6 +428,11 @@
               <FileName>nrf_drv_twi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master\nrf_drv_twi.c</FilePath>
+            </File>
+            <File>
+              <FileName>drv_pcal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drivers\pcal\drv_pcal.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -827,6 +837,11 @@
               <FileType>1</FileType>
               <FilePath>.\Resources\data_Transfer.c</FilePath>
             </File>
+            <File>
+              <FileName>comHub.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\comHub.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -851,6 +866,11 @@
               <FileName>nrf_drv_twi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master\nrf_drv_twi.c</FilePath>
+            </File>
+            <File>
+              <FileName>drv_pcal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drivers\pcal\drv_pcal.c</FilePath>
             </File>
           </Files>
         </Group>
