@@ -3,7 +3,7 @@
 #define SPIS_INSTANCE 1 /**< SPIS instance index. */
 static const nrf_drv_spis_t spis = NRF_DRV_SPIS_INSTANCE(SPIS_INSTANCE);/**< SPIS instance. */
 
-#define TEST_STRING "Nordic"
+#define TEST_STRING "AB"
 static uint8_t       m_tx_buf[] = TEST_STRING;           /**< TX buffer. */
 static uint8_t       m_rx_buf[sizeof(TEST_STRING) + 1];    /**< RX buffer. */
 static const uint8_t m_length = sizeof(m_tx_buf);        /**< Transfer length. */
@@ -29,7 +29,7 @@ void spis_event_handler(nrf_drv_spis_event_t event)
  
 int main(void)
 {
-    uint32_t err_code;
+ /*   uint32_t err_code;
     bool erase_bonds;
 
     // Initialize.
@@ -43,9 +43,13 @@ int main(void)
     advertising_init();
     conn_params_init();
 
+	
+	
     printf("\r\nUART Start!\r\n");
     err_code = ble_advertising_start(BLE_ADV_MODE_FAST);
     APP_ERROR_CHECK(err_code);
+		
+	*/
 
  NRF_POWER->TASKS_CONSTLAT = 1;
 
