@@ -1,21 +1,21 @@
 #include "definitions.h"
 
-#define SPIS_INSTANCE 1 /**< SPIS instance index. */
-static const nrf_drv_spis_t spis = NRF_DRV_SPIS_INSTANCE(SPIS_INSTANCE);/**< SPIS instance. */
+//#define SPIS_INSTANCE 1 /**< SPIS instance index. */
+//static const nrf_drv_spis_t spis = NRF_DRV_SPIS_INSTANCE(SPIS_INSTANCE);/**< SPIS instance. */
 
-#define TEST_STRING "AB"
-static uint8_t       m_tx_buf[] = TEST_STRING;           /**< TX buffer. */
-static uint8_t       m_rx_buf[sizeof(TEST_STRING) + 1];    /**< RX buffer. */
-static const uint8_t m_length = sizeof(m_tx_buf);        /**< Transfer length. */
+//#define TEST_STRING "AB"
+//static uint8_t       m_tx_buf[] = TEST_STRING;           /**< TX buffer. */
+//static uint8_t       m_rx_buf[sizeof(TEST_STRING) + 1];    /**< RX buffer. */
+//static const uint8_t m_length = sizeof(m_tx_buf);        /**< Transfer length. */
 
-static volatile bool spis_xfer_done; /**< Flag used to indicate that SPIS instance completed the transfer. */
+//static volatile bool spis_xfer_done; /**< Flag used to indicate that SPIS instance completed the transfer. */ 
 
 /**
  * @brief SPIS user event handler.
  *
  * @param event
  */
-void spis_event_handler(nrf_drv_spis_event_t event)
+/*void spis_event_handler(nrf_drv_spis_event_t event)
 {
     if (event.evt_type == NRF_DRV_SPIS_XFER_DONE)
     {
@@ -23,13 +23,13 @@ void spis_event_handler(nrf_drv_spis_event_t event)
         NRF_LOG_INFO(" Transfer completed. Received: %s\r\n",(uint32_t)m_rx_buf);
     }
 } 
-
+*/
 
 // @brief Application main function.
  
 int main(void)
 {
- /*   uint32_t err_code;
+    uint32_t err_code;
     bool erase_bonds;
 
     // Initialize.
@@ -49,9 +49,9 @@ int main(void)
     err_code = ble_advertising_start(BLE_ADV_MODE_FAST);
     APP_ERROR_CHECK(err_code);
 		
-	*/
+	
 
- NRF_POWER->TASKS_CONSTLAT = 1;
+ /*NRF_POWER->TASKS_CONSTLAT = 1;
 
     bsp_board_leds_init();
 
@@ -64,12 +64,14 @@ int main(void)
     spis_config.mosi_pin              = APP_SPIS_MOSI_PIN;
     spis_config.sck_pin               = APP_SPIS_SCK_PIN;
 
-    APP_ERROR_CHECK(nrf_drv_spis_init(&spis, &spis_config, spis_event_handler));
+    APP_ERROR_CHECK(nrf_drv_spis_init(&spis, &spis_config, spis_event_handler));*/
 
      while (1)
     {
 			
-        memset(m_rx_buf, 0, m_length);
+				power_manage();
+			
+       /* memset(m_rx_buf, 0, m_length);
         spis_xfer_done = false;
 
         APP_ERROR_CHECK(nrf_drv_spis_buffers_set(&spis, m_tx_buf, m_length, m_rx_buf, m_length));
@@ -81,7 +83,7 @@ int main(void)
 
         NRF_LOG_FLUSH();
 
-        bsp_board_led_invert(BSP_BOARD_LED_0);
+        bsp_board_led_invert(BSP_BOARD_LED_0); */
     }	
 		
 	
