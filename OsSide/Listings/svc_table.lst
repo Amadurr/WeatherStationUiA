@@ -93,13 +93,13 @@ ARM Macro Assembler    Page 2
    52 00000008         
    53 00000008                 END
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
-erwork --depend=.\objects\svc_table.d -o.\objects\svc_table.o -IH:\Skuul\Ele217
-\WeatherStationUiA\OsSide\RTE -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Inclu
-de -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC -IC:\Keil_v5\ARM\PA
-CK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include --predefine="
-__RTX SETA 1" --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 5
-21" --predefine="_RTE_ SETA 1" --predefine="NRF52 SETA 1" --list=.\listings\svc
-_table.lst SVC_Table.s
+erwork --depend=.\objects\svc_table.d -o.\objects\svc_table.o -I.\RTE\_Weathers
+tation -ID:\Code_Stuff\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include -ID:\Code
+_Stuff\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC -ID:\Code_Stuff\Keil
+_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include --p
+redefine="__RTX SETA 1" --predefine="__EVAL SETA 1" --predefine="__UVISION_VERS
+ION SETA 523" --predefine="_RTE_ SETA 1" --predefine="NRF52 SETA 1" --list=.\li
+stings\svc_table.lst SVC_Table.s
 
 
 

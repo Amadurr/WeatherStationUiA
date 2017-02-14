@@ -6,10 +6,11 @@
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
 
-#define SPI_INSTANCE  0 /**< SPI instance index. */
+#define SPI_INSTANCE  1 /**< SPI instance index. */
 static const nrf_drv_spi_t spi = NRF_DRV_SPI_INSTANCE(SPI_INSTANCE);  /**< SPI instance. */
 static volatile bool spi_xfer_done;  /**< Flag used to indicate that SPI instance completed the transfer. */
 void __svc(1) init_nothing(void);
+pcal_interface_t *p;
 
 static uint8_t       m_tx_buf[1];           /**< TX buffer. */
 static uint8_t       m_rx_buf[1+1];    /**< RX buffer. */
@@ -138,8 +139,8 @@ uint8_t recieveMail(inMail_t *rptr, uint8_t rId)
 	if(rptr->rId == rId)
 		return 1;
 	else
-		return 0;
 		osMailPut(PcalQ_Id, rptr);
+		return 0;
 }
 uint8_t sendMail(uint8_t flags, pcal_data_t *package, inMail_t *sptr, uint8_t sId, uint8_t rId)
 {

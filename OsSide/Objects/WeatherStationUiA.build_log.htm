@@ -3,53 +3,62 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.21.1.0
-Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: are Kringle, uia, LIC=----
+IDE-Version: µVision V5.23.0.0
+Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Are Jevne, UiA Grimstad, LIC=----
  
 Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.21a
-Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.06 update 3 (build 300)
-Assembler:       Armasm.exe V5.06 update 3 (build 300)
-Linker/Locator:  ArmLink.exe V5.06 update 3 (build 300)
-Library Manager: ArmAr.exe V5.06 update 3 (build 300)
-Hex Converter:   FromElf.exe V5.06 update 3 (build 300)
-CPU DLL:         SARMCM3.DLL V5.21a
-Dialog DLL:      DCM.DLL V1.13.8.0
+Toolchain:       MDK-Lite  Version: 5.23
+Toolchain Path:  D:\Code_Stuff\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 4 (build 422)
+Assembler:       Armasm.exe V5.06 update 4 (build 422)
+Linker/Locator:  ArmLink.exe V5.06 update 4 (build 422)
+Library Manager: ArmAr.exe V5.06 update 4 (build 422)
+Hex Converter:   FromElf.exe V5.06 update 4 (build 422)
+CPU DLL:         SARMCM3.DLL V5.23
+Dialog DLL:      DCM.DLL V1.15.0.0
 Target DLL:      Segger\JL2CM3.dll V2.99.23.0
-Dialog DLL:      TCM.DLL V1.14.14.0
+Dialog DLL:      TCM.DLL V1.27.0.0
  
 <h2>Project:</h2>
-H:\Skuul\Ele217\WeatherStationUiA\OsSide\test.uvprojx
-Project File Date:  01/24/2017
+D:\school\Ele217\WeatherStationUiA\OsSide\test.uvprojx
+Project File Date:  02/14/2017
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Build target 'Weatherstation'
+*** Using Compiler 'V5.06 update 4 (build 422)', folder: 'D:\Code_Stuff\Keil_v5\ARM\ARMCC\Bin'
+Rebuild target 'Weatherstation'
+assembling SVC_Table.s...
+compiling comHub.c...
+compiling main.c...
+compiling RTX_Conf_CM.c...
+assembling arm_startup_nrf52.s...
+compiling drv_pcal.c...
+compiling system_nrf52.c...
+compiling nrf_drv_common.c...
 compiling data_Transfer.c...
-Resources\data_Transfer.h(16): warning:  #1-D: last line of file ends without a newline
-  #endif //DATA_TRANSFER_H__
-Resources\data_Transfer.c(118): error:  #136: struct "<unnamed>" has no field "in_out"
-  			if(message->in_out == 1)
-Resources\data_Transfer.c(122): error:  #165: too few arguments in function call
-  				osMessagePut();
-Resources\data_Transfer.c(132): warning:  #1-D: last line of file ends without a newline
-  }
-Resources\data_Transfer.c(107): warning:  #177-D: variable "errcode" was declared but never referenced
+Resources\data_Transfer.c(108): warning:  #177-D: variable "errcode"  was declared but never referenced
   	ret_code_t errcode;
-Resources\data_Transfer.c: 3 warnings, 2 errors
-".\Objects\WeatherStationUiA.axf" - 2 Error(s), 3 Warning(s).
+Resources\data_Transfer.c(111): warning:  #177-D: variable "sptr"  was declared but never referenced
+  	inMail_t *sptr;
+Resources\data_Transfer.c(153): warning:  #940-D: missing return statement at end of non-void function "sendMail" 
+  }
+Resources\data_Transfer.c: 3 warnings, 0 errors
+compiling nrf_drv_spi.c...
+compiling nrf_drv_gpiote.c...
+compiling nrf_drv_twi.c...
+linking...
+Program Size: Code=8144 RO-data=1232 RW-data=64 ZI-data=20448  
+".\Objects\WeatherStationUiA.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.4.5.0.pack
-                ::CMSIS:RTOS:1.0 (API)
+                http://www.keil.com/pack/ARM.CMSIS.5.0.1.pack
+                ::CMSIS:RTOS:1.0.0 (API)
                 CMSIS (Cortex Microcontroller Software Interface Standard)
-   * Component: RTOS Version: 1.0
-   * Component: CORE Version: 4.3.0
-   * Component: Keil RTX Version: 4.80.0
+   * Component: RTOS Version: 1.0.0
+   * Component: CORE Version: 5.0.1
+   * Component: Keil RTX Version: 4.81.0
 
 Package Vendor: NordicSemiconductor
                 http://developer.nordicsemi.com/nRF5_SDK/pieces/nRF_DeviceFamilyPack/NordicSemiconductor.nRF_DeviceFamilyPack.8.11.1.pack
@@ -58,38 +67,37 @@ Package Vendor: NordicSemiconductor
    * Component: Startup Version: 8.11.1
 
 <h2>Collection of Component include folders:</h2>
-  H:\Skuul\Ele217\WeatherStationUiA\OsSide\RTE
-  C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include
-  C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\RTOS\RTX\INC
-  C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include
+  .\RTE\_Weatherstation
+  D:\Code_Stuff\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include
+  D:\Code_Stuff\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC
+  D:\Code_Stuff\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ::CMSIS:RTOS:1.0 (API)
+   * Component: ::CMSIS:RTOS:1.0.0 (API)
 
-   * Component: ARM::CMSIS:CORE:4.3.0
+   * Component: ARM::CMSIS:CORE:5.0.1
 
-   * Component: ARM::CMSIS:RTOS:Keil RTX:4.80.0
-      Include file:  CMSIS\RTOS\RTX\UserCodeTemplates\osObjects.h
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Mutex.c
-      Source file:   CMSIS\RTOS\RTX\Templates\RTX_Conf_CM.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Semaphore.c
-      Source file:   CMSIS\RTOS\RTX\SRC\ARM\SVC_Table.s
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Thread.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\main.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MailQueue.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Timer.c
+   * Component: ARM::CMSIS:RTOS:Keil RTX:4.81.0
       Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MemPool.c
-      Include file:  CMSIS\RTOS\RTX\INC\cmsis_os.h
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MsgQueue.c
+      Source file:   CMSIS\RTOS\RTX\SRC\ARM\SVC_Table.s
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Timer.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\main.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Semaphore.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MailQueue.c
       Library file:  CMSIS\RTOS\RTX\LIB\ARM\RTX_CM4.lib
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MsgQueue.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Thread.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Mutex.c
+      Include file:  CMSIS\RTOS\RTX\UserCodeTemplates\osObjects.h
+      Source file:   CMSIS\RTOS\RTX\Templates\RTX_Conf_CM.c
+      Include file:  CMSIS\RTOS\RTX\INC\cmsis_os.h
 
    * Component: NordicSemiconductor::Device:Startup:8.11.1
-      Source file:   Device\Source\system_nrf52.c
       Source file:   Device\Source\arm\arm_startup_nrf52.s
+      Source file:   Device\Source\system_nrf52.c
       Include file:  Device\Include\system_nrf52.h
-Target not created.
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
