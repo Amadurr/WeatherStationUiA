@@ -1,24 +1,26 @@
 #include "drv_pcal.h"
 
+/*
 #define NRF_LOG_MODULE_NAME "APP"
 
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
+*/
 static uint8_t led_State = 0xFF;
 extern pcal_interface_t *p;
 
 void pcal_drv_init(pcal_data_t *init)
 {
-	  ret_code_t err_code;
+	  //ret_code_t err_code;
 		for(int i = 0; i < sizeof(init); i++)
 		{
 			pcal_drv_write(init[i]);
-			twi_test(err_code);
-			NRF_LOG_INFO("%x,%x\r\n", init[i].val,init[i].reg);
-			NRF_LOG_FLUSH();
+			//twi_test(err_code);
+			//NRF_LOG_INFO("%x,%x\r\n", init[i].val,init[i].reg);
+			//NRF_LOG_FLUSH();
 		}
 		
-		APP_ERROR_CHECK(err_code);
+		//APP_ERROR_CHECK(err_code);
 }
 
 void pcal_drv_write(pcal_data_t package)
