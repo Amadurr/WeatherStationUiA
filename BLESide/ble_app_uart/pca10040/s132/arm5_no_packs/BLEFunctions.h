@@ -3,6 +3,8 @@
 
 #include "definitions.h"
 
+void ble_app_init(void);
+
 void uart_init(void);
 void power_manage(void);
 

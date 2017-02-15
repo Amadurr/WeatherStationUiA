@@ -512,3 +512,24 @@ void power_manage(void)
     uint32_t err_code = sd_app_evt_wait();
     APP_ERROR_CHECK(err_code);
 }
+
+void ble_app_init(void)
+{
+	  uint32_t err_code;
+    bool erase_bonds;
+
+    // Initialize.
+    APP_TIMER_INIT(APP_TIMER_PRESCALER, APP_TIMER_OP_QUEUE_SIZE, false);
+    uart_init();
+
+    buttons_leds_init(&erase_bonds);
+    ble_stack_init();
+    gap_params_init();
+    services_init();
+    advertising_init();
+    conn_params_init();
+
+    printf("\r\nUART Start!\r\n");
+    err_code = ble_advertising_start(BLE_ADV_MODE_FAST);
+    APP_ERROR_CHECK(err_code);
+}

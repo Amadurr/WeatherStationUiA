@@ -71,3 +71,4 @@
 .\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_internal.h
 .\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log_ctrl.h
 .\_build\main.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_ctrl_internal.h
+.\_build\main.o: ..\arm5_no_packs\BLEFunctions.h
