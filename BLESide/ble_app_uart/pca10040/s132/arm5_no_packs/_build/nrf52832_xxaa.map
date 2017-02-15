@@ -1,4 +1,4 @@
-Component: ARM Compiler 5.06 update 3 (build 300) Tool: armlink [4d35c9]
+Component: ARM Compiler 5.06 update 4 (build 422) Tool: armlink [4d35d2]
 
 ==============================================================================
 
@@ -1947,20 +1947,20 @@ Memory Map of the image
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x0001f000   0x00000400   Data   RO         2912    RESET               arm_startup_nrf52.o
-    0x0001f400   0x00000000   Code   RO         2953  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x0001f400   0x00000004   Code   RO         3226    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x0001f404   0x00000004   Code   RO         3229    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x0001f408   0x00000000   Code   RO         3231    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x0001f408   0x00000000   Code   RO         3233    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x0001f408   0x00000008   Code   RO         3234    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x0001f410   0x00000000   Code   RO         3236    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x0001f410   0x00000000   Code   RO         3238    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x0001f410   0x00000004   Code   RO         3227    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x0001f414   0x00000024   Code   RO         2913    .text               arm_startup_nrf52.o
-    0x0001f438   0x00000024   Code   RO         2956    .text               mc_w.l(memcpya.o)
-    0x0001f45c   0x00000024   Code   RO         2958    .text               mc_w.l(memseta.o)
-    0x0001f480   0x00000024   Code   RO         3255    .text               mc_w.l(init.o)
+    0x0001f000   0x00000400   Data   RO         2856    RESET               arm_startup_nrf52.o
+    0x0001f400   0x00000000   Code   RO         2897  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x0001f400   0x00000004   Code   RO         3170    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x0001f404   0x00000004   Code   RO         3173    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x0001f408   0x00000000   Code   RO         3175    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x0001f408   0x00000000   Code   RO         3177    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x0001f408   0x00000008   Code   RO         3178    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x0001f410   0x00000000   Code   RO         3180    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x0001f410   0x00000000   Code   RO         3182    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x0001f410   0x00000004   Code   RO         3171    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x0001f414   0x00000024   Code   RO         2857    .text               arm_startup_nrf52.o
+    0x0001f438   0x00000024   Code   RO         2900    .text               mc_w.l(memcpya.o)
+    0x0001f45c   0x00000024   Code   RO         2902    .text               mc_w.l(memseta.o)
+    0x0001f480   0x00000024   Code   RO         3199    .text               mc_w.l(init.o)
     0x0001f4a4   0x00000174   Code   RO         1264    i.GPIOTE_IRQHandler  nrf_drv_gpiote.o
     0x0001f618   0x00000016   Code   RO         2038    i.NVIC_ClearPendingIRQ  app_timer.o
     0x0001f62e   0x00000016   Code   RO         2709    i.NVIC_DisableIRQ   softdevice_handler.o
@@ -1974,15 +1974,15 @@ Memory Map of the image
     0x0001f724   0x00000010   Code   RO         1739    i.SPIM1_SPIS1_TWIM1_TWIS1_SPI1_TWI1_IRQHandler  nrf_drv_spis.o
     0x0001f734   0x00000004   Code   RO         2043    i.SWI0_EGU0_IRQHandler  app_timer.o
     0x0001f738   0x00000024   Code   RO         2711    i.SWI2_EGU2_IRQHandler  softdevice_handler.o
-    0x0001f75c   0x0000029c   Code   RO         2921    i.SystemInit        system_nrf52.o
+    0x0001f75c   0x0000029c   Code   RO         2865    i.SystemInit        system_nrf52.o
     0x0001f9f8   0x0000001c   Code   RO         1507    i.UARTE0_UART0_IRQHandler  nrf_drv_uart.o
-    0x0001fa14   0x00000010   Code   RO         2967    i.__0printf$bare    mc_w.l(printfb.o)
-    0x0001fa24   0x0000000e   Code   RO         3267    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x0001fa32   0x00000002   Code   RO         3268    i.__scatterload_null  mc_w.l(handlers.o)
-    0x0001fa34   0x0000000e   Code   RO         3269    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x0001fa14   0x00000010   Code   RO         2911    i.__0printf$bare    mc_w.l(printfb.o)
+    0x0001fa24   0x0000000e   Code   RO         3211    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x0001fa32   0x00000002   Code   RO         3212    i.__scatterload_null  mc_w.l(handlers.o)
+    0x0001fa34   0x0000000e   Code   RO         3213    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x0001fa42   0x00000002   PAD
     0x0001fa44   0x00000024   Code   RO         2712    i.__sd_nvic_app_accessible_irq  softdevice_handler.o
-    0x0001fa68   0x00000022   Code   RO         2974    i._printf_core      mc_w.l(printfb.o)
+    0x0001fa68   0x00000022   Code   RO         2918    i._printf_core      mc_w.l(printfb.o)
     0x0001fa8a   0x00000182   Code   RO          702    i.adv_data_encode   ble_advdata.o
     0x0001fc0c   0x00000058   Code   RO          910    i.adv_mode_next_avail_get  ble_advertising.o
     0x0001fc64   0x00000036   Code   RO          620    i.advertising_buttons_configure  bsp_btn_ble.o
@@ -2170,7 +2170,7 @@ Memory Map of the image
     0x00022be4   0x00000004   Data   RO         1301    .constdata          nrf_drv_gpiote.o
     0x00022be8   0x00000008   Data   RO         1839    .constdata          app_button.o
     0x00022bf0   0x00000020   Data   RO         2205    .constdata          app_uart_fifo.o
-    0x00022c10   0x00000020   Data   RO         3265    Region$$Table       anon$$obj.o
+    0x00022c10   0x00000020   Data   RO         3209    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x20002128, Size: 0x00002668, Max: 0x0000ded8, ABSOLUTE)
@@ -2188,7 +2188,7 @@ Memory Map of the image
     0x200021b4   0x00000010   Data   RW         2206    .data               app_uart_fifo.o
     0x200021c4   0x00000004   Data   RW         2471    .data               retarget.o
     0x200021c8   0x00000014   Data   RW         2727    .data               softdevice_handler.o
-    0x200021dc   0x00000004   Data   RW         2922    .data               system_nrf52.o
+    0x200021dc   0x00000004   Data   RW         2866    .data               system_nrf52.o
     0x200021e0   0x00000078   Zero   RW            5    .bss                main.o
     0x20002258   0x00000280   Zero   RW          271    .bss                blefunctions.o
     0x200024d8   0x00000020   Zero   RW          519    .bss                bsp.o
@@ -2208,7 +2208,7 @@ Memory Map of the image
     0x20002718   0x0000000c   Zero   RW         2268    .bss                app_util_platform.o
     0x20002724   0x00000068   Zero   RW         2331    .bss                fstorage.o
     0x2000278c   0x00000004   PAD
-    0x20002790   0x00002000   Zero   RW         2910    STACK               arm_startup_nrf52.o
+    0x20002790   0x00002000   Zero   RW         2854    STACK               arm_startup_nrf52.o
 
 
 ==============================================================================
@@ -2218,36 +2218,36 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       332         34          8         20         32      10646   app_button.o
-        22          0          0          0          0       2345   app_error.o
-        36         10          0          0          0      27405   app_error_weak.o
-       118          0          0          0          0       5394   app_fifo.o
-      1694        114          0         32          0      65735   app_timer.o
-       452         42         32         16         32      11346   app_uart_fifo.o
-       124         14          0          0         12       9794   app_util_platform.o
-        36          8       1024          0       8192        948   arm_startup_nrf52.o
-      1330          0          0          0          0      31548   ble_advdata.o
-       928         64          0         31        179      11220   ble_advertising.o
-       436         54          4         20         60       6264   ble_conn_params.o
-       650          6         16          0          0       6210   ble_nus.o
-         8          0          0          0          0       1606   ble_srv_common.o
-      1128         96         28          8        640      13884   blefunctions.o
-       318         42          8          0          0      14216   boards.o
-       852         78         44         20        108      15703   bsp.o
-       252         10          0          8          0       5289   bsp_btn_ble.o
-        20          4          0          0        104       4044   fstorage.o
-        96         22          0          0        120     117607   main.o
-       288         22          0          0         20      13592   nrf_drv_clock.o
-        56          0          0          0          0      27607   nrf_drv_common.o
-      1178         84          4          0         88      31792   nrf_drv_gpiote.o
-       258          6          0          0         24      18623   nrf_drv_spis.o
-      2140         66          0          0         32      44469   nrf_drv_uart.o
-        14          0          0          4          0       3062   retarget.o
-       542         46          0         20          0     132115   softdevice_handler.o
-       668         58          0          4          0       2811   system_nrf52.o
+       332         34          8         20         32      10286   app_button.o
+        22          0          0          0          0       2265   app_error.o
+        36         10          0          0          0      27397   app_error_weak.o
+       118          0          0          0          0       5058   app_fifo.o
+      1694        114          0         32          0      64671   app_timer.o
+       452         42         32         16         32      10970   app_uart_fifo.o
+       124         14          0          0         12       9602   app_util_platform.o
+        36          8       1024          0       8192        896   arm_startup_nrf52.o
+      1330          0          0          0          0      30924   ble_advdata.o
+       928         64          0         31        179      10720   ble_advertising.o
+       436         54          4         20         60       5924   ble_conn_params.o
+       650          6         16          0          0       5902   ble_nus.o
+         8          0          0          0          0       1518   ble_srv_common.o
+      1128         96         28          8        640      12916   blefunctions.o
+       318         42          8          0          0      13508   boards.o
+       852         78         44         20        108      15003   bsp.o
+       252         10          0          8          0       5009   bsp_btn_ble.o
+        20          4          0          0        104       3860   fstorage.o
+        96         22          0          0        120     118995   main.o
+       288         22          0          0         20      13052   nrf_drv_clock.o
+        56          0          0          0          0      27603   nrf_drv_common.o
+      1178         84          4          0         88      30724   nrf_drv_gpiote.o
+       258          6          0          0         24      18119   nrf_drv_spis.o
+      2140         66          0          0         32      42873   nrf_drv_uart.o
+        14          0          0          4          0       2946   retarget.o
+       542         46          0         20          0      43359   softdevice_handler.o
+       668         58          0          4          0       2691   system_nrf52.o
 
     ----------------------------------------------------------------------
-     13998        880       1200        184       9648     635275   Object Totals
+     13998        880       1200        184       9648     536791   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         22          0          0          1          5          0   (incl. Padding)
 
@@ -2289,8 +2289,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     14208        904       1200        184       9648     617871   Grand Totals
-     14208        904       1200        184       9648     617871   ELF Image Totals
+     14208        904       1200        184       9648     519387   Grand Totals
+     14208        904       1200        184       9648     519387   ELF Image Totals
      14208        904       1200        184          0          0   ROM Totals
 
 ==============================================================================
