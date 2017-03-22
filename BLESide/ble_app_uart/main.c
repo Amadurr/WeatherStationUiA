@@ -10,6 +10,7 @@ static uint8_t       m_rx_buf[sizeof(TEST_STRING) + 1];    /**< RX buffer. */
 static const uint8_t m_length = sizeof(m_tx_buf);        /**< Transfer length. */
 
 static volatile bool spis_xfer_done; /**< Flag used to indicate that SPIS instance completed the transfer. */ 
+extern volatile uint8_t timer_;
 
 /**
  * @brief SPIS user event handler.
@@ -48,16 +49,24 @@ void spi_handler(void)
 	{
 		int syn = 0;
 		int ack;
+		
 		//set timer to some time t
-		while((ack != 0 )/*|( timer!=0)*/)
+		ti
+		while((ack != 0 )|( timer!=0))
 		{
 			__WFE();
 		}
+		
 		if(ack)
 		{
 			//prepare transfer
+			//dele pakkene
+			// sette opp register
+			//gjøre klar buffer
+			spis_xfer_done = false;
+			
 			syn = 0;
-			while(/*!spi_transfer done*/1)
+			while(!spis_xfer_done)
 			{
 				__WFE();
 			}

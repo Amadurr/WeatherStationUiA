@@ -1,6 +1,7 @@
---cpu=Cortex-M4.fp
+--cpu Cortex-M4.fp
 ".\_build\main.o"
 ".\_build\blefunctions.o"
+".\_build\util.o"
 ".\_build\boards.o"
 ".\_build\bsp.o"
 ".\_build\bsp_btn_ble.o"
@@ -15,6 +16,7 @@
 ".\_build\nrf_drv_gpiote.o"
 ".\_build\nrf_drv_uart.o"
 ".\_build\nrf_drv_spis.o"
+".\_build\nrf_drv_timer.o"
 ".\_build\app_button.o"
 ".\_build\app_error.o"
 ".\_build\app_error_weak.o"
