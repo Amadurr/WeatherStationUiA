@@ -35,6 +35,8 @@ void spi_event_handler(nrf_drv_spi_evt_t const * p_event)
 
 	for( int i = 0; i < sizeof(m_rx_buf); i++)
 	{
+      NRF_LOG_INFO(" Received: \r\n");
+      NRF_LOG_HEXDUMP_INFO(m_rx_buf, strlen((const char *)m_rx_buf));
 	}
 }
 
@@ -53,7 +55,7 @@ void SPI_controller()
 {
 	while(1)
 	{
-		osEvent event = osMessageGet(switch_butt_q, 0);
+		osEvent event = osSignalWait(osWaitForever);
 		if(event.status)
 		{
 			memset(m_rx_buf, event.value.v, m_length);
@@ -80,7 +82,7 @@ void SPI_controller()
 void buttEncoder()
 {
   uint8_t old_data;
-	uint8_t new_data=0x00;
+	uint8_t new_data = 0x00;
 	uint8_t mask = 0x01;
 	while(mask < 0x10)
 	{
