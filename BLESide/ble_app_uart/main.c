@@ -1,5 +1,6 @@
 #include "definitions.h"
 #include "BLEFunctions.h"
+#include "util.h"
 
 int main(void)
 {
