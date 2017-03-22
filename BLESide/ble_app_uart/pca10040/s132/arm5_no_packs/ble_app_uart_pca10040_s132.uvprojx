@@ -10,7 +10,7 @@
       <TargetName>nrf52832_xxaa</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060422::V5.06 update 4 (build 422)::ARMCC</pCCUsed>
+      <pCCUsed>5060300::V5.06 update 3 (build 300)::ARMCC</pCCUsed>
       <TargetOption>
         <TargetCommonOption>
           <Device>nRF52832_xxAA</Device>
@@ -393,6 +393,11 @@
               <FileName>BLEFunctions.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\BLEFunctions.c</FilePath>
+            </File>
+            <File>
+              <FileName>util.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\util.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1010,6 +1015,11 @@
               <FileName>BLEFunctions.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\BLEFunctions.c</FilePath>
+            </File>
+            <File>
+              <FileName>util.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\util.c</FilePath>
             </File>
           </Files>
         </Group>
