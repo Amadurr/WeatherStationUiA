@@ -70,7 +70,7 @@ void spi_handler(void)
 		
 		//set timer to some time t
 		nrf_drv_timer_enable(&TIMER);
-		while((ack != 0 )|(timer!=0))
+		while((ack != 0 )|(timer_!=0))
 		{
 			__WFE();
 		}
