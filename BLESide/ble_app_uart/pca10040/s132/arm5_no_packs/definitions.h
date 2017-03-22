@@ -22,7 +22,6 @@
 #include "nrf_gpio.h"
 #include "boards.h"
 #include "app_error.h"
-#include <string.h>
 #define NRF_LOG_MODULE_NAME "APP"
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
