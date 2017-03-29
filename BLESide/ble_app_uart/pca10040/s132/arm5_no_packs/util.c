@@ -1,10 +1,10 @@
 #include <stdbool.h>
-#include <stdint.h>
 #include "nrf.h"
 #include "nrf_drv_timer.h"
 #include "bsp.h"
 #include "app_error.h"
 #include "definitions.h"
+#include "util.h"
 
 #define SPIS_INSTANCE 1 /**< SPIS instance index. */
 static const nrf_drv_spis_t spis = NRF_DRV_SPIS_INSTANCE(SPIS_INSTANCE);/**< SPIS instance. */
@@ -15,10 +15,11 @@ volatile uint8_t timer_;
 static uint8_t       m_tx_buf[] = TEST_STRING;           	/**< TX buffer. */
 static uint8_t       m_rx_buf[sizeof(TEST_STRING) + 1];   /**< RX buffer. */
 static const uint8_t m_length = sizeof(m_tx_buf);        	/**< Transfer length. */
-
 static volatile bool spis_xfer_done; /**< Flag used to indicate that SPIS instance completed the transfer. */
+fifo_list d_list; 									 /**< Legger til struct fifo_list. */
 
 //Handler for SPI evenets
+
 void spis_event_handler(nrf_drv_spis_event_t event)
 {
     if (event.evt_type == NRF_DRV_SPIS_XFER_DONE)
@@ -29,7 +30,7 @@ void spis_event_handler(nrf_drv_spis_event_t event)
 } 
 
 //Handler for timer events.
-void timer_led_event_handler(nrf_timer_event_t event_type, void* p_context)
+void timer_led_event_handler(nrf_timer_event_t event_type, void *p_context)
 {
 		timer_ = 1;
     switch (event_type)
@@ -54,11 +55,19 @@ void spi_app_init(void)
     spis_config.mosi_pin              = APP_SPIS_MOSI_PIN;
     spis_config.sck_pin               = APP_SPIS_SCK_PIN;
 
-    APP_ERROR_CHECK(nrf_drv_spis_init(&spis, &spis_config, spis_event_handler));
+    APP_ERROR_CHECK(nrf_drv_spis_init(&spis, &spis_config, spis_event_handler));//
 	
-	    uint32_t time_ms = 50; //Time(in miliseconds) between consecutive compare events.
+		uint32_t time_ms = 50; //Time(in miliseconds) between consecutive compare events.
     uint32_t time_ticks;
     uint32_t err_code = NRF_SUCCESS;
+	
+	  nrf_drv_timer_config_t timer_cfg = NRF_DRV_TIMER_DEFAULT_CONFIG;
+    err_code = nrf_drv_timer_init(&TIMER, &timer_cfg, timer_led_event_handler);//
+    APP_ERROR_CHECK(err_code);
+
+    time_ticks = nrf_drv_timer_ms_to_ticks(&TIMER, time_ms);
+
+    nrf_drv_timer_extended_compare(&TIMER, NRF_TIMER_CC_CHANNEL0, time_ticks, NRF_TIMER_SHORT_COMPARE0_STOP_MASK, true);
 }
 
 void spi_handler(void)
@@ -79,7 +88,7 @@ void spi_handler(void)
 		{
 			//prepare transfer
 			//dele pakkene
-			// sette opp register
+			//sette opp register
 			//gjøre klar buffer
 			spis_xfer_done = false;
 			
@@ -92,36 +101,67 @@ void spi_handler(void)
 		}
 		else
 		{
-			while(/*!spi_transfer done*/1)
+			while(/*!spi_transfer_done*/1)
 			{
 				__WFE();
 			}
 		}
+	
+		if(syn)
+		{
+			//prepare transfer
+			spis_xfer_done = 0;
+			//swap buffer
+			//clear Tx
+			syn = 1;
+		}
+		while(/*!spi_transfer_done*/1)
+		{
+			__WFE();
+		}
+		syn = 0;
+		//transfer ok?
 	}
 }
 
-//Function for main application entry
-
-int main(void)
+void fifo_init(void)
 {
-    uint32_t time_ms = 50; //Time(in miliseconds) between consecutive compare events.
-    uint32_t time_ticks;
-    uint32_t err_code = NRF_SUCCESS;
-
-	
-    nrf_drv_timer_config_t timer_cfg = NRF_DRV_TIMER_DEFAULT_CONFIG;
-    err_code = nrf_drv_timer_init(&TIMER, &timer_cfg, timer_led_event_handler);
-    APP_ERROR_CHECK(err_code);
-
-    time_ticks = nrf_drv_timer_ms_to_ticks(&TIMER, time_ms);
-
-    nrf_drv_timer_extended_compare(
-         &TIMER, NRF_TIMER_CC_CHANNEL0, time_ticks, NRF_TIMER_SHORT_COMPARE0_STOP_MASK, true);
-
-    nrf_drv_timer_enable(&TIMER);
-
-    while (1)
-    {
-        __WFI();
-    }
+	d_list.max_size = 1;
+	d_list.array = (uint8_t*)malloc(sizeof(uint8_t)*d_list.max_size);
+	d_list.head = d_list.tail = 0;
+	d_list.used = 0;
 }
+
+void add_fifo(Data)
+{
+
+	if(d_list.used >= d_list.max_size)
+		{
+			//BLE("plz stop! I am full")
+			return;
+		}
+		
+	d_list.array[d_list.head] = Data;
+	d_list.head = ((d_list.tail + 1) % d_list.max_size);
+	d_list.used++;
+}
+
+uint8_t read_fifo(void)
+{
+	uint8_t Ts;
+	
+	//check if empty
+	if(d_list.used == 0)
+	{
+		//print to debugger - "Nothing to read"
+		return 0;
+	}
+	
+	Ts = d_list.array[d_list.tail];
+	d_list.array[d_list.tail] = 0;
+	d_list.tail = ((d_list.tail + 1) % d_list.max_size);
+	d_list.used--;
+	return Ts;
+}
+
+

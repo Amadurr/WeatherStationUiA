@@ -24,12 +24,21 @@
 .\_build\nrf_drv_timer.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_macros.h
 .\_build\nrf_drv_timer.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\drivers_nrf\timer\nrf_drv_timer.h
 .\_build\nrf_drv_timer.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_timer.h
+<<<<<<< HEAD
+.\_build\nrf_drv_timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\_build\nrf_drv_timer.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_peripherals.h
+.\_build\nrf_drv_timer.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52832_peripherals.h
+.\_build\nrf_drv_timer.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\nrf_assert.h
+.\_build\nrf_drv_timer.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error.h
+.\_build\nrf_drv_timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+=======
 .\_build\nrf_drv_timer.o: D:\Code_Stuff\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\_build\nrf_drv_timer.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_peripherals.h
 .\_build\nrf_drv_timer.o: D:\Code_Stuff\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52832_peripherals.h
 .\_build\nrf_drv_timer.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\nrf_assert.h
 .\_build\nrf_drv_timer.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error.h
 .\_build\nrf_drv_timer.o: D:\Code_Stuff\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+>>>>>>> 3c8d8b149e15454da953073ef7b149c5f931b4c8
 .\_build\nrf_drv_timer.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error_weak.h
 .\_build\nrf_drv_timer.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common\nrf_drv_common.h
 .\_build\nrf_drv_timer.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util_platform.h

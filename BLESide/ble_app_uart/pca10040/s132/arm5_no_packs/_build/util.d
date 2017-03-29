@@ -1,4 +1,20 @@
 .\_build\util.o: util.c
+<<<<<<< HEAD
+.\_build\util.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\_build\util.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf.h
+.\_build\util.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52.h
+.\_build\util.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h
+.\_build\util.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\_build\util.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h
+.\_build\util.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h
+.\_build\util.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
+.\_build\util.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h
+.\_build\util.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\system_nrf52.h
+.\_build\util.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52_bitfields.h
+.\_build\util.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf51_to_nrf52.h
+.\_build\util.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52_name_change.h
+.\_build\util.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\compiler_abstraction.h
+=======
 .\_build\util.o: D:\Code_Stuff\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\_build\util.o: D:\Code_Stuff\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\_build\util.o: D:\Code_Stuff\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf.h
@@ -13,6 +29,7 @@
 .\_build\util.o: D:\Code_Stuff\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf51_to_nrf52.h
 .\_build\util.o: D:\Code_Stuff\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\nrf52_name_change.h
 .\_build\util.o: D:\Code_Stuff\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include\compiler_abstraction.h
+>>>>>>> 3c8d8b149e15454da953073ef7b149c5f931b4c8
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\drivers_nrf\timer\nrf_drv_timer.h
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\nordic_common.h
 .\_build\util.o: ..\config\sdk_config.h
@@ -33,7 +50,11 @@
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\boards\pca10040.h
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\button\app_button.h
 .\_build\util.o: definitions.h
+<<<<<<< HEAD
+.\_build\util.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+=======
 .\_build\util.o: D:\Code_Stuff\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+>>>>>>> 3c8d8b149e15454da953073ef7b149c5f931b4c8
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\softdevice\s132\headers\ble_hci.h
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\ble\common\ble_advdata.h
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\softdevice\s132\headers\ble.h
@@ -73,3 +94,7 @@
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_internal.h
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log_ctrl.h
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_ctrl_internal.h
+<<<<<<< HEAD
+.\_build\util.o: util.h
+=======
+>>>>>>> 3c8d8b149e15454da953073ef7b149c5f931b4c8

@@ -34,3 +34,8 @@
 
 # Temp Files
 *.TMP
+
+#idk
+.d
+.crf
+.sct
