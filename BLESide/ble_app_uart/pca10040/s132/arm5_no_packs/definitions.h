@@ -17,7 +17,7 @@
 #include "app_util_platform.h"
 #include "bsp.h"
 #include "bsp_btn_ble.h"
-#include "sdk_config.h"W
+#include "sdk_config.h"
 #include "nrf_drv_spis.h"
 #include "nrf_gpio.h"
 #include "boards.h"
