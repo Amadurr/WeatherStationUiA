@@ -20,6 +20,7 @@ osMutexId mut_twi;
 osMutexDef(mut_twi);
 extern osThreadId tid_SPI;
 
+extern osMailQId  *mail_pool_q_id;
 
 osMessageQId switch_butt_q;
 osMessageQDef(switch_butt_q, 0x10, unsigned_int);
@@ -53,50 +54,58 @@ void SPI_init()
 
 void SPI_controller()
 {
+	uint8_t ack; //temp for gpio signal
+	uint8_t syn; //temp for external gpio signal
+	uint8_t wait = 50;	//wait variable, constant for now, might change later
 	while(1)
 	{
-		osEvent event = osSignalWait(osWaitForever);
-		if(event.status)
+		osEvent event_m;
+		osEvent event_s;
+		while(1)		// loop for mail/signal queueing, if signal recieved, prepare to recieve package, if mail prepare to send recieved mail content
 		{
-			memset(m_rx_buf, event.value.v, m_length);
+			event_s = osSignalWait(0,wait);
+			if (event_s.value.signals == 1)		// recieve code
+			{
+				ack = 1;
+				memset(m_rx_buf, event_m.value.v, m_length);
+				spi_xfer_done = false;
+				nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length);
+				ack = 0;
+				while(event_s.value.signals == 0) //waiting for slave to set syn low to ask for start of 
+				{
+					event_s = osSignalWait(0,osWaitForever);
+				}  
+				break;
+			}
+			event_m = osMailGet(mail_pool_q_id[0],wait);
+			if (event_m.status)  //send code
+			{
+				while(1)
+				{
+					ack = 1;
+					event_s = osSignalWait(0,50);
+					if(event_s.status)
+					{
+						memset(m_rx_buf, event_m.value.v, m_length);
+						spi_xfer_done = false;
+						nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length);
+						
+						while (!spi_xfer_done)
+						{
+								osDelay(50);
+						}
+						break;
+					}
+					ack = 0;
+					osDelay(50);
+				}
+			}
 		}
-		else
-		{
-			memset(m_rx_buf, 0, m_length);
-		}
-		spi_xfer_done = false;
-		
-		//APP_ERROR_CHECK(nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length));
-		nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length);
-		
-		while (!spi_xfer_done)
-    {
-        __WFE();
-    }
-		
-		//NRF_LOG_FLUSH();
-		
 	}
 }
-
-void buttEncoder()
+void syn_handler()
 {
-  uint8_t old_data;
-	uint8_t new_data = 0x00;
-	uint8_t mask = 0x01;
-	while(mask < 0x10)
-	{
-		if((mask&old_data) < (mask&new_data))
-		{
-			butt_Changes[0] |= mask;
-		}
-		if((mask&old_data) > (mask&new_data))
-		{
-			butt_Changes[0] |= (mask<< 4);
-		}
-		mask <<= 0x1;
-	}
-	old_data = new_data;
+	
 }
 
 void __SVC_1			(void)
