@@ -26,29 +26,8 @@ Project File Date:  02/14/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'D:\Code_Stuff\Keil_v5\ARM\ARMCC\Bin'
-Rebuild target 'Weatherstation'
-assembling SVC_Table.s...
-compiling comHub.c...
-compiling main.c...
-compiling RTX_Conf_CM.c...
-assembling arm_startup_nrf52.s...
-compiling drv_pcal.c...
-compiling system_nrf52.c...
-compiling nrf_drv_common.c...
-compiling data_Transfer.c...
-Resources\data_Transfer.c(108): warning:  #177-D: variable "errcode"  was declared but never referenced
-  	ret_code_t errcode;
-Resources\data_Transfer.c(111): warning:  #177-D: variable "sptr"  was declared but never referenced
-  	inMail_t *sptr;
-Resources\data_Transfer.c(153): warning:  #940-D: missing return statement at end of non-void function "sendMail" 
-  }
-Resources\data_Transfer.c: 3 warnings, 0 errors
-compiling nrf_drv_spi.c...
-compiling nrf_drv_gpiote.c...
-compiling nrf_drv_twi.c...
-linking...
-Program Size: Code=8144 RO-data=1232 RW-data=64 ZI-data=20448  
-".\Objects\WeatherStationUiA.axf" - 0 Error(s), 3 Warning(s).
+Build target 'Weatherstation'
+".\Objects\WeatherStationUiA.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -79,25 +58,25 @@ Package Vendor: NordicSemiconductor
    * Component: ARM::CMSIS:CORE:5.0.1
 
    * Component: ARM::CMSIS:RTOS:Keil RTX:4.81.0
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MemPool.c
-      Source file:   CMSIS\RTOS\RTX\SRC\ARM\SVC_Table.s
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Timer.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\main.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Semaphore.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MailQueue.c
       Library file:  CMSIS\RTOS\RTX\LIB\ARM\RTX_CM4.lib
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MsgQueue.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Thread.c
       Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Mutex.c
-      Include file:  CMSIS\RTOS\RTX\UserCodeTemplates\osObjects.h
-      Source file:   CMSIS\RTOS\RTX\Templates\RTX_Conf_CM.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MemPool.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Semaphore.c
+      Source file:   CMSIS\RTOS\RTX\SRC\ARM\SVC_Table.s
       Include file:  CMSIS\RTOS\RTX\INC\cmsis_os.h
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MsgQueue.c
+      Source file:   CMSIS\RTOS\RTX\Templates\RTX_Conf_CM.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MailQueue.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\main.c
+      Include file:  CMSIS\RTOS\RTX\UserCodeTemplates\osObjects.h
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Timer.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Thread.c
 
    * Component: NordicSemiconductor::Device:Startup:8.11.1
+      Include file:  Device\Include\system_nrf52.h
       Source file:   Device\Source\arm\arm_startup_nrf52.s
       Source file:   Device\Source\system_nrf52.c
-      Include file:  Device\Include\system_nrf52.h
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

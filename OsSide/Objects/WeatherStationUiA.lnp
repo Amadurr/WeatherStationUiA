@@ -1,6 +1,5 @@
 --cpu=Cortex-M4.fp
 ".\objects\main.o"
-".\objects\svc_table.o"
 ".\objects\data_transfer.o"
 ".\objects\comhub.o"
 ".\objects\nrf_drv_gpiote.o"
@@ -8,11 +7,19 @@
 ".\objects\nrf_drv_spi.o"
 ".\objects\nrf_drv_twi.o"
 ".\objects\drv_pcal.o"
+".\objects\nrf_drv_uart.o"
+".\objects\nrf_log_backend_serial.o"
+".\objects\nrf_log_frontend.o"
+".\objects\app_util_platform.o"
+".\objects\app_error.o"
+".\objects\app_error_weak.o"
+".\objects\nrf_assert.o"
+".\objects\sdk_errors.o"
+".\objects\boards.o"
 "D:\Code_Stuff\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\LIB\ARM\RTX_CM4.lib"
 ".\objects\rtx_conf_cm.o"
 ".\objects\arm_startup_nrf52.o"
 ".\objects\system_nrf52.o"
---strict --scatter ".\Objects\WeatherStationUiA.sct"
---summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\Listings\WeatherStationUiA.map" -o .\Objects\WeatherStationUiA.axf

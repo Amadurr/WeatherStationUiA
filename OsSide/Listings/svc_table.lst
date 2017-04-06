@@ -73,25 +73,23 @@ ARM Macro Assembler    Page 2
    37 00000000         
    38 00000000                 EXPORT           SVC_Count
    39 00000000         
-   40 00000000 00000001 
+   40 00000000 00000000 
                        SVC_Cnt EQU              (SVC_End-SVC_Table)/4
-   41 00000000 00000001 
+   41 00000000 00000000 
                        SVC_Count
                                DCD              SVC_Cnt
    42 00000004         
    43 00000004         ; Import user SVC functions here.
-   44 00000004                 IMPORT           __SVC_1
-   45 00000004         
-   46 00000004                 EXPORT           SVC_Table
-   47 00000004         SVC_Table
-   48 00000004         ; Insert user SVC functions here. SVC 0 used by RTL Kern
+   44 00000004         
+   45 00000004                 EXPORT           SVC_Table
+   46 00000004         SVC_Table
+   47 00000004         ; Insert user SVC functions here. SVC 0 used by RTL Kern
                        el.
-   49 00000004 00000000        DCD              __SVC_1     ; user SVC function
-                                                            
-   50 00000008         
-   51 00000008         SVC_End
-   52 00000008         
-   53 00000008                 END
+   48 00000004         ; user SVC function
+   49 00000004         
+   50 00000004         SVC_End
+   51 00000004         
+   52 00000004                 END
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
 erwork --depend=.\objects\svc_table.d -o.\objects\svc_table.o -I.\RTE\_Weathers
 tation -ID:\Code_Stuff\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include -ID:\Code
@@ -114,11 +112,11 @@ Symbol: SVC_Count
    Uses
       At line 38 in file SVC_Table.s
 Comment: SVC_Count used once
-SVC_End 00000008
+SVC_End 00000004
 
 Symbol: SVC_End
    Definitions
-      At line 51 in file SVC_Table.s
+      At line 50 in file SVC_Table.s
    Uses
       At line 40 in file SVC_Table.s
 Comment: SVC_End used once
@@ -134,10 +132,10 @@ SVC_Table 00000004
 
 Symbol: SVC_Table
    Definitions
-      At line 47 in file SVC_Table.s
+      At line 46 in file SVC_Table.s
    Uses
       At line 40 in file SVC_Table.s
-      At line 46 in file SVC_Table.s
+      At line 45 in file SVC_Table.s
 
 4 symbols
 
@@ -146,7 +144,7 @@ Symbol: SVC_Table
 ARM Macro Assembler    Page 1 Alphabetic symbol ordering
 Absolute symbols
 
-SVC_Cnt 00000001
+SVC_Cnt 00000000
 
 Symbol: SVC_Cnt
    Definitions
@@ -155,19 +153,4 @@ Symbol: SVC_Cnt
       At line 41 in file SVC_Table.s
 Comment: SVC_Cnt used once
 1 symbol
-
-
-
-ARM Macro Assembler    Page 1 Alphabetic symbol ordering
-External symbols
-
-__SVC_1 00000000
-
-Symbol: __SVC_1
-   Definitions
-      At line 44 in file SVC_Table.s
-   Uses
-      At line 49 in file SVC_Table.s
-Comment: __SVC_1 used once
-1 symbol
-341 symbols in table
+340 symbols in table

@@ -390,11 +390,6 @@
               <FilePath>.\config\sdk_config.h</FilePath>
             </File>
             <File>
-              <FileName>SVC_Table.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\SVC_Table.s</FilePath>
-            </File>
-            <File>
               <FileName>data_Transfer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Resources\data_Transfer.c</FilePath>
@@ -434,6 +429,66 @@
               <FileType>1</FileType>
               <FilePath>.\Drivers\pcal\drv_pcal.c</FilePath>
             </File>
+            <File>
+              <FileName>nrf_drv_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\drivers_nrf\uart\nrf_drv_uart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>nRF_Log</GroupName>
+          <Files>
+            <File>
+              <FileName>nrf_log_backend_serial.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_backend_serial.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf_log_frontend.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_frontend.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>nRF_Libs</GroupName>
+          <Files>
+            <File>
+              <FileName>app_util_platform.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util_platform.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_error.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_error_weak.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error_weak.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf_assert.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\libraries\util\nrf_assert.c</FilePath>
+            </File>
+            <File>
+              <FileName>sdk_errors.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_errors.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Board Definition</GroupName>
+          <Files>
+            <File>
+              <FileName>boards.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\boards\boards.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -448,7 +503,7 @@
       <TargetName>Weatherstation</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060300::V5.06 update 3 (build 300)::ARMCC</pCCUsed>
+      <pCCUsed>5060422::V5.06 update 4 (build 422)::ARMCC</pCCUsed>
       <TargetOption>
         <TargetCommonOption>
           <Device>nRF52832_xxAA</Device>
@@ -489,7 +544,7 @@
           <OutputName>WeatherStationUiA</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
-          <CreateHexFile>0</CreateHexFile>
+          <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
           <ListingPath>.\Listings\</ListingPath>
@@ -710,8 +765,8 @@
               </OCR_RVCT3>
               <OCR_RVCT4>
                 <Type>1</Type>
-                <StartAddress>0x0</StartAddress>
-                <Size>0x80000</Size>
+                <StartAddress>0x1f000</StartAddress>
+                <Size>0x61000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -735,8 +790,8 @@
               </OCR_RVCT8>
               <OCR_RVCT9>
                 <Type>0</Type>
-                <StartAddress>0x20000000</StartAddress>
-                <Size>0x10000</Size>
+                <StartAddress>0x20002128</StartAddress>
+                <Size>0xded8</Size>
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
@@ -828,11 +883,6 @@
               <FilePath>.\config\sdk_config.h</FilePath>
             </File>
             <File>
-              <FileName>SVC_Table.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\SVC_Table.s</FilePath>
-            </File>
-            <File>
               <FileName>data_Transfer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Resources\data_Transfer.c</FilePath>
@@ -871,6 +921,66 @@
               <FileName>drv_pcal.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Drivers\pcal\drv_pcal.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf_drv_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\drivers_nrf\uart\nrf_drv_uart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>nRF_Log</GroupName>
+          <Files>
+            <File>
+              <FileName>nrf_log_backend_serial.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_backend_serial.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf_log_frontend.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_frontend.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>nRF_Libs</GroupName>
+          <Files>
+            <File>
+              <FileName>app_util_platform.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util_platform.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_error.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_error_weak.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error_weak.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf_assert.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\libraries\util\nrf_assert.c</FilePath>
+            </File>
+            <File>
+              <FileName>sdk_errors.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_errors.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Board Definition</GroupName>
+          <Files>
+            <File>
+              <FileName>boards.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\boards\boards.c</FilePath>
             </File>
           </Files>
         </Group>
