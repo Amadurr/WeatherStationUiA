@@ -10,7 +10,11 @@
       <TargetName>nrf52832_xxaa</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060422::V5.06 update 4 (build 422)::ARMCC</pCCUsed> 
+<<<<<<< HEAD
+      <pCCUsed>5060422::V5.06 update 4 (build 422)::ARMCC</pCCUsed>
+=======
+      <pCCUsed>5060183::V5.06 update 2 (build 183)::ARMCC</pCCUsed>
+>>>>>>> c8b5863d63489aece818b7ee80300b5f03408e9e
       <TargetOption>
         <TargetCommonOption>
           <Device>nRF52832_xxAA</Device>
