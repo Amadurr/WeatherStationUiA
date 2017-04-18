@@ -9,22 +9,21 @@ osMailQId  (mail_q_in_id);
 
 extern osMailQId PcalQ_Id;
 
-void comhub(void const *argument)
+void comhub_init()
 {
 	NRF_LOG_INFO("init com hub\r\n");
-	NRF_LOG_FLUSH();
 	// mail subsctiption system implementation
 	mail_q_in_id 			= osMailCreate(osMailQ(mail_pool_q), NULL);
 	mail_pool_q_id[0] = osMailCreate(osMailQ(mail_pool_q), NULL);
 	mail_pool_q_id[1] = osMailCreate(osMailQ(mail_pool_q), NULL);
 	mail_pool_q_id[2] = osMailCreate(osMailQ(mail_pool_q), NULL);
 	mail_pool_q_id[3] = osMailCreate(osMailQ(mail_pool_q), NULL);
+}
+void comhub(void const *argument)
+{
 	osEvent evt;
-	
 		//init malqueue then
 		//wait for mail
-	
-	
 	while(1)
 	{
 		evt = osMailGet(mail_q_in_id,osWaitForever);
@@ -32,12 +31,11 @@ void comhub(void const *argument)
 		{
 			mail_protocol_t *received = (mail_protocol_t *)evt.value.p;
 			
-			NRF_LOG_INFO("mail %s recieved from, %i, sending to %i\r\n", (uint32_t)received->pld, received->rid,received->sid);
-			NRF_LOG_FLUSH();
+			NRF_LOG_INFO("mail %x recieved from, %i, sending to %i\r\n" ,*received->pld ,received->rid,received->sid);
 			mail_protocol_t *outbound;
-			outbound = (mail_protocol_t *) osMailAlloc(mail_q_in_id, osWaitForever);
+			outbound = (mail_protocol_t *) osMailAlloc(mail_pool_q_id[(uint8_t)received->rid], osWaitForever);
 			outbound = received;
-			osMailPut(mail_pool_q_id[received->rid], outbound);
+			osMailPut(mail_pool_q_id[(uint8_t)received->rid], outbound);
 
 			osMailFree(mail_q_in_id, received);
 		}

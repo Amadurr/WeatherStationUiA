@@ -74,10 +74,9 @@ void spi_event_handler(nrf_drv_spi_evt_t const * p_event)
 	}
 }
 
-void SPI_init()
+void SPI_init(void)
 {
 		NRF_LOG_INFO("init SPI\r\n");
-		NRF_LOG_FLUSH();	
 	  nrf_drv_spi_config_t spi_config = NRF_DRV_SPI_DEFAULT_CONFIG;
     spi_config.ss_pin   = SPI_SS_PIN;
     spi_config.miso_pin = SPI_MISO_PIN;
@@ -104,73 +103,65 @@ void SPI_init()
 
 void SPI_controller(void const *argument)
 {
-	NRF_LOG_INFO("SPI Thread start\r\n");
-	NRF_LOG_FLUSH();
-	uint8_t wait = 50;	//wait variable, constant for now, might change later
-	while(1)
+	//NRF_LOG_INFO("SPI Thread start\r\n");
+	uint8_t wait = 100;	//wait variable, constant for now, might change later
+	osEvent event_m;
+	osEvent event_s;
+	
+	while(1)		// loop for mail/signal queueing, if signal recieved, prepare to recieve package, if mail prepare to send recieved mail content
 	{
-		osEvent event_m;
-		osEvent event_s;
-		while(1)		// loop for mail/signal queueing, if signal recieved, prepare to recieve package, if mail prepare to send recieved mail content
+		
+		event_s = osSignalWait(1,wait);
+		if (event_s.value.signals == 1)		// recieve code
 		{
+			NRF_LOG_INFO("Received mode\r\n");
+			//set ack hight to acknowledge send request
+			nrf_drv_gpiote_out_set(PIN_ACK);
+			tx_clr(m_tx_buf, m_length);
 			
-      NRF_LOG_INFO("Received mode\r\n");
-			NRF_LOG_FLUSH();
-			event_s = osSignalWait(1,wait);
-			if (event_s.value.signals == 1)		// recieve code
+			//wait for spis to set syn low to autorise transfer start
+			event_s = osSignalWait(0,osWaitForever);\
+			
+			spi_xfer_done = false;
+			nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length);
+			//set ack low to signal start of transfer
+			nrf_drv_gpiote_out_clear(PIN_ACK);
+			while (!spi_xfer_done)
 			{
-				//set ack hight to acknowledge send request
-				nrf_drv_gpiote_out_set(PIN_ACK);
-				tx_clr(m_tx_buf, m_length);
-				
-				//wait for spis to set syn low to autorise transfer start
-				event_s = osSignalWait(0,osWaitForever);\
-				
-				spi_xfer_done = false;
-				nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length);
-				//set ack low to signal start of transfer
-				nrf_drv_gpiote_out_clear(PIN_ACK);
-				while (!spi_xfer_done)
-				{
-						osDelay(50);
-				}
-				
-				break;
-			}
-			event_m = osMailGet(mail_pool_q_id[0],wait);
-			if (event_m.status)  //send code
-			{
-				NRF_LOG_INFO("Send mode\r\n");
-				NRF_LOG_FLUSH();
-				while(1)
-				{
-					//set ack high to signalise intent to transfer
-					nrf_drv_gpiote_out_set(PIN_ACK);
-					//wait for Syn to go high for acknowledgement of transfer
-					event_s = osSignalWait(1,50);
-					if(event_s.value.v == 1)
-					{
-						//prepare transfer
-						NRF_LOG_INFO("prepare transfer\r\n");
-						NRF_LOG_FLUSH();
-						tx_set(m_tx_buf,(uint8_t*)event_m.value.v, m_length);
-						spi_xfer_done = false;
-						nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length);
-						
-						NRF_LOG_INFO("wait for transfer done\r\n");
-						NRF_LOG_FLUSH();
-						while (!spi_xfer_done)
-						{
-								osDelay(50);
-						}
-						nrf_drv_gpiote_out_clear(PIN_ACK);
-						break;
-					}
-					//if syn does not go high, set ack low, wait a moment and try again
-					nrf_drv_gpiote_out_clear(PIN_ACK);
 					osDelay(50);
-				}
 			}
+			
+			break;
+		}
+		event_m = osMailGet(mail_pool_q_id[0],50);
+		if (event_m.status == osEventMail)  //send code
+		{
+			NRF_LOG_INFO("Send mode\r\n");
+			mail_protocol_t *mail =(mail_protocol_t*)event_m.value.p;
+			while(event_s.value.v == 1)
+			{				
+				nrf_drv_gpiote_out_clear(PIN_ACK);
+				osDelay(wait);
+				//set ack high to signalise intent to transfer
+				nrf_drv_gpiote_out_set(PIN_ACK);
+				//wait for Syn to go high for acknowledgement of transfer
+				event_s = osSignalWait(1,50);
+
+				//if syn does not go high, set ack low, wait a moment and try again
+
+			}
+			//prepare transfer
+			NRF_LOG_INFO("prepare transfer\r\n");
+			tx_set(m_tx_buf,(uint8_t*)mail->pld, m_length);
+			spi_xfer_done = false;
+			nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length);
+			
+			NRF_LOG_INFO("wait for transfer done\r\n");
+			while (!spi_xfer_done)
+			{
+					osDelay(50);
+			}
+			nrf_drv_gpiote_out_clear(PIN_ACK);
 		}
 	}
 }

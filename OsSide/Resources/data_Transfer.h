@@ -31,7 +31,7 @@ typedef struct{
 
 //init functions
 void SPI_init(void);
-
+void comhub_init(void);
 //thread functions
 void SPI_controller(void const *argument);
 void comhub(void const *argument);

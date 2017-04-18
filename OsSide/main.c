@@ -40,8 +40,9 @@ int main (void) {
 	APP_ERROR_CHECK(NRF_LOG_INIT(NULL));
 	
 	NRF_LOG_INFO("Log initialized\r\n");
-	NRF_LOG_FLUSH();
 	SPI_init();
+	comhub_init();
+	NRF_LOG_FLUSH();
 	tid_comhub = osThreadCreate (osThread(comhub),NULL);
 	tid_SPI = osThreadCreate (osThread(SPI_controller),NULL);
 
@@ -50,14 +51,12 @@ int main (void) {
 	
 	
 	osKernelStart ();                         // start thread execution 
-	
 	NRF_LOG_INFO("sending testmsg\r\n");
-	NRF_LOG_FLUSH();
-	uint8_t msg[] = {'b','o','o'}; 
+	uint8_t msg[] = {0x0F,0xF0,0xFF}; 
 	
 	mail_protocol_t *testmsg;
 	testmsg = (mail_protocol_t *) osMailAlloc(mail_q_in_id, osWaitForever);
-	testmsg->sid = NULL;
+	testmsg->sid = 255;
 	testmsg->rid = 0;
 	testmsg->flg = 0;
 	testmsg->pld = msg;
@@ -65,7 +64,9 @@ int main (void) {
 	
 	while(1)
 	{
-		
+		//osSignalWait(0,0);
+		osDelay(50);
+		NRF_LOG_FLUSH();
 	}
 }
 
