@@ -25,6 +25,7 @@ typedef struct{
 	uint8_t sid;	// sender ID
 	uint8_t rid;	// reciever ID
 	uint8_t flg;  // flags
+	uint8_t pld_s;// size of payload array
 	uint8_t *pld;	// pointer to payload
 }	mail_protocol_t;
 

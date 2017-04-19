@@ -525,7 +525,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name>ÀñO</Name>
+          <Name>@ìO</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -542,41 +542,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>52</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>.\main.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>48</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>.\main.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
           <LineNumber>38</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>6790</Address>
+          <Address>6794</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -588,11 +556,11 @@
           <Expression>\\WeatherStationUiA\comHub.c\38</Expression>
         </Bp>
         <Bp>
-          <Number>3</Number>
+          <Number>1</Number>
           <Type>0</Type>
           <LineNumber>69</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>8432</Address>
+          <Address>8440</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -604,7 +572,7 @@
           <Expression>\\WeatherStationUiA\main.c\69</Expression>
         </Bp>
         <Bp>
-          <Number>4</Number>
+          <Number>2</Number>
           <Type>0</Type>
           <LineNumber>136</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -620,7 +588,7 @@
           <Expression>\\WeatherStationUiA\Resources/data_Transfer.c\136</Expression>
         </Bp>
         <Bp>
-          <Number>5</Number>
+          <Number>3</Number>
           <Type>0</Type>
           <LineNumber>139</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -634,6 +602,38 @@
           <Filename>.\Resources\data_Transfer.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\WeatherStationUiA\Resources/data_Transfer.c\139</Expression>
+        </Bp>
+        <Bp>
+          <Number>4</Number>
+          <Type>0</Type>
+          <LineNumber>48</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>.\main.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>5</Number>
+          <Type>0</Type>
+          <LineNumber>52</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>.\main.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
         </Bp>
       </Breakpoint>
       <Tracepoint>
@@ -682,6 +682,10 @@
         <Entry>
           <Name>OS Support\System and Thread Viewer</Name>
           <WinId>35905</WinId>
+        </Entry>
+        <Entry>
+          <Name>System Viewer\SPI1</Name>
+          <WinId>35903</WinId>
         </Entry>
       </SystemViewers>
     </TargetOption>

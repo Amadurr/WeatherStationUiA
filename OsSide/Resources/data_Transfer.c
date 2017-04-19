@@ -17,12 +17,12 @@ static const uint8_t m_length = sizeof(m_tx_buf);        //< Transfer length.
 #define PIN_SYN 30
 #define PIN_ACK 31
 
-osMutexId mut_twi;
-osMutexDef(mut_twi);
+osMutexId mut_log;
+osMutexDef(mut_log);
 
 //extern osThreadId tid_SPI;
 
-extern osMailQId  *mail_pool_q_id;
+extern osMailQId mail_q_id[5];
 
 /*
 osMailQDef(PcalQ, 16, inMail_t);
@@ -133,7 +133,8 @@ void SPI_controller(void const *argument)
 			
 			break;
 		}
-		event_m = osMailGet(mail_pool_q_id[0],50);
+		NRF_LOG_INFO("Searching mail queue %x\r\n", (uint32_t)&mail_q_id[1]);
+		event_m = osMailGet(mail_q_id[1],50);
 		if (event_m.status == osEventMail)  //send code
 		{
 			NRF_LOG_INFO("Send mode\r\n");

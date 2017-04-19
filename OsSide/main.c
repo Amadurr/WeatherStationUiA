@@ -24,7 +24,7 @@ osThreadDef (SPI_controller,osPriorityNormal,1,0);
 osThreadId tid_comhub;
 osThreadDef (comhub,osPriorityNormal,1,0);
 
-extern osMailQId  (mail_q_in_id);
+extern osMailQId  (mail_q_id[5]);
 
 /*
  * main: initialize and start the system
@@ -55,12 +55,13 @@ int main (void) {
 	uint8_t msg[] = {0x0F,0xF0,0xFF}; 
 	
 	mail_protocol_t *testmsg;
-	testmsg = (mail_protocol_t *) osMailAlloc(mail_q_in_id, osWaitForever);
+	testmsg = (mail_protocol_t *) osMailAlloc(mail_q_id[0], osWaitForever);
 	testmsg->sid = 255;
 	testmsg->rid = 0;
 	testmsg->flg = 0;
+	testmsg->pld_s = sizeof(msg);
 	testmsg->pld = msg;
-	osMailPut(mail_q_in_id, testmsg);
+	osMailPut(mail_q_id[0], testmsg);
 	
 	while(1)
 	{

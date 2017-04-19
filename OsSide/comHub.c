@@ -3,21 +3,23 @@
 
 
 
-osMailQDef (mail_pool_q, 10, mail_protocol_t);
-osMailQId  (mail_pool_q_id[4]);
-osMailQId  (mail_q_in_id);
+osMailQDef (mail_pool_in, 10, mail_protocol_t);
+osMailQDef (mail_pool_spi, 10, mail_protocol_t);
+osMailQId  (mail_q_id[5]);
 
 extern osMailQId PcalQ_Id;
+
+extern osThreadId tid_SPI;
+extern osThreadId tid_comhub;
 
 void comhub_init()
 {
 	NRF_LOG_INFO("init com hub\r\n");
 	// mail subsctiption system implementation
-	mail_q_in_id 			= osMailCreate(osMailQ(mail_pool_q), NULL);
-	mail_pool_q_id[0] = osMailCreate(osMailQ(mail_pool_q), NULL);
-	mail_pool_q_id[1] = osMailCreate(osMailQ(mail_pool_q), NULL);
-	mail_pool_q_id[2] = osMailCreate(osMailQ(mail_pool_q), NULL);
-	mail_pool_q_id[3] = osMailCreate(osMailQ(mail_pool_q), NULL);
+		mail_q_id[0] 			= osMailCreate(osMailQ(mail_pool_in), tid_comhub);
+		mail_q_id[1] 			= osMailCreate(osMailQ(mail_pool_spi), tid_SPI);
+	//mail_pool_q_id[2] = osMailCreate(osMailQ(mail_pool_q), NULL);
+	//mail_pool_q_id[3] = osMailCreate(osMailQ(mail_pool_q), NULL);
 }
 void comhub(void const *argument)
 {
@@ -26,18 +28,20 @@ void comhub(void const *argument)
 		//wait for mail
 	while(1)
 	{
-		evt = osMailGet(mail_q_in_id,osWaitForever);
+		evt = osMailGet(mail_q_id[0],osWaitForever);
 		if(evt.status == osEventMail)
 		{
 			mail_protocol_t *received = (mail_protocol_t *)evt.value.p;
 			
 			NRF_LOG_INFO("mail %x recieved from, %i, sending to %i\r\n" ,*received->pld ,received->rid,received->sid);
-			mail_protocol_t *outbound;
-			outbound = (mail_protocol_t *) osMailAlloc(mail_pool_q_id[(uint8_t)received->rid], osWaitForever);
-			outbound = received;
-			osMailPut(mail_pool_q_id[(uint8_t)received->rid], outbound);
 
-			osMailFree(mail_q_in_id, received);
+			osMailPut(mail_q_id[1], received);			
+			if(!received)
+			{
+				NRF_LOG_INFO("There is no mail\n\r")
+			}
+			
+			NRF_LOG_INFO("sending to mail queue %x\r\n", (uint32_t)&mail_q_id[1]);
 		}
 	}
 }
