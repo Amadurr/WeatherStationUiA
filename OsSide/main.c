@@ -51,22 +51,22 @@ int main (void) {
 	
 	
 	osKernelStart ();                         // start thread execution 
-	NRF_LOG_INFO("sending testmsg\r\n");
-	uint8_t msg[] = {0x0F,0xF0,0xFF}; 
-	
-	mail_protocol_t *testmsg;
-	testmsg = (mail_protocol_t *) osMailAlloc(mail_q_id[0], osWaitForever);
-	testmsg->sid = 255;
-	testmsg->rid = 0;
-	testmsg->flg = 0;
-	testmsg->pld_s = sizeof(msg);
-	testmsg->pld = msg;
-	osMailPut(mail_q_id[0], testmsg);
+//	NRF_LOG_INFO("sending testmsg\r\n");
+//	uint8_t msg[] = {'A','B','C'}; 
+//	
+//	mail_protocol_t *testmsg;
+//	testmsg = (mail_protocol_t *) osMailAlloc(mail_q_id[0], osWaitForever);
+//	testmsg->sid = 255;
+//	testmsg->rid = 0;
+//	testmsg->flg = 0;
+//	testmsg->pld_s = sizeof(msg);
+//	testmsg->pld = msg;
+//	osMailPut(mail_q_id[0], testmsg);
 	
 	while(1)
 	{
 		//osSignalWait(0,0);
-		osDelay(50);
+		osDelay(100);
 		NRF_LOG_FLUSH();
 	}
 }

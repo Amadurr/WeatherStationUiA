@@ -10,8 +10,10 @@ static volatile bool spi_xfer_done;  //< Flag used to indicate that SPI instance
 void __svc(1) init_nothing(void);
 pcal_interface_t *p;
 
-static uint8_t       m_tx_buf[1];           //< TX buffer.
-static uint8_t       m_rx_buf[1+1];    //< RX buffer.
+extern osThreadId tid_SPI;
+
+static uint8_t       m_tx_buf[3];           //< TX buffer.
+static uint8_t       m_rx_buf[3+1];    //< RX buffer.
 static const uint8_t m_length = sizeof(m_tx_buf);        //< Transfer length.
 
 #define PIN_SYN 30
@@ -31,17 +33,19 @@ osMailQId PcalQ_Id;
 */
 
 void SynHandler(nrf_drv_gpiote_pin_t pin, nrf_gpiote_polarity_t action) 
-	{
-	if(action == GPIOTE_CONFIG_POLARITY_HiToLo)
-	{
-		NRF_LOG_INFO("syn = 0 \r\n");
-		//osSignalSet(tid_SPI, 0);
-	}
-	if(action == GPIOTE_CONFIG_POLARITY_LoToHi)
+{
+	static uint8_t syn_state = 0x01;
+	if(syn_state)
 	{
 		NRF_LOG_INFO("syn = 1 \r\n");
-		//osSignalSet(tid_SPI, 1);
+		osSignalSet(tid_SPI, 1);
 	}
+	else
+	{
+		NRF_LOG_INFO("syn = 0 \r\n");
+		osSignalSet(tid_SPI, 0);
+	}
+	syn_state ^= 0x01;
 }
 
 void tx_set( uint8_t* tx, uint8_t* buff, uint8_t size)
@@ -64,18 +68,17 @@ void spi_event_handler(nrf_drv_spi_evt_t const * p_event)
 {
 	spi_xfer_done = true;
 	NRF_LOG_INFO("Transfer complete- \r\n");
-	NRF_LOG_FLUSH();
 
-	for(int i = 0; i < sizeof(m_rx_buf); i++)
+	if(m_rx_buf[0] != 0)
 	{
       NRF_LOG_INFO(" Received: \r\n");
-			NRF_LOG_FLUSH();
       NRF_LOG_HEXDUMP_INFO(m_rx_buf, strlen((const char *)m_rx_buf));
 	}
 }
 
 void SPI_init(void)
 {
+		ret_code_t err_code;
 		NRF_LOG_INFO("init SPI\r\n");
 	  nrf_drv_spi_config_t spi_config = NRF_DRV_SPI_DEFAULT_CONFIG;
     spi_config.ss_pin   = SPI_SS_PIN;
@@ -86,19 +89,22 @@ void SPI_init(void)
 	
 	  nrf_drv_gpiote_init();
     nrf_drv_gpiote_in_config_t in_config = GPIOTE_CONFIG_IN_SENSE_TOGGLE(true);
-    in_config.pull = NRF_GPIO_PIN_PULLUP;
 	
-		nrf_drv_gpiote_in_init(PIN_SYN, &in_config, SynHandler);
-		nrf_drv_gpiote_in_event_enable(PIN_SYN, 1);
-		nrf_drv_gpiote_out_config_t out_config = 
+		err_code = nrf_drv_gpiote_in_init(PIN_SYN, &in_config, SynHandler);
+		if(err_code != NRF_SUCCESS)
 		{
-			NRF_GPIOTE_POLARITY_TOGGLE,
-			NRF_GPIOTE_INITIAL_VALUE_LOW,
-			false
-		};
+			NRF_LOG_INFO("failed to init ACK\r\n");
+			return;
+		}
+		nrf_drv_gpiote_in_event_enable(PIN_SYN, 1);
+		nrf_drv_gpiote_out_config_t out_config = GPIOTE_CONFIG_OUT_TASK_HIGH;
 	
-		nrf_drv_gpiote_out_init(PIN_ACK, &out_config);
-
+		err_code = nrf_drv_gpiote_out_init(PIN_ACK, &out_config);
+		if(err_code != NRF_SUCCESS)
+		{
+			NRF_LOG_INFO("failed to init ACK\r\n");
+			return;
+		}
 }
 
 void SPI_controller(void const *argument)
@@ -139,14 +145,14 @@ void SPI_controller(void const *argument)
 		{
 			NRF_LOG_INFO("Send mode\r\n");
 			mail_protocol_t *mail =(mail_protocol_t*)event_m.value.p;
-			while(event_s.value.v == 1)
+			while(event_s.value.v == 0)
 			{				
 				nrf_drv_gpiote_out_clear(PIN_ACK);
-				osDelay(wait);
+				osDelay(500);
 				//set ack high to signalise intent to transfer
 				nrf_drv_gpiote_out_set(PIN_ACK);
 				//wait for Syn to go high for acknowledgement of transfer
-				event_s = osSignalWait(1,50);
+				event_s = osSignalWait(1,500);
 
 				//if syn does not go high, set ack low, wait a moment and try again
 
@@ -162,6 +168,7 @@ void SPI_controller(void const *argument)
 			{
 					osDelay(50);
 			}
+			NRF_LOG_INFO("transfer done\r\n");
 			nrf_drv_gpiote_out_clear(PIN_ACK);
 		}
 	}
