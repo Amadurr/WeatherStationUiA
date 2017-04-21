@@ -2180,7 +2180,7 @@
 // <e> SPIS_ENABLED - nrf_drv_spis - SPI Slave driver
 //==========================================================
 #ifndef SPIS_ENABLED
-#define SPIS_ENABLED 0
+#define SPIS_ENABLED 1
 #endif
 #if  SPIS_ENABLED
 // <o> SPIS_DEFAULT_CONFIG_IRQ_PRIORITY  - Interrupt priority
@@ -2224,14 +2224,14 @@
 
 
 #ifndef SPIS_DEFAULT_DEF
-#define SPIS_DEFAULT_DEF 255
+#define SPIS_DEFAULT_DEF 8
 #endif
 
 // <o> SPIS_DEFAULT_ORC - SPIS default ORC character  <0-255> 
 
 
 #ifndef SPIS_DEFAULT_ORC
-#define SPIS_DEFAULT_ORC 255
+#define SPIS_DEFAULT_ORC 4
 #endif
 
 // <q> SPIS0_ENABLED  - Enable SPIS0 instance
@@ -2258,7 +2258,7 @@
 // <e> SPIS_CONFIG_LOG_ENABLED - Enables logging in the module.
 //==========================================================
 #ifndef SPIS_CONFIG_LOG_ENABLED
-#define SPIS_CONFIG_LOG_ENABLED 0
+#define SPIS_CONFIG_LOG_ENABLED 1
 #endif
 #if  SPIS_CONFIG_LOG_ENABLED
 // <o> SPIS_CONFIG_LOG_LEVEL  - Default Severity level
@@ -3741,7 +3741,7 @@
 // <e> NRF_LOG_ENABLED - nrf_log - Logging
 //==========================================================
 #ifndef NRF_LOG_ENABLED
-#define NRF_LOG_ENABLED 0
+#define NRF_LOG_ENABLED 1
 #endif
 #if  NRF_LOG_ENABLED
 // <e> NRF_LOG_USES_COLORS - If enabled then ANSI escape code for colors is prefixed to every string

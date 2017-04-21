@@ -28,6 +28,7 @@
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_errors.h
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\softdevice\s132\headers\nrf_error.h
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error_weak.h
+.\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\drivers_nrf\delay\nrf_delay.h
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\bsp\bsp.h
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\boards\boards.h
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_gpio.h
