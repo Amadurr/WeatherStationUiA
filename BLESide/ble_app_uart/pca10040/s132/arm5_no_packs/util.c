@@ -4,6 +4,7 @@
 #include <math.h>
 #include "nrf.h"
 #include "nrf_drv_timer.h"
+#include "nrf_delay.h"
 #include "bsp.h"
 #include "app_error.h"
 #include "definitions.h"
@@ -16,6 +17,7 @@
 static const nrf_drv_spis_t spis = NRF_DRV_SPIS_INSTANCE(SPIS_INSTANCE);/**< SPIS instance. */
 const nrf_drv_timer_t TIMER = NRF_DRV_TIMER_INSTANCE(0);
 volatile uint8_t timer_;
+uint8_t* read_fifo(void);
 
 #define TEST_STRING "ABC"
 static uint8_t       m_tx_buf[] = TEST_STRING;           	/**< TX buffer. */
@@ -23,14 +25,16 @@ static uint8_t       m_rx_buf[sizeof(TEST_STRING) + 1];   /**< RX buffer. */
 static const uint8_t m_length = sizeof(m_tx_buf);        	/**< Transfer length. */
 static volatile bool spis_xfer_done; /**< Flag used to indicate that SPIS instance completed the transfer. */
 fifo_list d_list; 									 /**< Legger til struct fifo_list. */
-
-uint8_t syn = 0;
+uint8_t command;
+uint8_t syn = 0x00;
 #define PIN_SYN 31
 #define PIN_ACK 30
 
 //Handler for SPI evenets
 void spis_event_handler(nrf_drv_spis_event_t event)
 {
+	
+		NRF_LOG_INFO("transfering\r\n");
     if (event.evt_type == NRF_DRV_SPIS_XFER_DONE)
     {
         spis_xfer_done = true;
@@ -56,15 +60,13 @@ void timer_led_event_handler(nrf_timer_event_t event_type, void *p_context)
 
 void SynHandler(nrf_drv_gpiote_pin_t pin, nrf_gpiote_polarity_t action) 
     {
-    if(action == GPIOTE_CONFIG_POLARITY_HiToLo)
-        syn = 0;
-    if(action == GPIOTE_CONFIG_POLARITY_LoToHi)
-        syn = 1;
+			syn ^= 0x01;
 }
 		
 void spi_app_init(void)
 {
-		NRF_LOG_INFO("SPIS example\r\n");
+		NRF_LOG_INFO("test_shit\r\n");
+		NRF_LOG_FLUSH();
 
     nrf_drv_spis_config_t spis_config = NRF_DRV_SPIS_DEFAULT_CONFIG;
     spis_config.csn_pin               = APP_SPIS_CS_PIN;
@@ -89,18 +91,18 @@ void spi_app_init(void)
 		//GPIO init
 		nrf_drv_gpiote_init();
     nrf_drv_gpiote_in_config_t in_config = GPIOTE_CONFIG_IN_SENSE_TOGGLE(true);
-    in_config.pull = NRF_GPIO_PIN_PULLUP;
 
-        nrf_drv_gpiote_in_init(PIN_SYN, &in_config, SynHandler);
-        nrf_drv_gpiote_in_event_enable(PIN_SYN, 1);
-        nrf_drv_gpiote_out_config_t out_config = 
-        {
-            NRF_GPIOTE_POLARITY_TOGGLE,
-            NRF_GPIOTE_INITIAL_VALUE_LOW,
-            false
-        };
+		nrf_drv_gpiote_in_init(PIN_SYN, &in_config, SynHandler);
+		nrf_drv_gpiote_in_event_enable(PIN_SYN, 1);
+		nrf_drv_gpiote_out_config_t out_config = GPIOTE_CONFIG_OUT_TASK_HIGH;
 
-        nrf_drv_gpiote_out_init(PIN_ACK, &out_config);
+		err_code = nrf_drv_gpiote_out_init(PIN_ACK, &out_config);
+		if(err_code != NRF_SUCCESS)
+		{
+			NRF_LOG_INFO("failed to init ACK\r\n");
+			NRF_LOG_FLUSH();
+			return;
+		}
 }
 
 void tx_set (uint8_t* tx, uint8_t* buff, uint8_t size) //Setting the buffer
@@ -120,19 +122,19 @@ void tx_clear (uint8_t* tx, uint8_t size) //Clearing buffer
 
 void spi_handler(void)
 {
+	uint8_t temp_buf[3];
 	while(1)
 	{
-		int ack = 0;
-		int syn;
-		uint8_t temp_buf[3]; 
-		while( syn == 0 /*| (command ==0)*/)
+		//int ack = 0;
+		while(( syn == 0) | (command == 0))
 		{
-			__WFE();
+			nrf_delay_ms(50);
 		}
-		/*
-		if(commmand)
+		
+		if(command)
 		{
 			//set timer to some time t
+			nrf_drv_gpiote_out_clear(PIN_ACK);
 			nrf_drv_timer_enable(&TIMER);
 			
 			while((syn != 0 )|(timer_!=0))
@@ -143,11 +145,13 @@ void spi_handler(void)
 			if(syn)
 			{
 				//prep transfer
-				tx_set(m_tx_buf, temp_buf, sizeof(temp_buf));
+				uint8_t *temp_tx = read_fifo();
+				tx_set(m_tx_buf, temp_tx, sizeof(temp_buf));
 				tx_clear(m_rx_buf, sizeof(m_rx_buf));
 				spis_xfer_done = false;
 				
-				ack = 0;
+				// SETTING ack to 0
+				nrf_drv_gpiote_out_set(PIN_ACK);
 				while(!spis_xfer_done)
 				{
 					__WFE();
@@ -156,24 +160,31 @@ void spi_handler(void)
 			}
 			else
 			{
-				while(!spis_xfer_done*)
+				while(!spis_xfer_done)
 				{
 					__WFE();
 				}
 			}
-		}*/
+		}
 		if(syn)
 		{
+//			NRF_LOG_INFO("SPIS start\r\n");
+//			NRF_LOG_FLUSH();
 			//prepare transfer
 			tx_set(m_tx_buf, temp_buf, sizeof(temp_buf));
 			tx_clear(m_rx_buf, sizeof(m_rx_buf));
 			spis_xfer_done = false;
-			ack = 1;
+			//ack = 1;
+			APP_ERROR_CHECK(nrf_drv_spis_buffers_set(&spis, m_tx_buf, m_length, m_rx_buf, m_length));
+			nrf_drv_gpiote_out_set(PIN_ACK);
 			while(!spis_xfer_done)
 			{
 				__WFE();
 			}
-			ack = 0;
+			nrf_drv_gpiote_out_clear(PIN_ACK);
+			NRF_LOG_INFO("ack low\r\n");
+			NRF_LOG_FLUSH();
+			//ack = 0;
 		}
 		//transfer ok?
 	}
@@ -182,12 +193,12 @@ void spi_handler(void)
 void fifo_init(void)
 {
 	d_list.max_size = 1;
-	d_list.array = (uint8_t*)malloc(sizeof(uint8_t)*d_list.max_size);
+	d_list.array = (uint8_t**)malloc(sizeof(uint8_t*)*d_list.max_size);
 	d_list.head = d_list.tail = 0;
 	d_list.used = 0;
 }
 
-void add_fifo(Data)
+void add_fifo(uint8_t *Data)
 {
 
 	if(d_list.used >= d_list.max_size)
@@ -201,9 +212,9 @@ void add_fifo(Data)
 	d_list.used++;
 }
 
-uint8_t read_fifo(void)
+uint8_t* read_fifo(void)
 {
-	uint8_t Ts;
+	uint8_t *Ts;
 	
 	//check if empty
 	if(d_list.used == 0)
