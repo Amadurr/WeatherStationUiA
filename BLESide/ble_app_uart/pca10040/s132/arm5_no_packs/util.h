@@ -8,7 +8,7 @@ void fifo_init(void);
 void spi_app_init(void);
 void spi_handler(void);
 void add_fifo(uint8_t *Data);
-
+void butt_init(void);
 typedef struct Data
 {
   uint8_t         max_size;    

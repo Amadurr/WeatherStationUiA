@@ -29,7 +29,7 @@
 .\_build\nrf_log_frontend.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\softdevice\s132\headers\nrf_nvic.h
 .\_build\nrf_log_frontend.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\nrf_assert.h
 .\_build\nrf_log_frontend.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error.h
-.\_build\nrf_log_frontend.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\_build\nrf_log_frontend.o: D:\Code_Stuff\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\_build\nrf_log_frontend.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\app_error_weak.h
 .\_build\nrf_log_frontend.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log.h
 .\_build\nrf_log_frontend.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_internal.h

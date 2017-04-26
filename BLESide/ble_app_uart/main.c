@@ -1,7 +1,6 @@
 #include "definitions.h"
 #include "BLEFunctions.h"
 #include "util.h"
-extern uint8_t command;
 int main(void)
 {
 	APP_ERROR_CHECK(NRF_LOG_INIT(NULL));
@@ -11,9 +10,7 @@ int main(void)
 	//ble_app_init();
 	spi_app_init();
 	fifo_init();
-	uint8_t data[] =	"ABC";
-	add_fifo(data);
-	command = 1;
+	butt_init();
 	spi_handler();
 		
 

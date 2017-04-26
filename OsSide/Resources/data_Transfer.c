@@ -67,13 +67,6 @@ void tx_clr (uint8_t* tx, uint8_t size)
 void spi_event_handler(nrf_drv_spi_evt_t const * p_event)
 {
 	spi_xfer_done = true;
-	NRF_LOG_INFO("Transfer complete- \r\n");
-
-	if(m_rx_buf[0] != 0)
-	{
-      NRF_LOG_INFO(" Received: \r\n");
-      NRF_LOG_HEXDUMP_INFO(m_rx_buf, strlen((const char *)m_rx_buf));
-	}
 }
 
 void SPI_init(void)
@@ -89,6 +82,7 @@ void SPI_init(void)
 	
 	  nrf_drv_gpiote_init();
     nrf_drv_gpiote_in_config_t in_config = GPIOTE_CONFIG_IN_SENSE_TOGGLE(true);
+	  in_config.pull = GPIO_PIN_CNF_PULL_Pullup;
 	
 		err_code = nrf_drv_gpiote_in_init(PIN_SYN, &in_config, SynHandler);
 		if(err_code != NRF_SUCCESS)
@@ -98,6 +92,7 @@ void SPI_init(void)
 		}
 		nrf_drv_gpiote_in_event_enable(PIN_SYN, 1);
 		nrf_drv_gpiote_out_config_t out_config = GPIOTE_CONFIG_OUT_TASK_HIGH;
+		nrf_drv_gpiote_out_clear(PIN_ACK);
 	
 		err_code = nrf_drv_gpiote_out_init(PIN_ACK, &out_config);
 		if(err_code != NRF_SUCCESS)
@@ -110,13 +105,14 @@ void SPI_init(void)
 void SPI_controller(void const *argument)
 {
 	//NRF_LOG_INFO("SPI Thread start\r\n");
-	uint8_t wait = 100;	//wait variable, constant for now, might change later
+	uint16_t wait = 50;	//wait variable, constant for now, might change later
 	osEvent event_m;
 	osEvent event_s;
-	
+	uint8_t i;
 	while(1)		// loop for mail/signal queueing, if signal recieved, prepare to recieve package, if mail prepare to send recieved mail content
 	{
 		
+		//NRF_LOG_INFO("waiting for instruction\r\n");
 		event_s = osSignalWait(1,wait);
 		if (event_s.value.signals == 1)		// recieve code
 		{
@@ -126,20 +122,28 @@ void SPI_controller(void const *argument)
 			tx_clr(m_tx_buf, m_length);
 			
 			//wait for spis to set syn low to autorise transfer start
-			event_s = osSignalWait(0,osWaitForever);\
-			
-			spi_xfer_done = false;
-			nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length);
-			//set ack low to signal start of transfer
-			nrf_drv_gpiote_out_clear(PIN_ACK);
-			while (!spi_xfer_done)
+			osDelay(20);
+			event_s = osSignalWait(0,0);
+			if(event_s.value.signals == 0 )
 			{
-					osDelay(50);
+				spi_xfer_done = false;
+				nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length);
+				//set ack low to signal start of transfer
+				while (!spi_xfer_done)
+				{
+						osDelay(50);
+				}
+				NRF_LOG_INFO("transfer done, recieved:\r\n");
+				i = 0;
+				while(m_rx_buf[i])
+				{
+					NRF_LOG_INFO("%x\r\n",m_rx_buf[i]);
+					i++;
+				}
 			}
-			
-			break;
+			nrf_drv_gpiote_out_clear(PIN_ACK);
+
 		}
-		NRF_LOG_INFO("Searching mail queue %x\r\n", (uint32_t)&mail_q_id[1]);
 		event_m = osMailGet(mail_q_id[1],50);
 		if (event_m.status == osEventMail)  //send code
 		{
@@ -168,7 +172,7 @@ void SPI_controller(void const *argument)
 			{
 					osDelay(50);
 			}
-			NRF_LOG_INFO("transfer done\r\n");
+			NRF_LOG_INFO("transfer done");
 			nrf_drv_gpiote_out_clear(PIN_ACK);
 		}
 	}

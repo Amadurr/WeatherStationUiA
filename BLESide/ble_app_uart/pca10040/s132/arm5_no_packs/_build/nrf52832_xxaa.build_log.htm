@@ -3,7 +3,6 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-<<<<<<< HEAD
 IDE-Version: µVision V5.23.0.0
 Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
 License Information: Are Jevne, UiA Grimstad, LIC=----
@@ -18,99 +17,25 @@ Library Manager: ArmAr.exe V5.06 update 4 (build 422)
 Hex Converter:   FromElf.exe V5.06 update 4 (build 422)
 CPU DLL:         
 Dialog DLL:      
-Target DLL:      Segger\JL2CM3.dll V2.99.23.0
+Target DLL:      UL2CM3.DLL V1.159.7.0
 Dialog DLL:      TCM.DLL V1.27.0.0
  
 <h2>Project:</h2>
 D:\school\Ele217\WeatherStationUiA\BLESide\ble_app_uart\pca10040\s132\arm5_no_packs\ble_app_uart_pca10040_s132.uvprojx
-Project File Date:  04/19/2017
+Project File Date:  04/25/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'D:\Code_Stuff\Keil_v5\ARM\ARMCC\Bin'
 Build target 'nrf52832_xxaa'
-compiling boards.c...
-compiling bsp_nfc.c...
-compiling bsp.c...
-compiling bsp_btn_ble.c...
-compiling main.c...
-..\arm5_no_packs\util.h(19): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\..\..\main.c: 1 warning, 0 errors
-compiling BLEFunctions.c...
 compiling util.c...
-util.h(19): warning:  #1-D: last line of file ends without a newline
-  #endif
-util.c(125): warning:  #550-D: variable "ack"  was set but never used
-  		int ack = 0;
-util.c(190): warning:  #1294-D: Old-style function add_fifo
-  void add_fifo(Data)
-util.c(190): warning:  #1079-D: standard requires that parameter "Data"  be given a type by a subsequent declaration ("int" assumed)
-  void add_fifo(Data)
-util.c(23): warning:  #177-D: variable "m_length"  was declared but never referenced
-  static const uint8_t m_length = sizeof(m_tx_buf);        	/**< Transfer length. */
-util.c: 5 warnings, 0 errors
-compiling ble_srv_common.c...
-compiling ble_conn_params.c...
-compiling ble_advertising.c...
-compiling nrf_drv_common.c...
-compiling ble_advdata.c...
-compiling ble_nus.c...
-compiling nrf_drv_clock.c...
-compiling app_error.c...
-compiling app_error_weak.c...
-compiling app_button.c...
-compiling nrf_drv_spis.c...
-compiling nrf_drv_timer.c...
-compiling nrf_drv_gpiote.c...
-compiling nrf_drv_uart.c...
-compiling app_fifo.c...
-compiling nrf_assert.c...
-compiling hardfault_implementation.c...
-compiling sdk_errors.c...
-compiling app_util_platform.c...
-compiling RTT_Syscalls_KEIL.c...
-compiling fstorage.c...
-compiling app_uart_fifo.c...
-compiling SEGGER_RTT_printf.c...
-compiling app_timer.c...
-assembling arm_startup_nrf52.s...
-compiling system_nrf52.c...
-compiling nrf_log_backend_serial.c...
-compiling nrf_log_frontend.c...
-compiling retarget.c...
-compiling SEGGER_RTT.c...
-compiling softdevice_handler.c...
-=======
-IDE-Version: µVision V5.21.1.0
-Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Amar Duranovic, UiA, LIC=----
- 
-Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.21a
-Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.06 update 3 (build 300)
-Assembler:       Armasm.exe V5.06 update 3 (build 300)
-Linker/Locator:  ArmLink.exe V5.06 update 3 (build 300)
-Library Manager: ArmAr.exe V5.06 update 3 (build 300)
-Hex Converter:   FromElf.exe V5.06 update 3 (build 300)
-CPU DLL:         
-Dialog DLL:      
-Target DLL:      Segger\JL2CM3.dll V2.99.23.0
-Dialog DLL:      TCM.DLL V1.14.14.0
- 
-<h2>Project:</h2>
-C:\Users\Christer\Desktop\Schoolwork\ELE-217-G\Project Spring 2017\WeatherStationUiA\BLESide\ble_app_uart\pca10040\s132\arm5_no_packs\ble_app_uart_pca10040_s132.uvprojx
-Project File Date:  04/21/2017
-
-<h2>Output:</h2>
-*** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Build target 'nrf52832_xxaa'
-compiling util.c...
->>>>>>> d727d502265cfaab6a8dd75eaa90c9b13670f362
+util.c(94): warning:  #188-D: enumerated type mixed with another type
+  	  in_config.pull = 
+PIO_PIN_CNF_PULL_Pullup;
+util.c: 1 warning, 0 errors
 linking...
-Program Size: Code=10956 RO-data=1332 RW-data=96 ZI-data=17888  
+Program Size: Code=11636 RO-data=1336 RW-data=96 ZI-data=17888  
 FromELF: creating hex file...
-".\_build\nrf52832_xxaa.axf" - 0 Error(s), 0 Warning(s).
+".\_build\nrf52832_xxaa.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -127,32 +52,19 @@ Package Vendor: NordicSemiconductor
    * Component: Startup Version: 8.11.1
 
 <h2>Collection of Component include folders:</h2>
-<<<<<<< HEAD
   .\RTE\_nrf52832_xxaa
   D:\Code_Stuff\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include
   D:\Code_Stuff\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include
-=======
-  C:\Users\Christer\Desktop\Schoolwork\ELE-217-G\Project Spring 2017\WeatherStationUiA\BLESide\ble_app_uart\pca10040\s132\arm5_no_packs\RTE
-  C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include
-  C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include
->>>>>>> d727d502265cfaab6a8dd75eaa90c9b13670f362
 
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:4.3.0
 
    * Component: NordicSemiconductor::Device:Startup:8.11.1
-<<<<<<< HEAD
-      Include file:  Device\Include\system_nrf52.h
       Source file:   Device\Source\system_nrf52.c
       Source file:   Device\Source\arm\arm_startup_nrf52.s
-Build Time Elapsed:  00:00:11
-=======
-      Source file:   Device\Source\arm\arm_startup_nrf52.s
-      Source file:   Device\Source\system_nrf52.c
       Include file:  Device\Include\system_nrf52.h
 Build Time Elapsed:  00:00:02
->>>>>>> d727d502265cfaab6a8dd75eaa90c9b13670f362
 </pre>
 </body>
 </html>

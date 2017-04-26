@@ -10,11 +10,7 @@
       <TargetName>nrf52832_xxaa</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-<<<<<<< HEAD
-      <pCCUsed>5060422::V5.06 update 4 (build 422)::ARMCC</pCCUsed>
-=======
-      <pCCUsed>5060183::V5.06 update 2 (build 183)::ARMCC</pCCUsed>
->>>>>>> 68a28623508c07e422a22a9dceb65fe17fdd5dfb
+      <pCCUsed>5060422::V5.06 update 4 (build 422)::ARMCC</pCCUsed>2
       <TargetOption>
         <TargetCommonOption>
           <Device>nRF52832_xxAA</Device>
@@ -637,6 +633,7 @@
       <TargetName>flash_s132_nrf52_3.0.0_softdevice</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pCCUsed>5060300::V5.06 update 3 (build 300)::ARMCC</pCCUsed>
       <TargetOption>
         <TargetCommonOption>
           <Device>nRF52832_xxAA</Device>
@@ -673,7 +670,7 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>..\..\..\..\..\..\nRF5_SDK_12.2.0\components\softdevice\s132\hex\</OutputDirectory>
+          <OutputDirectory>..\..\..\..\..\..\components\softdevice\s132\hex\</OutputDirectory>
           <OutputName>s132_nrf52_3.0.0_softdevice.hex</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
