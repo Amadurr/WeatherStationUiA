@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\WeatherStationUiA.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\WeatherStationUiA.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Tue Apr 25 15:21:12 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Wed Apr 26 15:40:33 2017
 <BR><P>
 <H3>Maximum Stack Usage =        496 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -819,19 +819,19 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> arm_startup_nrf52.o(RESET)
 </UL>
-<P><STRONG><a name="[4e]"></a>SPI_controller</STRONG> (Thumb, 302 bytes, Stack size 32 bytes, data_transfer.o(i.SPI_controller))
+<P><STRONG><a name="[4e]"></a>SPI_controller</STRONG> (Thumb, 308 bytes, Stack size 32 bytes, data_transfer.o(i.SPI_controller))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = SPI_controller &rArr; nrf_drv_spi_transfer &rArr; nrf_drv_spi_xfer &rArr; spim_xfer &rArr; nrf_spim_event_clear
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osSignalWait
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osSignalWait
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailGet
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_1
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_spi_transfer
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_spi_transfer
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_gpiote_out_set
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_gpiote_out_clear
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tx_set
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tx_clr
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.constdata)
 </UL>
@@ -844,7 +844,7 @@ Global Symbols
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_gpiote_init
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_gpiote_in_init
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_gpiote_in_event_enable
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 </UL>
 <BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -853,7 +853,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = SynHandler &rArr; nrf_log_frontend_std_0 &rArr; buf_prealloc &rArr; app_util_critical_region_exit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osSignalSet
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> data_transfer.o(i.SPI_init)
 </UL>
@@ -901,7 +901,7 @@ Global Symbols
 <P><STRONG><a name="[bb]"></a>app_error_fault_handler</STRONG> (Thumb, 90 bytes, Stack size 0 bytes, app_error_weak.o(i.app_error_fault_handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = app_error_fault_handler &rArr; nrf_log_blocking_backend_set &rArr; nrf_log_backend_init &rArr; nrf_drv_uart_uninit &rArr; pins_to_default &rArr; nrf_gpio_cfg_default &rArr; nrf_gpio_cfg
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
+<BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_dequeue
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_blocking_backend_set
 </UL>
@@ -951,7 +951,7 @@ Global Symbols
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_3
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailGet
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_1
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.constdata)
 </UL>
@@ -959,7 +959,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = comhub_init &rArr; nrf_log_frontend_std_0 &rArr; buf_prealloc &rArr; app_util_critical_region_exit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailCreate
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 </UL>
 <BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1037,9 +1037,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osThreadCreate
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelStart
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelInitialize
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_init
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_dequeue
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;comhub_init
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_handler_bare
@@ -1135,7 +1135,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_init
 </UL>
 
-<P><STRONG><a name="[a5]"></a>nrf_drv_spi_transfer</STRONG> (Thumb, 44 bytes, Stack size 40 bytes, nrf_drv_spi.o(i.nrf_drv_spi_transfer))
+<P><STRONG><a name="[a4]"></a>nrf_drv_spi_transfer</STRONG> (Thumb, 44 bytes, Stack size 40 bytes, nrf_drv_spi.o(i.nrf_drv_spi_transfer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = nrf_drv_spi_transfer &rArr; nrf_drv_spi_xfer &rArr; spim_xfer &rArr; nrf_spim_event_clear
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_spi_xfer
@@ -1149,7 +1149,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spim_xfer
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_gpio_pin_clear
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_spi_transfer
+<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_spi_transfer
 </UL>
 
 <P><STRONG><a name="[100]"></a>nrf_drv_uart_init</STRONG> (Thumb, 126 bytes, Stack size 24 bytes, nrf_drv_uart.o(i.nrf_drv_uart_init))
@@ -1233,7 +1233,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_init
 </UL>
 
-<P><STRONG><a name="[a1]"></a>nrf_log_frontend_std_0</STRONG> (Thumb, 88 bytes, Stack size 32 bytes, nrf_log_frontend.o(i.nrf_log_frontend_std_0))
+<P><STRONG><a name="[a0]"></a>nrf_log_frontend_std_0</STRONG> (Thumb, 88 bytes, Stack size 32 bytes, nrf_log_frontend.o(i.nrf_log_frontend_std_0))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = nrf_log_frontend_std_0 &rArr; buf_prealloc &rArr; app_util_critical_region_exit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buf_prealloc
@@ -1279,7 +1279,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a4]"></a>osDelay</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, rt_cmsis.o(i.osDelay))
+<P><STRONG><a name="[a5]"></a>osDelay</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, rt_cmsis.o(i.osDelay))
 <BR><BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_controller
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1350,7 +1350,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SynHandler
 </UL>
 
-<P><STRONG><a name="[a0]"></a>osSignalWait</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, rt_cmsis.o(i.osSignalWait))
+<P><STRONG><a name="[a1]"></a>osSignalWait</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, rt_cmsis.o(i.osSignalWait))
 <BR><BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_controller
 </UL>
 
@@ -2562,7 +2562,7 @@ Local Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_3
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_1
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 </UL>
 
 <P><STRONG><a name="[b1]"></a>errata_16</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, system_nrf52.o(i.errata_16))

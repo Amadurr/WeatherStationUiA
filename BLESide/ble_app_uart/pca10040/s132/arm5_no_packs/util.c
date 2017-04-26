@@ -130,9 +130,9 @@ void spi_handler(void)
 		NRF_LOG_INFO("stating new cycle\r\n");
 		NRF_LOG_FLUSH();
 		//int ack = 0;
-		while((!syn) && (!command))
+		while(/*(!syn) && */(!command))
 		{
-			nrf_delay_ms(50);
+			nrf_delay_ms(10);
 			//NRF_LOG_INFO("waiting for instruction\r\n");
 			NRF_LOG_FLUSH();
 		}
@@ -162,15 +162,15 @@ void spi_handler(void)
 				NRF_LOG_INFO("blep\r\n");
 				NRF_LOG_FLUSH();
 				read_fifo(ttp);
-				NRF_LOG_INFO("sending data: %.3s\r\n", (uint32_t)m_tx_buf);
-				NRF_LOG_FLUSH();
+				//NRF_LOG_INFO("sending data: %.3s\r\n", (uint32_t)m_tx_buf);
+				//NRF_LOG_FLUSH();
 				
 				tx_clear(m_rx_buf, sizeof(m_rx_buf));
 				spis_xfer_done = false;
 
 				nrf_drv_spis_buffers_set(&spis, m_tx_buf, m_length, m_rx_buf, m_length);
-				NRF_LOG_INFO("buffers set\r\n", (uint32_t)m_tx_buf);
-				NRF_LOG_FLUSH();
+				//NRF_LOG_INFO("buffers set\r\n", (uint32_t)m_tx_buf);
+				//NRF_LOG_FLUSH();
 				nrf_drv_gpiote_out_clear(PIN_ACK);
 								
 				NRF_LOG_INFO("waiting for spi transfer\r\n", (uint32_t)m_tx_buf);

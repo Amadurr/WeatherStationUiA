@@ -5,11 +5,11 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.23.0.0
 Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Are Jevne, UiA Grimstad, LIC=----
+License Information: Are Nikolai Jevne, UiA, LIC=----
  
 Tool Versions:
 Toolchain:       MDK-Lite  Version: 5.23
-Toolchain Path:  D:\Code_Stuff\Keil_v5\ARM\ARMCC\Bin
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 4 (build 422)
 Assembler:       Armasm.exe V5.06 update 4 (build 422)
 Linker/Locator:  ArmLink.exe V5.06 update 4 (build 422)
@@ -21,21 +21,13 @@ Target DLL:      Segger\JL2CM3.dll V2.99.23.0
 Dialog DLL:      TCM.DLL V1.27.0.0
  
 <h2>Project:</h2>
-D:\school\Ele217\WeatherStationUiA\OsSide\test.uvprojx
-Project File Date:  04/19/2017
+C:\school\Ele217\WeatherStationUiA\OsSide\test.uvprojx
+Project File Date:  04/26/2017
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 4 (build 422)', folder: 'D:\Code_Stuff\Keil_v5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Weatherstation'
-compiling data_Transfer.c...
-Resources\data_Transfer.c(85): warning:  #188-D: enumerated type mixed with another type
-  	  in_config.pull = 
-PIO_PIN_CNF_PULL_Pullup;
-Resources\data_Transfer.c: 1 warning, 0 errors
-linking...
-Program Size: Code=19332 RO-data=1752 RW-data=132 ZI-data=22116  
-FromELF: creating hex file...
-".\Objects\WeatherStationUiA.axf" - 0 Error(s), 1 Warning(s).
+".\Objects\WeatherStationUiA.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -48,16 +40,16 @@ Package Vendor: ARM
    * Component: Keil RTX Version: 4.81.0
 
 Package Vendor: NordicSemiconductor
-                http://developer.nordicsemi.com/nRF5_SDK/pieces/nRF_DeviceFamilyPack/NordicSemiconductor.nRF_DeviceFamilyPack.8.11.1.pack
-                NordicSemiconductor::Device:Startup:8.11.1
+                http://developer.nordicsemi.com/nRF5_SDK/pieces/nRF_DeviceFamilyPack/NordicSemiconductor.nRF_DeviceFamilyPack.8.12.0.pack
+                NordicSemiconductor::Device:Startup:8.12.0
                 Nordic Semiconductor nRF ARM devices Device Family Pack.
-   * Component: Startup Version: 8.11.1
+   * Component: Startup Version: 8.12.0
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_Weatherstation
-  D:\Code_Stuff\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include
-  D:\Code_Stuff\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC
-  D:\Code_Stuff\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC
+  C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.12.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
 
@@ -67,24 +59,24 @@ Package Vendor: NordicSemiconductor
 
    * Component: ARM::CMSIS:RTOS:Keil RTX:4.81.0
       Include file:  CMSIS\RTOS\RTX\UserCodeTemplates\osObjects.h
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\main.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MailQueue.c
-      Source file:   CMSIS\RTOS\RTX\Templates\RTX_Conf_CM.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MsgQueue.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Timer.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MemPool.c
       Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Mutex.c
       Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Semaphore.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\main.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MailQueue.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MemPool.c
+      Source file:   CMSIS\RTOS\RTX\Templates\RTX_Conf_CM.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MsgQueue.c
       Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Thread.c
-      Include file:  CMSIS\RTOS\RTX\INC\cmsis_os.h
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Timer.c
       Source file:   CMSIS\RTOS\RTX\SRC\ARM\SVC_Table.s
+      Include file:  CMSIS\RTOS\RTX\INC\cmsis_os.h
       Library file:  CMSIS\RTOS\RTX\LIB\ARM\RTX_CM4.lib
 
-   * Component: NordicSemiconductor::Device:Startup:8.11.1
-      Source file:   Device\Source\system_nrf52.c
+   * Component: NordicSemiconductor::Device:Startup:8.12.0
       Source file:   Device\Source\arm\arm_startup_nrf52.s
+      Source file:   Device\Source\system_nrf52.c
       Include file:  Device\Include\system_nrf52.h
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

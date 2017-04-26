@@ -104,7 +104,7 @@ void SPI_init(void)
 
 void SPI_controller(void const *argument)
 {
-	//NRF_LOG_INFO("SPI Thread start\r\n");
+	NRF_LOG_INFO("SPI Thread start\r\n");
 	uint16_t wait = 50;	//wait variable, constant for now, might change later
 	osEvent event_m;
 	osEvent event_s;
@@ -122,8 +122,7 @@ void SPI_controller(void const *argument)
 			tx_clr(m_tx_buf, m_length);
 			
 			//wait for spis to set syn low to autorise transfer start
-			osDelay(20);
-			event_s = osSignalWait(0,0);
+			event_s = osSignalWait(0,20);
 			if(event_s.value.signals == 0 )
 			{
 				spi_xfer_done = false;
@@ -142,7 +141,7 @@ void SPI_controller(void const *argument)
 				}
 			}
 			nrf_drv_gpiote_out_clear(PIN_ACK);
-
+			continue;
 		}
 		event_m = osMailGet(mail_q_id[1],50);
 		if (event_m.status == osEventMail)  //send code
