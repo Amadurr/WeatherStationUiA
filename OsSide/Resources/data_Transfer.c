@@ -15,7 +15,7 @@ extern osThreadId tid_SPI;
 static uint8_t       m_tx_buf[3];           //< TX buffer.
 static uint8_t       m_rx_buf[3+1];    //< RX buffer.
 static const uint8_t m_length = sizeof(m_tx_buf);        //< Transfer length.
-
+static uint8_t			 STA_SYN;		//Syn state
 #define PIN_SYN 30
 #define PIN_ACK 31
 
@@ -34,18 +34,19 @@ osMailQId PcalQ_Id;
 
 void SynHandler(nrf_drv_gpiote_pin_t pin, nrf_gpiote_polarity_t action) 
 {
-	static uint8_t syn_state = 0x01;
-	if(syn_state)
+	if((pin == PIN_SYN) && (action == NRF_GPIOTE_POLARITY_TOGGLE))
 	{
-		NRF_LOG_INFO("syn = 1 \r\n");
-		osSignalSet(tid_SPI, 1);
+		if(nrf_drv_gpiote_in_is_set(pin))
+		{
+			STA_SYN = 1;
+		}
+		else
+		{
+			STA_SYN = 0;
+		}
+		NRF_LOG_INFO("syn = %i \r\n",STA_SYN);
+		osSignalSet(tid_SPI, STA_SYN);
 	}
-	else
-	{
-		NRF_LOG_INFO("syn = 0 \r\n");
-		osSignalSet(tid_SPI, 0);
-	}
-	syn_state ^= 0x01;
 }
 
 void tx_set( uint8_t* tx, uint8_t* buff, uint8_t size)
@@ -74,10 +75,11 @@ void SPI_init(void)
 		ret_code_t err_code;
 		NRF_LOG_INFO("init SPI\r\n");
 	  nrf_drv_spi_config_t spi_config = NRF_DRV_SPI_DEFAULT_CONFIG;
-    spi_config.ss_pin   = SPI_SS_PIN;
-    spi_config.miso_pin = SPI_MISO_PIN;
-    spi_config.mosi_pin = SPI_MOSI_PIN;
-    spi_config.sck_pin  = SPI_SCK_PIN;
+    spi_config.ss_pin   	= SPI_SS_PIN;
+    spi_config.miso_pin 	= SPI_MISO_PIN;
+    spi_config.mosi_pin 	= SPI_MOSI_PIN;
+    spi_config.sck_pin  	= SPI_SCK_PIN;
+		spi_config.frequency	= NRF_DRV_SPI_FREQ_2M;
     nrf_drv_spi_init(&spi, &spi_config, spi_event_handler);
 	
 	  nrf_drv_gpiote_init();
@@ -118,13 +120,21 @@ void SPI_controller(void const *argument)
 		{
 			NRF_LOG_INFO("Received mode\r\n");
 			//set ack hight to acknowledge send request
-			nrf_drv_gpiote_out_set(PIN_ACK);
-			tx_clr(m_tx_buf, m_length);
 			
-			//wait for spis to set syn low to autorise transfer start
-			event_s = osSignalWait(0,20);
-			if(event_s.value.signals == 0 )
+			//wait a moment to see if signal stays, indicating its a real signal and not a new setup
+			osDelay(100);
+			if(nrf_drv_gpiote_in_is_set(PIN_SYN))
 			{
+				NRF_LOG_INFO("Legit signal, waiting for syn = 0\r\n");
+				nrf_drv_gpiote_out_set(PIN_ACK);
+				tx_clr(m_tx_buf, m_length);
+				
+				//wait for spis to set syn low to autorise transfer start
+				while(STA_SYN)
+				{
+					osDelay(50);
+				}
+				NRF_LOG_INFO("Starting transfer\r\n");
 				spi_xfer_done = false;
 				nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length);
 				//set ack low to signal start of transfer
@@ -136,7 +146,7 @@ void SPI_controller(void const *argument)
 				i = 0;
 				while(m_rx_buf[i])
 				{
-					NRF_LOG_INFO("%x\r\n",m_rx_buf[i]);
+					NRF_LOG_INFO("%c\r\n",m_rx_buf[i]);
 					i++;
 				}
 			}
@@ -148,7 +158,7 @@ void SPI_controller(void const *argument)
 		{
 			NRF_LOG_INFO("Send mode\r\n");
 			mail_protocol_t *mail =(mail_protocol_t*)event_m.value.p;
-			while(event_s.value.v == 0)
+			while(!nrf_drv_gpiote_in_is_set(PIN_SYN))
 			{				
 				nrf_drv_gpiote_out_clear(PIN_ACK);
 				osDelay(500);

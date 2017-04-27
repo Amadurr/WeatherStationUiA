@@ -59,8 +59,11 @@ void timer_led_event_handler(nrf_timer_event_t event_type, void *p_context)
 
 void SynHandler(nrf_drv_gpiote_pin_t pin, nrf_gpiote_polarity_t action) 
 {
-		syn ^= 0x01;
+	if((pin == PIN_SYN) && (action == NRF_GPIOTE_POLARITY_TOGGLE))
+	{
+		syn = nrf_drv_gpiote_in_is_set(pin);
 		NRF_LOG_INFO("syn = %i\r\n", syn);
+	}
 }
 		
 void spi_app_init(void)
@@ -130,10 +133,9 @@ void spi_handler(void)
 		NRF_LOG_INFO("stating new cycle\r\n");
 		NRF_LOG_FLUSH();
 		//int ack = 0;
-		while(/*(!syn) && */(!command))
+		while((!syn) && (!command))
 		{
-			nrf_delay_ms(10);
-			//NRF_LOG_INFO("waiting for instruction\r\n");
+			__WFE();
 			NRF_LOG_FLUSH();
 		}
 		
@@ -148,50 +150,53 @@ void spi_handler(void)
 			NRF_LOG_INFO("sedning mode\r\n");
 			NRF_LOG_FLUSH();
 			
-			while(( syn == 0 ) || ( timer_ != 0 ))
+			while(( !syn ) && ( !timer_ ))
 			{
-				nrf_delay_ms(50);
-				NRF_LOG_FLUSH();
+				__WFE();
 			}
-			
-			if(syn)
+			if(timer_)
 			{
-				//prep transfer+
-				uint8_t *ttp = m_tx_buf;	//pointer to tx buffer
-				
-				NRF_LOG_INFO("blep\r\n");
+				NRF_LOG_INFO("syn timeout, waiting to recieve package\r\n");
 				NRF_LOG_FLUSH();
-				read_fifo(ttp);
-				//NRF_LOG_INFO("sending data: %.3s\r\n", (uint32_t)m_tx_buf);
-				//NRF_LOG_FLUSH();
 				
 				tx_clear(m_rx_buf, sizeof(m_rx_buf));
+				tx_clear(m_tx_buf, sizeof(m_tx_buf));
 				spis_xfer_done = false;
 
 				nrf_drv_spis_buffers_set(&spis, m_tx_buf, m_length, m_rx_buf, m_length);
-				//NRF_LOG_INFO("buffers set\r\n", (uint32_t)m_tx_buf);
-				//NRF_LOG_FLUSH();
-				nrf_drv_gpiote_out_clear(PIN_ACK);
-								
-				NRF_LOG_INFO("waiting for spi transfer\r\n", (uint32_t)m_tx_buf);
-				NRF_LOG_FLUSH();
 				while(!spis_xfer_done)
 				{
-					nrf_delay_ms(200);
-					NRF_LOG_INFO("dot\r\n", (uint32_t)m_tx_buf);
-					NRF_LOG_FLUSH();
+					__WFE();
 				}
-				NRF_LOG_INFO("transfer done\r\n", (uint32_t)m_tx_buf);
-				NRF_LOG_FLUSH();
 			}
-			else
+			//prep transfer+
+			nrf_delay_ms(100);
+			uint8_t *ttp = m_tx_buf;	//pointer to tx buffer
+			
+			NRF_LOG_INFO("blep\r\n");
+			NRF_LOG_FLUSH();
+			read_fifo(ttp);
+			NRF_LOG_INFO("sending data: %.3s\r\n", (uint32_t)m_tx_buf);
+			NRF_LOG_FLUSH();
+			
+      memset(m_rx_buf, 0, m_length);
+			spis_xfer_done = false;
+
+			nrf_drv_spis_buffers_set(&spis, m_tx_buf, m_length, m_rx_buf, m_length);
+			//NRF_LOG_INFO("buffers set\r\n", (uint32_t)m_tx_buf);
+			//NRF_LOG_FLUSH();
+			nrf_drv_gpiote_out_clear(PIN_ACK);
+							
+			NRF_LOG_INFO("waiting for spi transfer\r\n", (uint32_t)m_tx_buf);
+			NRF_LOG_FLUSH();
+			while(!spis_xfer_done)
 			{
-				while(!spis_xfer_done)
-				{
-					nrf_delay_ms(50);
-					NRF_LOG_FLUSH();
-				}
+				__WFE();
 			}
+			NRF_LOG_INFO("transfer done\r\n", (uint32_t)m_tx_buf);
+			NRF_LOG_FLUSH();
+			
+			
 			continue;
 		}
 		if(syn)
@@ -200,7 +205,7 @@ void spi_handler(void)
 //			NRF_LOG_FLUSH();
 			//prepare transfer
 			nrf_delay_ms(100);
-			if(syn)
+			if(!syn)
 			{			
 				continue;
 			}

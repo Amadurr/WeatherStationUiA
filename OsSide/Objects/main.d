@@ -49,3 +49,4 @@
 .\objects\main.o: ..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log_ctrl.h
 .\objects\main.o: ..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_ctrl_internal.h
 .\objects\main.o: ..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util_platform.h
+.\objects\main.o: util.h

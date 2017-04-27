@@ -28,10 +28,14 @@ Project File Date:  04/26/2017
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'nrf52832_xxaa'
 compiling util.c...
+util.c(97): warning:  #188-D: enumerated type mixed with another type
+  	  in_config.pull = 
+PIO_PIN_CNF_PULL_Pullup;
+util.c: 1 warning, 0 errors
 linking...
-Program Size: Code=11332 RO-data=1332 RW-data=96 ZI-data=17888  
+Program Size: Code=11708 RO-data=1336 RW-data=96 ZI-data=17888  
 FromELF: creating hex file...
-".\_build\nrf52832_xxaa.axf" - 0 Error(s), 0 Warning(s).
+".\_build\nrf52832_xxaa.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -59,8 +63,8 @@ Package Vendor: NordicSemiconductor
 
    * Component: NordicSemiconductor::Device:Startup:8.11.1
       Source file:   Device\Source\system_nrf52.c
-      Source file:   Device\Source\arm\arm_startup_nrf52.s
       Include file:  Device\Include\system_nrf52.h
+      Source file:   Device\Source\arm\arm_startup_nrf52.s
 Build Time Elapsed:  00:00:01
 </pre>
 </body>

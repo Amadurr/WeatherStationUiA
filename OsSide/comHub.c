@@ -25,7 +25,9 @@ void comhub(void const *argument)
 {
 	osEvent evt;
 		//init malqueue then
-		//wait for mail
+		//wait for mail			
+	NRF_LOG_INFO("ComHub start\r\n");
+
 	while(1)
 	{
 		evt = osMailGet(mail_q_id[0],osWaitForever);

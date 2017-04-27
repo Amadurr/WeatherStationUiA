@@ -2245,7 +2245,7 @@
  
 
 #ifndef SPIS1_ENABLED
-#define SPIS1_ENABLED 0
+#define SPIS1_ENABLED 1
 #endif
 
 // <q> SPIS2_ENABLED  - Enable SPIS2 instance

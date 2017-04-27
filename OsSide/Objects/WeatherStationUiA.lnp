@@ -2,6 +2,7 @@
 ".\objects\main.o"
 ".\objects\data_transfer.o"
 ".\objects\comhub.o"
+".\objects\util.o"
 ".\objects\nrf_drv_gpiote.o"
 ".\objects\nrf_drv_common.o"
 ".\objects\nrf_drv_spi.o"

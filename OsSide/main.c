@@ -5,6 +5,7 @@
 #define osObjectsPublic                     // define objects in main module   
 #include "osObjects.h"                      // RTOS object definitions       
 #include "data_Transfer.h"
+#include "util.h"
 
 
 // CMSIS RTOS header file
@@ -24,6 +25,9 @@ osThreadDef (SPI_controller,osPriorityNormal,1,0);
 osThreadId tid_comhub;
 osThreadDef (comhub,osPriorityNormal,1,0);
 
+osThreadId print_server_tid;
+osThreadDef (print_server,osPriorityLow,1,0);
+
 extern osMailQId  (mail_q_id[5]);
 
 /*
@@ -42,6 +46,7 @@ int main (void) {
 	NRF_LOG_INFO("Log initialized\r\n");
 	SPI_init();
 	comhub_init();
+	butt_init();
 	NRF_LOG_FLUSH();
 	tid_comhub = osThreadCreate (osThread(comhub),NULL);
 	tid_SPI = osThreadCreate (osThread(SPI_controller),NULL);
@@ -51,18 +56,7 @@ int main (void) {
 	
 	
 	osKernelStart ();                         // start thread execution 
-//	NRF_LOG_INFO("sending testmsg\r\n");
-//	uint8_t msg[] = {'A','B','C'}; 
-//	
-//	mail_protocol_t *testmsg;
-//	testmsg = (mail_protocol_t *) osMailAlloc(mail_q_id[0], osWaitForever);
-//	testmsg->sid = 255;
-//	testmsg->rid = 0;
-//	testmsg->flg = 0;
-//	testmsg->pld_s = sizeof(msg);
-//	testmsg->pld = msg;
-//	osMailPut(mail_q_id[0], testmsg);
-	
+
 	while(1)
 	{
 		//osSignalWait(0,0);

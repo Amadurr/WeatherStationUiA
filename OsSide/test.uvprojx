@@ -399,6 +399,16 @@
               <FileType>1</FileType>
               <FilePath>.\comHub.c</FilePath>
             </File>
+            <File>
+              <FileName>util.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\util.c</FilePath>
+            </File>
+            <File>
+              <FileName>util.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\util.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -891,6 +901,16 @@
               <FileName>comHub.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\comHub.c</FilePath>
+            </File>
+            <File>
+              <FileName>util.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\util.c</FilePath>
+            </File>
+            <File>
+              <FileName>util.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\util.h</FilePath>
             </File>
           </Files>
         </Group>
