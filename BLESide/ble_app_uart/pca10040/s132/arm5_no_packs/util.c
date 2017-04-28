@@ -174,7 +174,7 @@ void spi_handler(void)
 			
 			uprint("blep\r\n");
 			read_fifo(ttp);
-			uprint("sending data: %.3s\r\n", (uint8_t)m_tx_buf);
+			uprint("sending data: %s\r\n", (uint8_t*)m_tx_buf);
 			
       memset(m_rx_buf, 0, m_length);
 			spis_xfer_done = false;
@@ -189,7 +189,7 @@ void spi_handler(void)
 			{
 				__WFE();
 			}
-			uprint("transfer done %s\r\n");
+			uprint("transfer done\r\n");
 			
 			
 			continue;

@@ -1,12 +1,13 @@
 #include "definitions.h"
 #include "BLEFunctions.h"
 #include "util.h"
+#include <string.h>
 
 static ble_nus_t                        m_nus;                                      /**< Structure to identify the Nordic UART Service. */
 static uint16_t                         m_conn_handle = BLE_CONN_HANDLE_INVALID;    /**< Handle of the current connection. */
 
 static ble_uuid_t                       m_adv_uuids[] = {{BLE_UUID_NUS_SERVICE, NUS_SERVICE_UUID_TYPE}};  /**< Universally unique service identifier. */
-
+extern uint8_t command;
 
 /**@brief Function for assert macro callback.
  *
@@ -67,13 +68,17 @@ void gap_params_init(void)
 /**@snippet [Handling the data received over BLE] */
 void nus_data_handler(ble_nus_t * p_nus, uint8_t * p_data, uint16_t length)
 {
-	add_fifo(p_data);
+	uint8_t *str_ptr;
+	strcpy(str_ptr,p_data);
+	add_fifo(str_ptr);
+	command = 1;
+	/*
     for (uint32_t i = 0; i < length; i++)
     {
         while (app_uart_put(p_data[i]) != NRF_SUCCESS);
     }
     while (app_uart_put('\r') != NRF_SUCCESS);
-    while (app_uart_put('\n') != NRF_SUCCESS);
+    while (app_uart_put('\n') != NRF_SUCCESS);*/
 }
 /**@snippet [Handling the data received over BLE] */
 
@@ -317,20 +322,16 @@ void ble_evt_dispatch(ble_evt_t * p_ble_evt)
 void ble_stack_init(void)
 {
     uint32_t err_code;
-		uprint("2_1\r\n");
     nrf_clock_lf_cfg_t clock_lf_cfg = NRF_CLOCK_LFCLKSRC;
-		uprint("2_2\r\n");
 
     // Initialize SoftDevice.
     SOFTDEVICE_HANDLER_INIT(&clock_lf_cfg, NULL);
-		uprint("2_3\r\n");
 
     ble_enable_params_t ble_enable_params;
     err_code = softdevice_enable_get_default_config(CENTRAL_LINK_COUNT,
                                                     PERIPHERAL_LINK_COUNT,
                                                     &ble_enable_params);
     APP_ERROR_CHECK(err_code);
-		uprint("2_4\r\n");
 
     //Check the ram settings against the used number of links
     CHECK_RAM_START_ADDR(CENTRAL_LINK_COUNT,PERIPHERAL_LINK_COUNT);
@@ -341,12 +342,10 @@ void ble_stack_init(void)
 #endif
     err_code = softdevice_enable(&ble_enable_params);
     APP_ERROR_CHECK(err_code);
-		uprint("2_5\r\n");
 
     // Subscribe for BLE events.
     err_code = softdevice_ble_evt_handler_set(ble_evt_dispatch);
     APP_ERROR_CHECK(err_code);
-		uprint("2_6\r\n");
 }
 
 
@@ -524,26 +523,19 @@ void ble_app_init(void)
 {
 	  uint32_t err_code;
     bool erase_bonds;
-		uprint("1\r\n");
 
     // Initialize.
     APP_TIMER_INIT(APP_TIMER_PRESCALER, APP_TIMER_OP_QUEUE_SIZE, false);
-		uprint("2\r\n");
     //uart_init();
 
     //buttons_leds_init(&erase_bonds);
     ble_stack_init();
-		uprint("3\r\n");
     gap_params_init();
-		uprint("4\r\n");
     services_init();
-		uprint("5\r\n");
     advertising_init();
-		uprint("6\r\n");
     conn_params_init();
-		uprint("7\r\n");
 
-		uprint("BLESTART");
+		uprint("BLESTART\r\n");
     
     err_code = ble_advertising_start(BLE_ADV_MODE_FAST);
     //APP_ERROR_CHECK(err_code);
