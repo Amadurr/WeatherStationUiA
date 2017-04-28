@@ -20,11 +20,11 @@ extern osMailQId  (Print_Q_id);
 
 typedef struct{
 	uint8_t *str;
-	uint8_t len;
 }mail_print_t;
 
 void butt_init(void);
 void print_server(void const *arg);
+void printer(const char *fmt);
 
 #endif //UTIL_H__
 
@@ -32,6 +32,6 @@ void print_server(void const *arg);
 #define U_PRINT
 #define uprint(...)\
 {\
-	snprintf((char*)printbuf,sizeof(printbuf),__VA_ARGS__);\
+	printer(snprintf((char*)printbuf,sizeof(printbuf),__VA_ARGS__))\
 }
 #endif //U_PRINT

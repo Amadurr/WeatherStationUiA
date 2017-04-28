@@ -60,20 +60,22 @@ void butt_init(void)
 
 }
 
-void printer(const char *fmt)
+void printer(const char *fmt,...)
 {
 	uint8_t* buff
-	mail_print_t *printmsg;\
-	testmsg = (mail_print_t *) osMailAlloc(Print_Q_id, osWaitForever);\
-	if(printmsg == NULL)\
-	{\
-		NRF_LOG_INFO("failed to make mail\r\n");\
-		NRF_LOG_FLUSH();\
-	}\
-	testmsg->pld_s = pld_s;\
-	testmsg->pld = pld;\
-	osMailPut(Print_Q_id, testmsg);\
-	uartprint((uint8_t*)printbuf);\
+	va_list args;
+	va_start(args,fmt)
+	//build string
+	va_end(args)
+	mail_print_t *printmsg;
+	printmsg = (mail_print_t *) osMailAlloc(Print_Q_id, osWaitForever);
+	if(printmsg == NULL)
+	{
+		NRF_LOG_INFO("failed to make mail\r\n");
+		NRF_LOG_FLUSH();
+	}
+	printmsg->str = buff;
+	osMailPut(Print_Q_id, printmsg);
 }
 void uart_print_init(void)
 {
@@ -96,10 +98,7 @@ void print_server(void const *arg)
 		if(evt.status == osEventMail)
 		{
 			mail_print_t *received = (mail_print_t *)evt.value.p;		
-			for(int i = 0; i < received->len; i++)
-			{
-				nrf_drv_uart_tx(&p_uart, (const uint8_t *)&received->str[i], 1);
-			}
+			nrf_drv_uart_tx(&p_uart, (const uint8_t *)received->str, strlen((char *)received->str));
 		}
 	}
 }

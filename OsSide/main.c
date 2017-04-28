@@ -43,7 +43,7 @@ int main (void) {
   
 	APP_ERROR_CHECK(NRF_LOG_INIT(NULL));
 	
-	NRF_LOG_INFO("Log initialized\r\n");
+	uprint("Log initialized\r\n");
 	SPI_init();
 	comhub_init();
 	butt_init();
@@ -62,9 +62,7 @@ int main (void) {
 	testmsg = (mail_protocol_t *) osMailAlloc(mail_q_id[0], osWaitForever);
 	if(testmsg == NULL)
 	{
-		
-		NRF_LOG_INFO("failed to make mail\r\n");
-		NRF_LOG_FLUSH();
+		uprint("failed to make mail\r\n")
 		
 	}
 	testmsg->sid = 255;
