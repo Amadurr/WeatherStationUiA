@@ -1,5 +1,6 @@
 #include "definitions.h"
 #include "BLEFunctions.h"
+#include "util.h"
 
 static ble_nus_t                        m_nus;                                      /**< Structure to identify the Nordic UART Service. */
 static uint16_t                         m_conn_handle = BLE_CONN_HANDLE_INVALID;    /**< Handle of the current connection. */
@@ -66,6 +67,7 @@ void gap_params_init(void)
 /**@snippet [Handling the data received over BLE] */
 void nus_data_handler(ble_nus_t * p_nus, uint8_t * p_data, uint16_t length)
 {
+	add_fifo(p_data);
     for (uint32_t i = 0; i < length; i++)
     {
         while (app_uart_put(p_data[i]) != NRF_SUCCESS);
@@ -315,17 +317,20 @@ void ble_evt_dispatch(ble_evt_t * p_ble_evt)
 void ble_stack_init(void)
 {
     uint32_t err_code;
-
+		uprint("2_1\r\n");
     nrf_clock_lf_cfg_t clock_lf_cfg = NRF_CLOCK_LFCLKSRC;
+		uprint("2_2\r\n");
 
     // Initialize SoftDevice.
     SOFTDEVICE_HANDLER_INIT(&clock_lf_cfg, NULL);
+		uprint("2_3\r\n");
 
     ble_enable_params_t ble_enable_params;
     err_code = softdevice_enable_get_default_config(CENTRAL_LINK_COUNT,
                                                     PERIPHERAL_LINK_COUNT,
                                                     &ble_enable_params);
     APP_ERROR_CHECK(err_code);
+		uprint("2_4\r\n");
 
     //Check the ram settings against the used number of links
     CHECK_RAM_START_ADDR(CENTRAL_LINK_COUNT,PERIPHERAL_LINK_COUNT);
@@ -336,10 +341,12 @@ void ble_stack_init(void)
 #endif
     err_code = softdevice_enable(&ble_enable_params);
     APP_ERROR_CHECK(err_code);
+		uprint("2_5\r\n");
 
     // Subscribe for BLE events.
     err_code = softdevice_ble_evt_handler_set(ble_evt_dispatch);
     APP_ERROR_CHECK(err_code);
+		uprint("2_6\r\n");
 }
 
 
@@ -389,70 +396,70 @@ void bsp_event_handler(bsp_event_t event)
  *          @ref NUS_MAX_DATA_LENGTH.
  */
 /**@snippet [Handling the data received over UART] */
-void uart_event_handle(app_uart_evt_t * p_event)
-{
-    static uint8_t data_array[BLE_NUS_MAX_DATA_LEN];
-    static uint8_t index = 0;
-    uint32_t       err_code;
+//void uart_event_handle(app_uart_evt_t * p_event)
+//{
+//    static uint8_t data_array[BLE_NUS_MAX_DATA_LEN];
+//    static uint8_t index = 0;
+//    uint32_t       err_code;
 
-    switch (p_event->evt_type)
-    {
-        case APP_UART_DATA_READY:
-            UNUSED_VARIABLE(app_uart_get(&data_array[index]));
-            index++;
+//    switch (p_event->evt_type)
+//    {
+//        case APP_UART_DATA_READY:
+//            UNUSED_VARIABLE(app_uart_get(&data_array[index]));
+//            index++;
 
-				if ((data_array[index - 1] == '\r') || (index >= (BLE_NUS_MAX_DATA_LEN)))
-            {
-                err_code = ble_nus_string_send(&m_nus, data_array, index);
-                if (err_code != NRF_ERROR_INVALID_STATE)
-                {
-                    APP_ERROR_CHECK(err_code);
-                }
+//				if ((data_array[index - 1] == '\r') || (index >= (BLE_NUS_MAX_DATA_LEN)))
+//            {
+//                err_code = ble_nus_string_send(&m_nus, data_array, index);
+//                if (err_code != NRF_ERROR_INVALID_STATE)
+//                {
+//                    APP_ERROR_CHECK(err_code);
+//                }
 
-                index = 0;
-            }
-            break;
+//                index = 0;
+//            }
+//            break;
 
-        case APP_UART_COMMUNICATION_ERROR:
-            APP_ERROR_HANDLER(p_event->data.error_communication);
-            break;
+//        case APP_UART_COMMUNICATION_ERROR:
+//            APP_ERROR_HANDLER(p_event->data.error_communication);
+//            break;
 
-        case APP_UART_FIFO_ERROR:
-            APP_ERROR_HANDLER(p_event->data.error_code);
-            break;
+//        case APP_UART_FIFO_ERROR:
+//            APP_ERROR_HANDLER(p_event->data.error_code);
+//            break;
 
-        default:
-            break;
-    }
-}
+//        default:
+//            break;
+//    }
+//}
 /**@snippet [Handling the data received over UART] */
 
 
 /**@brief  Function for initializing the UART module.
  */
 /**@snippet [UART Initialization] */
-void uart_init(void)
-{
-    uint32_t                     err_code;
-    const app_uart_comm_params_t comm_params =
-    {
-        RX_PIN_NUMBER,
-        TX_PIN_NUMBER,
-        RTS_PIN_NUMBER,
-        CTS_PIN_NUMBER,
-        APP_UART_FLOW_CONTROL_DISABLED,
-        false,
-        UART_BAUDRATE_BAUDRATE_Baud115200
-    };
+//void uart_init(void)
+//{
+//    uint32_t                     err_code;
+//    const app_uart_comm_params_t comm_params =
+//    {
+//        RX_PIN_NUMBER,
+//        TX_PIN_NUMBER,
+//        RTS_PIN_NUMBER,
+//        CTS_PIN_NUMBER,
+//        APP_UART_FLOW_CONTROL_DISABLED,
+//        false,
+//        UART_BAUDRATE_BAUDRATE_Baud115200
+//    };
 
-    APP_UART_FIFO_INIT( &comm_params,
-                       UART_RX_BUF_SIZE,
-                       UART_TX_BUF_SIZE,
-                       uart_event_handle,
-                       APP_IRQ_PRIORITY_LOWEST,
-                       err_code);
-    APP_ERROR_CHECK(err_code);
-}
+//    APP_UART_FIFO_INIT( &comm_params,
+//                       UART_RX_BUF_SIZE,
+//                       UART_TX_BUF_SIZE,
+//                       uart_event_handle,
+//                       APP_IRQ_PRIORITY_LOWEST,
+//                       err_code);
+//    APP_ERROR_CHECK(err_code);
+//}
 /**@snippet [UART Initialization] */
 
 
@@ -489,20 +496,20 @@ void advertising_init(void)
  *
  * @param[out] p_erase_bonds  Will be true if the clear bonding button was pressed to wake the application up.
  */
-void buttons_leds_init(bool * p_erase_bonds)
-{
-    bsp_event_t startup_event;
+//void buttons_leds_init(bool * p_erase_bonds)
+//{
+//    bsp_event_t startup_event;
 
-    uint32_t err_code = bsp_init(BSP_INIT_LED | BSP_INIT_BUTTONS,
-                                 APP_TIMER_TICKS(100, APP_TIMER_PRESCALER),
-                                 bsp_event_handler);
-    APP_ERROR_CHECK(err_code);
+//    uint32_t err_code = bsp_init(BSP_INIT_LED | BSP_INIT_BUTTONS,
+//                                 APP_TIMER_TICKS(100, APP_TIMER_PRESCALER),
+//                                 bsp_event_handler);
+//    APP_ERROR_CHECK(err_code);
 
-    err_code = bsp_btn_ble_init(NULL, &startup_event);
-    APP_ERROR_CHECK(err_code);
+//    err_code = bsp_btn_ble_init(NULL, &startup_event);
+//    APP_ERROR_CHECK(err_code);
 
-    *p_erase_bonds = (startup_event == BSP_EVENT_CLEAR_BONDING_DATA);
-}
+//    *p_erase_bonds = (startup_event == BSP_EVENT_CLEAR_BONDING_DATA);
+//}
 
 
 /**@brief Function for placing the application in low power state while waiting for events.
@@ -517,19 +524,27 @@ void ble_app_init(void)
 {
 	  uint32_t err_code;
     bool erase_bonds;
+		uprint("1\r\n");
 
     // Initialize.
     APP_TIMER_INIT(APP_TIMER_PRESCALER, APP_TIMER_OP_QUEUE_SIZE, false);
-    uart_init();
+		uprint("2\r\n");
+    //uart_init();
 
-    buttons_leds_init(&erase_bonds);
+    //buttons_leds_init(&erase_bonds);
     ble_stack_init();
+		uprint("3\r\n");
     gap_params_init();
+		uprint("4\r\n");
     services_init();
+		uprint("5\r\n");
     advertising_init();
+		uprint("6\r\n");
     conn_params_init();
+		uprint("7\r\n");
 
-    printf("\r\nUART Start!\r\n");
+		uprint("BLESTART");
+    
     err_code = ble_advertising_start(BLE_ADV_MODE_FAST);
-    APP_ERROR_CHECK(err_code);
+    //APP_ERROR_CHECK(err_code);
 }

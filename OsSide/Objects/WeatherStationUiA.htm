@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\WeatherStationUiA.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\WeatherStationUiA.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Thu Apr 27 16:46:49 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Fri Apr 28 11:24:22 2017
 <BR><P>
 <H3>Maximum Stack Usage =        496 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -301,8 +301,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[75]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 180 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; butt_init &rArr; app_error_handler_bare &rArr; app_error_fault_handler &rArr; nrf_log_blocking_backend_set &rArr; nrf_log_backend_init &rArr; nrf_drv_uart_uninit &rArr; pins_to_default &rArr; nrf_gpio_cfg_default &rArr; nrf_gpio_cfg
+<BR><BR>[Stack]<UL><LI>Max Depth = 188 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; butt_init &rArr; app_error_handler_bare &rArr; app_error_fault_handler &rArr; nrf_log_blocking_backend_set &rArr; nrf_log_backend_init &rArr; nrf_drv_uart_init &rArr; apply_config &rArr; nrf_gpio_cfg_input &rArr; nrf_gpio_cfg
 </UL>
 <BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -904,7 +904,7 @@ Global Symbols
 <P><STRONG><a name="[58]"></a>_mutex_release</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, rtx_conf_cm.o(i._mutex_release), UNUSED, KEPT)
 
 <P><STRONG><a name="[bf]"></a>app_error_fault_handler</STRONG> (Thumb, 90 bytes, Stack size 0 bytes, app_error_weak.o(i.app_error_fault_handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = app_error_fault_handler &rArr; nrf_log_blocking_backend_set &rArr; nrf_log_backend_init &rArr; nrf_drv_uart_uninit &rArr; pins_to_default &rArr; nrf_gpio_cfg_default &rArr; nrf_gpio_cfg
+<BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = app_error_fault_handler &rArr; nrf_log_blocking_backend_set &rArr; nrf_log_backend_init &rArr; nrf_drv_uart_init &rArr; apply_config &rArr; nrf_gpio_cfg_input &rArr; nrf_gpio_cfg
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_dequeue
@@ -914,11 +914,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[c2]"></a>app_error_handler_bare</STRONG> (Thumb, 28 bytes, Stack size 24 bytes, app_error.o(i.app_error_handler_bare))
-<BR><BR>[Stack]<UL><LI>Max Depth = 164<LI>Call Chain = app_error_handler_bare &rArr; app_error_fault_handler &rArr; nrf_log_blocking_backend_set &rArr; nrf_log_backend_init &rArr; nrf_drv_uart_uninit &rArr; pins_to_default &rArr; nrf_gpio_cfg_default &rArr; nrf_gpio_cfg
+<BR><BR>[Stack]<UL><LI>Max Depth = 164<LI>Call Chain = app_error_handler_bare &rArr; app_error_fault_handler &rArr; nrf_log_blocking_backend_set &rArr; nrf_log_backend_init &rArr; nrf_drv_uart_init &rArr; apply_config &rArr; nrf_gpio_cfg_input &rArr; nrf_gpio_cfg
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_fault_handler
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;butt_init
+<BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;butt_init
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -950,19 +950,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_dequeue
 </UL>
 
-<P><STRONG><a name="[3d]"></a>butt_handler</STRONG> (Thumb, 90 bytes, Stack size 24 bytes, util.o(i.butt_handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = butt_handler &rArr; nrf_log_frontend_dequeue
+<P><STRONG><a name="[3d]"></a>butt_handler</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, util.o(i.butt_handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = butt_handler &rArr; nrf_drv_uart_tx &rArr; nrf_drv_uart_tx_for_uart &rArr; tx_byte &rArr; nrf_uart_event_clear
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailAlloc
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_uart_tx
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailPut
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_dequeue
+<BR>[Calls]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_uart_tx
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> util.o(i.butt_init)
 </UL>
-<P><STRONG><a name="[d3]"></a>butt_init</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, util.o(i.butt_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 180<LI>Call Chain = butt_init &rArr; app_error_handler_bare &rArr; app_error_fault_handler &rArr; nrf_log_blocking_backend_set &rArr; nrf_log_backend_init &rArr; nrf_drv_uart_uninit &rArr; pins_to_default &rArr; nrf_gpio_cfg_default &rArr; nrf_gpio_cfg
+<P><STRONG><a name="[d1]"></a>butt_init</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, util.o(i.butt_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 180<LI>Call Chain = butt_init &rArr; app_error_handler_bare &rArr; app_error_fault_handler &rArr; nrf_log_blocking_backend_set &rArr; nrf_log_backend_init &rArr; nrf_drv_uart_init &rArr; apply_config &rArr; nrf_gpio_cfg_input &rArr; nrf_gpio_cfg
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_gpiote_in_init
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_gpiote_in_event_enable
@@ -974,18 +970,18 @@ Global Symbols
 <P><STRONG><a name="[51]"></a>comhub</STRONG> (Thumb, 90 bytes, Stack size 24 bytes, comhub.o(i.comhub))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = comhub &rArr; nrf_log_frontend_std_3 &rArr; buf_prealloc &rArr; app_util_critical_region_exit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailPut
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_3
+<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_3
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailGet
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_1
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailPut
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.constdata)
 </UL>
-<P><STRONG><a name="[d5]"></a>comhub_init</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, comhub.o(i.comhub_init))
+<P><STRONG><a name="[d4]"></a>comhub_init</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, comhub.o(i.comhub_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = comhub_init &rArr; nrf_log_frontend_std_0 &rArr; buf_prealloc &rArr; app_util_critical_region_exit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailCreate
+<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailCreate
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 </UL>
 <BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1004,72 +1000,74 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_switch_req
 </UL>
 
-<P><STRONG><a name="[eb]"></a>isrMessageGet</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, rt_cmsis.o(i.isrMessageGet))
+<P><STRONG><a name="[ea]"></a>isrMessageGet</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, rt_cmsis.o(i.isrMessageGet))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = isrMessageGet &rArr; isr_mbx_receive &rArr; rt_psq_enq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_mbx_receive
+<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_mbx_receive
 </UL>
 <BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMessageGet
 </UL>
 
-<P><STRONG><a name="[ed]"></a>isrMessagePut</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, rt_cmsis.o(i.isrMessagePut))
+<P><STRONG><a name="[ec]"></a>isrMessagePut</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, rt_cmsis.o(i.isrMessagePut))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = isrMessagePut &rArr; isr_mbx_send &rArr; rt_psq_enq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_mbx_check
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_mbx_send
+<BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_mbx_check
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_mbx_send
 </UL>
 <BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sysTimerTick
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMessagePut
 </UL>
 
-<P><STRONG><a name="[f0]"></a>isrSignalSet</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, rt_cmsis.o(i.isrSignalSet))
+<P><STRONG><a name="[ef]"></a>isrSignalSet</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, rt_cmsis.o(i.isrSignalSet))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = isrSignalSet &rArr; isr_evt_set &rArr; rt_psq_enq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_tid2ptcb
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_evt_set
+<BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_tid2ptcb
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_evt_set
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osSignalSet
 </UL>
 
-<P><STRONG><a name="[f2]"></a>isr_evt_set</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, rt_event.o(i.isr_evt_set))
+<P><STRONG><a name="[f1]"></a>isr_evt_set</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, rt_event.o(i.isr_evt_set))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = isr_evt_set &rArr; rt_psq_enq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_psq_enq
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_psh_req
+<BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_psq_enq
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_psh_req
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isrSignalSet
+<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isrSignalSet
 </UL>
 
-<P><STRONG><a name="[ec]"></a>isr_mbx_receive</STRONG> (Thumb, 86 bytes, Stack size 8 bytes, rt_mailbox.o(i.isr_mbx_receive))
+<P><STRONG><a name="[eb]"></a>isr_mbx_receive</STRONG> (Thumb, 86 bytes, Stack size 8 bytes, rt_mailbox.o(i.isr_mbx_receive))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = isr_mbx_receive &rArr; rt_psq_enq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_psq_enq
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_psh_req
+<BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_psq_enq
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_psh_req
 </UL>
-<BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isrMessageGet
+<BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isrMessageGet
 </UL>
 
-<P><STRONG><a name="[ef]"></a>isr_mbx_send</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, rt_mailbox.o(i.isr_mbx_send))
+<P><STRONG><a name="[ee]"></a>isr_mbx_send</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, rt_mailbox.o(i.isr_mbx_send))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = isr_mbx_send &rArr; rt_psq_enq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_psq_enq
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_psh_req
+<BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_psq_enq
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_psh_req
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isrMessagePut
+<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isrMessagePut
 </UL>
 
-<P><STRONG><a name="[54]"></a>main</STRONG> (Thumb, 114 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 180<LI>Call Chain = main &rArr; butt_init &rArr; app_error_handler_bare &rArr; app_error_fault_handler &rArr; nrf_log_blocking_backend_set &rArr; nrf_log_backend_init &rArr; nrf_drv_uart_uninit &rArr; pins_to_default &rArr; nrf_gpio_cfg_default &rArr; nrf_gpio_cfg
+<P><STRONG><a name="[54]"></a>main</STRONG> (Thumb, 188 bytes, Stack size 8 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 188<LI>Call Chain = main &rArr; butt_init &rArr; app_error_handler_bare &rArr; app_error_fault_handler &rArr; nrf_log_blocking_backend_set &rArr; nrf_log_backend_init &rArr; nrf_drv_uart_init &rArr; apply_config &rArr; nrf_gpio_cfg_input &rArr; nrf_gpio_cfg
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osThreadCreate
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailPut
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailAlloc
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelStart
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelInitialize
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_init
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_init
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_dequeue
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;comhub_init
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;butt_init
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;comhub_init
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;butt_init
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_handler_bare
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_init
 </UL>
@@ -1077,12 +1075,12 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> rtx_conf_cm.o(.constdata)
 </UL>
-<P><STRONG><a name="[dd]"></a>nrf_drv_common_irq_enable</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, nrf_drv_common.o(i.nrf_drv_common_irq_enable))
+<P><STRONG><a name="[dc]"></a>nrf_drv_common_irq_enable</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, nrf_drv_common.o(i.nrf_drv_common_irq_enable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = nrf_drv_common_irq_enable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_spi_init
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_gpiote_init
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interrupts_enable
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interrupts_enable
 </UL>
 
 <P><STRONG><a name="[b2]"></a>nrf_drv_gpiote_in_event_enable</STRONG> (Thumb, 164 bytes, Stack size 32 bytes, nrf_drv_gpiote.o(i.nrf_drv_gpiote_in_event_enable))
@@ -1097,7 +1095,7 @@ Global Symbols
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;channel_port_get
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;channel_handler_get
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;butt_init
+<BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;butt_init
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_init
 </UL>
 
@@ -1108,7 +1106,7 @@ Global Symbols
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_gpio_cfg
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;channel_port_alloc
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;butt_init
+<BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;butt_init
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_init
 </UL>
 
@@ -1124,7 +1122,7 @@ Global Symbols
 <P><STRONG><a name="[b0]"></a>nrf_drv_gpiote_init</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, nrf_drv_gpiote.o(i.nrf_drv_gpiote_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = nrf_drv_gpiote_init &rArr; nrf_drv_common_irq_enable
 </UL>
-<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_common_irq_enable
+<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_common_irq_enable
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pin_in_use_clear
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_gpiote_int_enable
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_gpiote_event_clear
@@ -1165,11 +1163,11 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = nrf_drv_spi_init &rArr; nrf_gpio_cfg_output &rArr; nrf_gpio_cfg
 </UL>
 <BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_spim_int_enable
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_gpio_pin_set
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_gpio_pin_set
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_gpio_pin_clear
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_gpio_cfg_output
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_gpio_cfg
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_common_irq_enable
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_common_irq_enable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_init
 </UL>
@@ -1185,8 +1183,8 @@ Global Symbols
 <P><STRONG><a name="[105]"></a>nrf_drv_spi_xfer</STRONG> (Thumb, 104 bytes, Stack size 24 bytes, nrf_drv_spi.o(i.nrf_drv_spi_xfer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = nrf_drv_spi_xfer &rArr; spim_xfer &rArr; nrf_spim_event_clear
 </UL>
-<BR>[Calls]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spim_xfer
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_gpio_pin_clear
+<BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_gpio_pin_clear
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spim_xfer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_spi_transfer
 </UL>
@@ -1194,7 +1192,7 @@ Global Symbols
 <P><STRONG><a name="[107]"></a>nrf_drv_uart_init</STRONG> (Thumb, 126 bytes, Stack size 24 bytes, nrf_drv_uart.o(i.nrf_drv_uart_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = nrf_drv_uart_init &rArr; apply_config &rArr; nrf_gpio_cfg_input &rArr; nrf_gpio_cfg
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interrupts_enable
+<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interrupts_enable
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;apply_config
 </UL>
 <BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_backend_init
@@ -1224,33 +1222,33 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pins_to_default
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uarte_int_disable
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_int_disable
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_get_IRQn
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_get_IRQn
 <LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_common_irq_disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_backend_init
 </UL>
 
 <P><STRONG><a name="[124]"></a>nrf_log_backend_hexdump_handler_get</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, nrf_log_backend_serial.o(i.nrf_log_backend_hexdump_handler_get))
-<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_init
+<BR><BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_init
 </UL>
 
 <P><STRONG><a name="[119]"></a>nrf_log_backend_init</STRONG> (Thumb, 110 bytes, Stack size 48 bytes, nrf_log_backend_serial.o(i.nrf_log_backend_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = nrf_log_backend_init &rArr; nrf_drv_uart_uninit &rArr; pins_to_default &rArr; nrf_gpio_cfg_default &rArr; nrf_gpio_cfg
+<BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = nrf_log_backend_init &rArr; nrf_drv_uart_init &rArr; apply_config &rArr; nrf_gpio_cfg_input &rArr; nrf_gpio_cfg
 </UL>
-<BR>[Calls]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_uart_uninit
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_uart_init
+<BR>[Calls]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_uart_init
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_uart_uninit
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_init
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_init
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_blocking_backend_set
 </UL>
 
 <P><STRONG><a name="[125]"></a>nrf_log_backend_std_handler_get</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, nrf_log_backend_serial.o(i.nrf_log_backend_std_handler_get))
-<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_init
+<BR><BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_init
 </UL>
 
 <P><STRONG><a name="[c0]"></a>nrf_log_blocking_backend_set</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, nrf_log_frontend.o(i.nrf_log_blocking_backend_set))
-<BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = nrf_log_blocking_backend_set &rArr; nrf_log_backend_init &rArr; nrf_drv_uart_uninit &rArr; pins_to_default &rArr; nrf_gpio_cfg_default &rArr; nrf_gpio_cfg
+<BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = nrf_log_blocking_backend_set &rArr; nrf_log_backend_init &rArr; nrf_drv_uart_init &rArr; apply_config &rArr; nrf_gpio_cfg_input &rArr; nrf_gpio_cfg
 </UL>
 <BR>[Calls]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_backend_init
 </UL>
@@ -1262,8 +1260,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buffer_is_empty
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;butt_handler
-<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_fault_handler
 </UL>
 
@@ -1272,7 +1269,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_handlers_set
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_init
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_init
 </UL>
 
 <P><STRONG><a name="[a3]"></a>nrf_log_frontend_std_0</STRONG> (Thumb, 88 bytes, Stack size 32 bytes, nrf_log_frontend.o(i.nrf_log_frontend_std_0))
@@ -1280,8 +1277,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buf_prealloc
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;butt_handler
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;comhub_init
+<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;comhub_init
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;comhub
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_init
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_controller
@@ -1299,7 +1295,7 @@ Global Symbols
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_controller
 </UL>
 
-<P><STRONG><a name="[d4]"></a>nrf_log_frontend_std_3</STRONG> (Thumb, 138 bytes, Stack size 40 bytes, nrf_log_frontend.o(i.nrf_log_frontend_std_3))
+<P><STRONG><a name="[d2]"></a>nrf_log_frontend_std_3</STRONG> (Thumb, 138 bytes, Stack size 40 bytes, nrf_log_frontend.o(i.nrf_log_frontend_std_3))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = nrf_log_frontend_std_3 &rArr; buf_prealloc &rArr; app_util_critical_region_exit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buf_prealloc
@@ -1311,8 +1307,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_init
 </UL>
 
-<P><STRONG><a name="[f5]"></a>nrf_log_init</STRONG> (Thumb, 44 bytes, Stack size 24 bytes, nrf_log_frontend.o(i.nrf_log_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 156<LI>Call Chain = nrf_log_init &rArr; nrf_log_backend_init &rArr; nrf_drv_uart_uninit &rArr; pins_to_default &rArr; nrf_gpio_cfg_default &rArr; nrf_gpio_cfg
+<P><STRONG><a name="[f4]"></a>nrf_log_init</STRONG> (Thumb, 44 bytes, Stack size 24 bytes, nrf_log_frontend.o(i.nrf_log_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 156<LI>Call Chain = nrf_log_init &rArr; nrf_log_backend_init &rArr; nrf_drv_uart_init &rArr; apply_config &rArr; nrf_gpio_cfg_input &rArr; nrf_gpio_cfg
 </UL>
 <BR>[Calls]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_backend_std_handler_get
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_backend_init
@@ -1343,20 +1339,20 @@ Global Symbols
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_platform_post_lib_init
 </UL>
 
-<P><STRONG><a name="[d1]"></a>osMailAlloc</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, rt_cmsis.o(i.osMailAlloc))
+<P><STRONG><a name="[f5]"></a>osMailAlloc</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, rt_cmsis.o(i.osMailAlloc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = osMailAlloc &rArr; sysMailAlloc &rArr; rt_block &rArr; rt_put_dly
 </UL>
 <BR>[Calls]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sysMailAlloc
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;butt_handler
+<BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d6]"></a>osMailCreate</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, rt_cmsis.o(i.osMailCreate))
+<P><STRONG><a name="[d5]"></a>osMailCreate</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, rt_cmsis.o(i.osMailCreate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = osMailCreate &rArr; svcMailCreate &rArr; _init_box
 </UL>
 <BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;svcMailCreate
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;comhub_init
+<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;comhub_init
 </UL>
 
 <P><STRONG><a name="[ac]"></a>osMailGet</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, rt_cmsis.o(i.osMailGet))
@@ -1369,19 +1365,19 @@ Global Symbols
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_controller
 </UL>
 
-<P><STRONG><a name="[d2]"></a>osMailPut</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, rt_cmsis.o(i.osMailPut))
+<P><STRONG><a name="[d3]"></a>osMailPut</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, rt_cmsis.o(i.osMailPut))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = osMailPut &rArr; osMessagePut &rArr; isrMessagePut &rArr; isr_mbx_send &rArr; rt_psq_enq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMessagePut
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;butt_handler
-<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;comhub
+<BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;comhub
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[126]"></a>osMessageGet</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, rt_cmsis.o(i.osMessageGet))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = osMessageGet &rArr; isrMessageGet &rArr; isr_mbx_receive &rArr; rt_psq_enq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isrMessageGet
+<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isrMessageGet
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailGet
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osTimerThread
@@ -1390,15 +1386,15 @@ Global Symbols
 <P><STRONG><a name="[127]"></a>osMessagePut</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, rt_cmsis.o(i.osMessagePut))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = osMessagePut &rArr; isrMessagePut &rArr; isr_mbx_send &rArr; rt_psq_enq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isrMessagePut
+<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isrMessagePut
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailPut
+<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailPut
 </UL>
 
 <P><STRONG><a name="[b4]"></a>osSignalSet</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, rt_cmsis.o(i.osSignalSet))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = osSignalSet &rArr; isrSignalSet &rArr; isr_evt_set &rArr; rt_psq_enq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isrSignalSet
+<BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isrSignalSet
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SynHandler
 </UL>
@@ -1434,7 +1430,7 @@ Global Symbols
 <P><STRONG><a name="[13c]"></a>os_error</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, rtx_conf_cm.o(i.os_error))
 <BR><BR>[Called By]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_mbx_psh
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_stk_check
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_psq_enq
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_psq_enq
 <LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sysTimerTick
 </UL>
 
@@ -1598,8 +1594,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_init_context
 </UL>
 
-<P><STRONG><a name="[ee]"></a>rt_mbx_check</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_mailbox.o(i.rt_mbx_check))
-<BR><BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isrMessagePut
+<P><STRONG><a name="[ed]"></a>rt_mbx_check</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_mailbox.o(i.rt_mbx_check))
+<BR><BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isrMessagePut
 </UL>
 
 <P><STRONG><a name="[157]"></a>rt_mbx_init</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, rt_mailbox.o(i.rt_mbx_init))
@@ -1680,20 +1676,20 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PendSV_Handler
 </UL>
 
-<P><STRONG><a name="[f4]"></a>rt_psh_req</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, rt_system.o(i.rt_psh_req))
-<BR><BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_mbx_send
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_mbx_receive
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_evt_set
+<P><STRONG><a name="[f3]"></a>rt_psh_req</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, rt_system.o(i.rt_psh_req))
+<BR><BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_mbx_send
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_mbx_receive
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_evt_set
 </UL>
 
-<P><STRONG><a name="[f3]"></a>rt_psq_enq</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, rt_list.o(i.rt_psq_enq))
+<P><STRONG><a name="[f2]"></a>rt_psq_enq</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, rt_list.o(i.rt_psq_enq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = rt_psq_enq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;os_error
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_mbx_send
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_mbx_receive
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_evt_set
+<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_mbx_send
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_mbx_receive
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isr_evt_set
 </UL>
 
 <P><STRONG><a name="[12a]"></a>rt_put_dly</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, rt_list.o(i.rt_put_dly))
@@ -1919,7 +1915,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_mbx_init
 <LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_init_box
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailCreate
+<BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailCreate
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> rt_cmsis.o(i.osMailCreate)
 </UL>
@@ -1950,7 +1946,7 @@ Global Symbols
 <P><STRONG><a name="[48]"></a>svcSignalSet</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, rt_cmsis.o(i.svcSignalSet))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = svcSignalSet &rArr; rt_evt_set &rArr; rt_dispatch &rArr; rt_put_prio
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_tid2ptcb
+<BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_tid2ptcb
 <LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_evt_set
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> rt_cmsis.o(i.osSignalSet)
@@ -1985,7 +1981,7 @@ Global Symbols
 <P><STRONG><a name="[4c]"></a>svcThreadTerminate</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, rt_cmsis.o(i.svcThreadTerminate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = svcThreadTerminate &rArr; rt_tsk_delete &rArr; rt_dispatch &rArr; rt_put_prio
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_tid2ptcb
+<BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_tid2ptcb
 <LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_tsk_delete
 <LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_free_mem
 </UL>
@@ -2006,7 +2002,7 @@ Global Symbols
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_block
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_alloc_box
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailAlloc
+<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMailAlloc
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> rt_cmsis.o(i.osMailAlloc)
 </UL>
@@ -2015,7 +2011,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_insert
 <LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;os_error
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isrMessagePut
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isrMessagePut
 </UL>
 <BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_systick
 </UL>
@@ -2156,10 +2152,10 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_gpiote_init
 </UL>
 
-<P><STRONG><a name="[d7]"></a>finish_transfer</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, nrf_drv_spi.o(i.finish_transfer))
+<P><STRONG><a name="[d6]"></a>finish_transfer</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, nrf_drv_spi.o(i.finish_transfer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = finish_transfer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_gpio_pin_set
+<BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_gpio_pin_set
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler_spim
 </UL>
@@ -2167,9 +2163,9 @@ Local Symbols
 <P><STRONG><a name="[a2]"></a>irq_handler_spim</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, nrf_drv_spi.o(i.irq_handler_spim))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = irq_handler_spim &rArr; nrf_spim_event_clear
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_spim_event_clear
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_spim_event_check
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;finish_transfer
+<BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_spim_event_clear
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_spim_event_check
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;finish_transfer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIM1_SPIS1_TWIM1_TWIS1_SPI1_TWI1_IRQHandler
 </UL>
@@ -2198,22 +2194,22 @@ Local Symbols
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_spi_xfer
 </UL>
 
-<P><STRONG><a name="[d8]"></a>nrf_gpio_pin_set</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, nrf_drv_spi.o(i.nrf_gpio_pin_set))
-<BR><BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spim_xfer
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;finish_transfer
+<P><STRONG><a name="[d7]"></a>nrf_gpio_pin_set</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, nrf_drv_spi.o(i.nrf_gpio_pin_set))
+<BR><BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;finish_transfer
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_spi_init
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spim_xfer
 </UL>
 
-<P><STRONG><a name="[e0]"></a>nrf_spim_event_check</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, nrf_drv_spi.o(i.nrf_spim_event_check))
-<BR><BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spim_xfer
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler_spim
+<P><STRONG><a name="[df]"></a>nrf_spim_event_check</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, nrf_drv_spi.o(i.nrf_spim_event_check))
+<BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler_spim
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spim_xfer
 </UL>
 
-<P><STRONG><a name="[e1]"></a>nrf_spim_event_clear</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, nrf_drv_spi.o(i.nrf_spim_event_clear))
+<P><STRONG><a name="[e0]"></a>nrf_spim_event_clear</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, nrf_drv_spi.o(i.nrf_spim_event_clear))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = nrf_spim_event_clear
 </UL>
-<BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spim_xfer
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler_spim
+<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler_spim
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spim_xfer
 </UL>
 
 <P><STRONG><a name="[153]"></a>nrf_spim_int_disable</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_drv_spi.o(i.nrf_spim_int_disable))
@@ -2221,8 +2217,8 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[104]"></a>nrf_spim_int_enable</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_drv_spi.o(i.nrf_spim_int_enable))
-<BR><BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spim_xfer
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_spi_init
+<BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_spi_init
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spim_xfer
 </UL>
 
 <P><STRONG><a name="[152]"></a>nrf_spim_task_trigger</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_drv_spi.o(i.nrf_spim_task_trigger))
@@ -2232,13 +2228,13 @@ Local Symbols
 <P><STRONG><a name="[106]"></a>spim_xfer</STRONG> (Thumb, 258 bytes, Stack size 32 bytes, nrf_drv_spi.o(i.spim_xfer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = spim_xfer &rArr; nrf_spim_event_clear
 </UL>
-<BR>[Calls]<UL><LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_spim_task_trigger
-<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_spim_int_enable
+<BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_spim_int_enable
 <LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_spim_int_disable
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_spim_event_clear
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_spim_event_check
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_gpio_pin_set
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_spim_event_clear
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_spim_event_check
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_gpio_pin_set
 <LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_is_in_RAM
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_spim_task_trigger
 </UL>
 <BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_spi_xfer
 </UL>
@@ -2246,54 +2242,54 @@ Local Symbols
 <P><STRONG><a name="[a1]"></a>irq_handler_twim</STRONG> (Thumb, 400 bytes, Stack size 32 bytes, nrf_drv_twi.o(i.irq_handler_twim))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = irq_handler_twim &rArr; nrf_twim_event_clear
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_twim_txd_amount_get
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_twim_task_trigger
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_twim_shorts_set
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_twim_rxd_amount_get
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_twim_int_enable
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_twim_int_disable
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_twim_event_clear
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_twim_event_check
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_twim_errorsrc_get_and_clear
+<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_twim_txd_amount_get
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_twim_task_trigger
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_twim_shorts_set
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_twim_rxd_amount_get
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_twim_int_enable
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_twim_int_disable
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_twim_event_clear
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_twim_event_check
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_twim_errorsrc_get_and_clear
 </UL>
 <BR>[Called By]<UL><LI><a href="#[10]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIM0_SPIS0_TWIM0_TWIS0_SPI0_TWI0_IRQHandler
 </UL>
 
-<P><STRONG><a name="[ea]"></a>nrf_twim_errorsrc_get_and_clear</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, nrf_drv_twi.o(i.nrf_twim_errorsrc_get_and_clear))
+<P><STRONG><a name="[e9]"></a>nrf_twim_errorsrc_get_and_clear</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, nrf_drv_twi.o(i.nrf_twim_errorsrc_get_and_clear))
 <BR><BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler_twim
 </UL>
 
-<P><STRONG><a name="[e2]"></a>nrf_twim_event_check</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, nrf_drv_twi.o(i.nrf_twim_event_check))
+<P><STRONG><a name="[e1]"></a>nrf_twim_event_check</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, nrf_drv_twi.o(i.nrf_twim_event_check))
 <BR><BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler_twim
 </UL>
 
-<P><STRONG><a name="[e3]"></a>nrf_twim_event_clear</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, nrf_drv_twi.o(i.nrf_twim_event_clear))
+<P><STRONG><a name="[e2]"></a>nrf_twim_event_clear</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, nrf_drv_twi.o(i.nrf_twim_event_clear))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = nrf_twim_event_clear
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler_twim
 </UL>
 
-<P><STRONG><a name="[e4]"></a>nrf_twim_int_disable</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_drv_twi.o(i.nrf_twim_int_disable))
+<P><STRONG><a name="[e3]"></a>nrf_twim_int_disable</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_drv_twi.o(i.nrf_twim_int_disable))
 <BR><BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler_twim
 </UL>
 
-<P><STRONG><a name="[e5]"></a>nrf_twim_int_enable</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_drv_twi.o(i.nrf_twim_int_enable))
+<P><STRONG><a name="[e4]"></a>nrf_twim_int_enable</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_drv_twi.o(i.nrf_twim_int_enable))
 <BR><BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler_twim
 </UL>
 
-<P><STRONG><a name="[e7]"></a>nrf_twim_rxd_amount_get</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, nrf_drv_twi.o(i.nrf_twim_rxd_amount_get))
+<P><STRONG><a name="[e6]"></a>nrf_twim_rxd_amount_get</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, nrf_drv_twi.o(i.nrf_twim_rxd_amount_get))
 <BR><BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler_twim
 </UL>
 
-<P><STRONG><a name="[e9]"></a>nrf_twim_shorts_set</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_drv_twi.o(i.nrf_twim_shorts_set))
+<P><STRONG><a name="[e8]"></a>nrf_twim_shorts_set</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_drv_twi.o(i.nrf_twim_shorts_set))
 <BR><BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler_twim
 </UL>
 
-<P><STRONG><a name="[e6]"></a>nrf_twim_task_trigger</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_drv_twi.o(i.nrf_twim_task_trigger))
+<P><STRONG><a name="[e5]"></a>nrf_twim_task_trigger</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_drv_twi.o(i.nrf_twim_task_trigger))
 <BR><BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler_twim
 </UL>
 
-<P><STRONG><a name="[e8]"></a>nrf_twim_txd_amount_get</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, nrf_drv_twi.o(i.nrf_twim_txd_amount_get))
+<P><STRONG><a name="[e7]"></a>nrf_twim_txd_amount_get</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, nrf_drv_twi.o(i.nrf_twim_txd_amount_get))
 <BR><BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler_twim
 </UL>
 
@@ -2311,15 +2307,15 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_uart_init
 </UL>
 
-<P><STRONG><a name="[d9]"></a>interrupts_enable</STRONG> (Thumb, 126 bytes, Stack size 16 bytes, nrf_drv_uart.o(i.interrupts_enable))
+<P><STRONG><a name="[d8]"></a>interrupts_enable</STRONG> (Thumb, 126 bytes, Stack size 16 bytes, nrf_drv_uart.o(i.interrupts_enable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = interrupts_enable &rArr; nrf_drv_common_irq_enable
 </UL>
-<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_common_irq_enable
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uarte_int_enable
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uarte_event_clear
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_int_enable
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_event_clear
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_get_IRQn
+<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_common_irq_enable
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uarte_int_enable
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uarte_event_clear
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_int_enable
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_event_clear
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_get_IRQn
 </UL>
 <BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_uart_init
 </UL>
@@ -2330,9 +2326,9 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_uart_uninit
 </UL>
 
-<P><STRONG><a name="[dc]"></a>nrf_drv_get_IRQn</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, nrf_drv_uart.o(i.nrf_drv_get_IRQn))
+<P><STRONG><a name="[db]"></a>nrf_drv_get_IRQn</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, nrf_drv_uart.o(i.nrf_drv_get_IRQn))
 <BR><BR>[Called By]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_uart_uninit
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interrupts_enable
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interrupts_enable
 </UL>
 
 <P><STRONG><a name="[108]"></a>nrf_drv_is_in_RAM</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, nrf_drv_uart.o(i.nrf_drv_is_in_RAM))
@@ -2344,7 +2340,7 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tx_byte
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_task_trigger
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_event_clear
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_event_clear
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_event_check
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_uart_tx
@@ -2354,7 +2350,7 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = nrf_drv_uart_tx_for_uarte &rArr; nrf_uarte_event_clear
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uarte_task_trigger
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uarte_event_clear
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uarte_event_clear
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uarte_event_check
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_uart_tx
@@ -2405,14 +2401,14 @@ Local Symbols
 <LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_uart_tx_for_uart
 </UL>
 
-<P><STRONG><a name="[de]"></a>nrf_uart_event_clear</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, nrf_drv_uart.o(i.nrf_uart_event_clear))
+<P><STRONG><a name="[dd]"></a>nrf_uart_event_clear</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, nrf_drv_uart.o(i.nrf_uart_event_clear))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = nrf_uart_event_clear
 </UL>
 <BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_irq_handler
 <LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tx_byte
 <LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rx_byte
 <LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_uart_tx_for_uart
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interrupts_enable
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interrupts_enable
 </UL>
 
 <P><STRONG><a name="[ce]"></a>nrf_uart_hwfc_pins_set</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, nrf_drv_uart.o(i.nrf_uart_hwfc_pins_set))
@@ -2425,8 +2421,8 @@ Local Symbols
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_irq_handler
 </UL>
 
-<P><STRONG><a name="[df]"></a>nrf_uart_int_enable</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_drv_uart.o(i.nrf_uart_int_enable))
-<BR><BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interrupts_enable
+<P><STRONG><a name="[de]"></a>nrf_uart_int_enable</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_drv_uart.o(i.nrf_uart_int_enable))
+<BR><BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interrupts_enable
 </UL>
 
 <P><STRONG><a name="[15d]"></a>nrf_uart_int_enable_check</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, nrf_drv_uart.o(i.nrf_uart_int_enable_check))
@@ -2452,12 +2448,12 @@ Local Symbols
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_uart_tx_for_uarte
 </UL>
 
-<P><STRONG><a name="[da]"></a>nrf_uarte_event_clear</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, nrf_drv_uart.o(i.nrf_uarte_event_clear))
+<P><STRONG><a name="[d9]"></a>nrf_uarte_event_clear</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, nrf_drv_uart.o(i.nrf_uarte_event_clear))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = nrf_uarte_event_clear
 </UL>
 <BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uarte_irq_handler
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_uart_tx_for_uarte
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interrupts_enable
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interrupts_enable
 </UL>
 
 <P><STRONG><a name="[cc]"></a>nrf_uarte_hwfc_pins_set</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, nrf_drv_uart.o(i.nrf_uarte_hwfc_pins_set))
@@ -2469,8 +2465,8 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_uart_uninit
 </UL>
 
-<P><STRONG><a name="[db]"></a>nrf_uarte_int_enable</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_drv_uart.o(i.nrf_uarte_int_enable))
-<BR><BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interrupts_enable
+<P><STRONG><a name="[da]"></a>nrf_uarte_int_enable</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_drv_uart.o(i.nrf_uarte_int_enable))
+<BR><BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interrupts_enable
 </UL>
 
 <P><STRONG><a name="[162]"></a>nrf_uarte_rx_amount_get</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, nrf_drv_uart.o(i.nrf_uarte_rx_amount_get))
@@ -2501,7 +2497,7 @@ Local Symbols
 <P><STRONG><a name="[150]"></a>rx_byte</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, nrf_drv_uart.o(i.rx_byte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = rx_byte &rArr; nrf_uart_event_clear
 </UL>
-<BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_event_clear
+<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_event_clear
 </UL>
 <BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_irq_handler
 </UL>
@@ -2516,7 +2512,7 @@ Local Symbols
 <P><STRONG><a name="[10d]"></a>tx_byte</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, nrf_drv_uart.o(i.tx_byte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = tx_byte &rArr; nrf_uart_event_clear
 </UL>
-<BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_event_clear
+<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_event_clear
 </UL>
 <BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_irq_handler
 <LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_uart_tx_for_uart
@@ -2539,7 +2535,7 @@ Local Symbols
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_task_trigger
 <LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_int_enable_check
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_int_disable
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_event_clear
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_event_clear
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_event_check
 <LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uart_errorsrc_get_and_clear
 </UL>
@@ -2552,7 +2548,7 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tx_done_event
 <LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rx_done_event
 <LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uarte_rx_amount_get
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uarte_event_clear
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uarte_event_clear
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uarte_event_check
 <LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_uarte_errorsrc_get_and_clear
 </UL>
@@ -2637,7 +2633,7 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_util_critical_region_exit
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_util_critical_region_enter
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_3
+<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_3
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_1
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 </UL>
@@ -2682,10 +2678,10 @@ Local Symbols
 <LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;svcDelay
 </UL>
 
-<P><STRONG><a name="[f1]"></a>rt_tid2ptcb</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, rt_cmsis.o(i.rt_tid2ptcb))
+<P><STRONG><a name="[f0]"></a>rt_tid2ptcb</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, rt_cmsis.o(i.rt_tid2ptcb))
 <BR><BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;svcThreadTerminate
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;svcSignalSet
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isrSignalSet
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isrSignalSet
 </UL>
 
 <P><STRONG><a name="[15c]"></a>rt_timer_insert</STRONG> (Thumb, 48 bytes, Stack size 12 bytes, rt_cmsis.o(i.rt_timer_insert))

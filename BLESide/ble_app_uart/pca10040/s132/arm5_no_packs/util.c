@@ -11,11 +11,19 @@
 #include "util.h"
 #include "nrf_drv_gpiote.h"
 #include "boards.h"
+#include "BLEFunctions.h"
+#include "nrf_drv_uart.h"
+#include <stdarg.h>
 
+static nrf_drv_uart_t p_uart = NRF_DRV_UART_INSTANCE(0);
+static nrf_drv_uart_config_t p_uart_config = NRF_DRV_UART_DEFAULT_CONFIG;
+
+
+uint8_t printbuf[50];
 
 #define SPIS_INSTANCE 1 /**< SPIS instance index. */
 static const nrf_drv_spis_t spis = NRF_DRV_SPIS_INSTANCE(SPIS_INSTANCE);/**< SPIS instance. */
-const nrf_drv_timer_t TIMER = NRF_DRV_TIMER_INSTANCE(0);
+const nrf_drv_timer_t TIMER = NRF_DRV_TIMER_INSTANCE(1);
 volatile uint8_t timer_;
 
 void read_fifo(uint8_t buf[50]);
@@ -36,8 +44,7 @@ void spis_event_handler(nrf_drv_spis_event_t event)
     if (event.evt_type == NRF_DRV_SPIS_XFER_DONE)
     {
 			spis_xfer_done = true;
-        NRF_LOG_INFO(" Transfer completed. Received: %s\r\n",(uint32_t)m_rx_buf);
-				NRF_LOG_FLUSH();
+        uprint(" Transfer completed. Received: %s\r\n",(uint32_t)m_rx_buf);
 		}
 } 
 
@@ -62,14 +69,13 @@ void SynHandler(nrf_drv_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
 	if((pin == PIN_SYN) && (action == NRF_GPIOTE_POLARITY_TOGGLE))
 	{
 		syn = nrf_drv_gpiote_in_is_set(pin);
-		NRF_LOG_INFO("syn = %i\r\n", syn);
+		uprint("syn = %i\r\n", syn);
 	}
 }
 		
 void spi_app_init(void)
 {
-		NRF_LOG_INFO("test_shit\r\n");
-		NRF_LOG_FLUSH();
+		uprint("spi init\r\n");
 
     nrf_drv_spis_config_t spis_config = NRF_DRV_SPIS_DEFAULT_CONFIG;
     spis_config.csn_pin               = APP_SPIS_CS_PIN;
@@ -104,8 +110,6 @@ void spi_app_init(void)
 		err_code = nrf_drv_gpiote_out_init(PIN_ACK, &out_config);
 		if(err_code != NRF_SUCCESS)
 		{
-			NRF_LOG_INFO("failed to init ACK\r\n");
-			NRF_LOG_FLUSH();
 			return;
 		}
 }
@@ -130,25 +134,21 @@ void spi_handler(void)
 	uint8_t temp_buf[3];
 	while(1)
 	{
-		NRF_LOG_INFO("stating new cycle\r\n");
-		NRF_LOG_FLUSH();
+		uprint("stating new cycle\r\n");
 		//int ack = 0;
 		while((!syn) && (!command))
 		{
 			__WFE();
-			NRF_LOG_FLUSH();
 		}
 		
-		NRF_LOG_INFO("syn: %x, com: %x\r\n",syn,command);
-		NRF_LOG_FLUSH();
+		uprint("syn: %x, com: %x\r\n",syn,command);
 		if(command)
 		{
 			command = 0;
 			//set timer to some time t
 			nrf_drv_gpiote_out_set(PIN_ACK);
 			nrf_drv_timer_enable(&TIMER);
-			NRF_LOG_INFO("sedning mode\r\n");
-			NRF_LOG_FLUSH();
+			uprint("sedning mode\r\n");
 			
 			while(( !syn ) && ( !timer_ ))
 			{
@@ -156,8 +156,7 @@ void spi_handler(void)
 			}
 			if(timer_)
 			{
-				NRF_LOG_INFO("syn timeout, waiting to recieve package\r\n");
-				NRF_LOG_FLUSH();
+				uprint("syn timeout, waiting to recieve package\r\n");
 				
 				tx_clear(m_rx_buf, sizeof(m_rx_buf));
 				tx_clear(m_tx_buf, sizeof(m_tx_buf));
@@ -173,11 +172,9 @@ void spi_handler(void)
 			nrf_delay_ms(100);
 			uint8_t *ttp = m_tx_buf;	//pointer to tx buffer
 			
-			NRF_LOG_INFO("blep\r\n");
-			NRF_LOG_FLUSH();
+			uprint("blep\r\n");
 			read_fifo(ttp);
-			NRF_LOG_INFO("sending data: %.3s\r\n", (uint32_t)m_tx_buf);
-			NRF_LOG_FLUSH();
+			uprint("sending data: %.3s\r\n", (uint8_t)m_tx_buf);
 			
       memset(m_rx_buf, 0, m_length);
 			spis_xfer_done = false;
@@ -187,14 +184,12 @@ void spi_handler(void)
 			//NRF_LOG_FLUSH();
 			nrf_drv_gpiote_out_clear(PIN_ACK);
 							
-			NRF_LOG_INFO("waiting for spi transfer\r\n", (uint32_t)m_tx_buf);
-			NRF_LOG_FLUSH();
+			uprint("waiting for spi transfer\r\n");
 			while(!spis_xfer_done)
 			{
 				__WFE();
 			}
-			NRF_LOG_INFO("transfer done\r\n", (uint32_t)m_tx_buf);
-			NRF_LOG_FLUSH();
+			uprint("transfer done %s\r\n");
 			
 			
 			continue;
@@ -222,11 +217,11 @@ void spi_handler(void)
 				__WFE();
 			}
 			nrf_drv_gpiote_out_clear(PIN_ACK);
-			NRF_LOG_INFO("ack low\r\n");
-			NRF_LOG_FLUSH();
+			uprint("ack low\r\n");
 			//ack = 0;			
 		}
 		//transfer ok?
+		power_manage();
 	}
 }
 
@@ -267,5 +262,21 @@ void read_fifo(uint8_t *buf)
 	d_list.used--;
 	return;
 }
+void uart_print_init(void)
+{
+			                           
+		p_uart_config.pseltxd            = TX_PIN_NUMBER;                           \
+		p_uart_config.pselrxd            = RX_PIN_NUMBER;                            \
+		p_uart_config.pselcts            = CTS_PIN_NUMBER;                            \
+		p_uart_config.pselrts            = RTS_PIN_NUMBER;   
+	
+    nrf_drv_uart_init(&p_uart, &p_uart_config, NULL);
+}
 
+void uartprint(uint8_t *str)
+{
 
+	nrf_drv_uart_tx(&p_uart, (const uint8_t *)str, strlen((char*)str));
+	printbuf[0] = '\0';
+	
+}

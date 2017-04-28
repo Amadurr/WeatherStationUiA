@@ -12,15 +12,12 @@ extern osThreadId tid_comhub;
 extern osMailQId  (mail_q_id[5]);
 
 static nrf_drv_uart_t p_uart = NRF_DRV_UART_INSTANCE(0);
+static nrf_drv_uart_config_t p_uart_config = NRF_DRV_UART_DEFAULT_CONFIG;
 
 
 
 
 
-typedef struct{
-	uint8_t *str;
-	uint8_t len;
-}mail_print_t;
 	
 osMailQDef (Print_Mail_Q, 10, mail_print_t);
 osMailQId  (Print_Q_id);
@@ -29,7 +26,9 @@ void butt_handler(nrf_drv_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
 {
 	//NRF_LOG_INFO("sending testmsg\r\n");
 	uint8_t msg[] = {'A','B','C'}; 
-	nrf_drv_uart_tx(&p_uart, (const uint8_t *)'A', 1);
+	static uint8_t ch[] = "AB";
+	nrf_drv_uart_tx(&p_uart, (const uint8_t *)ch, sizeof(ch));
+	/*
 	mail_protocol_t *testmsg;
 	testmsg = (mail_protocol_t *) osMailAlloc(mail_q_id[0], osWaitForever);
 	if(testmsg == NULL)
@@ -44,7 +43,7 @@ void butt_handler(nrf_drv_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
 	testmsg->flg = 0;
 	testmsg->pld_s = sizeof(msg);
 	testmsg->pld = msg;
-	osMailPut(mail_q_id[0], testmsg);
+	osMailPut(mail_q_id[0], testmsg);*/
 }
 
 void butt_init(void)
@@ -61,23 +60,29 @@ void butt_init(void)
 
 }
 
-void printer(const char *fmt, ...)
+void printer(const char *fmt)
 {
-	va_list valist;
-	va_start(valist,fmt);
-	
-	va_end(valist);
+	uint8_t* buff
+	mail_print_t *printmsg;\
+	testmsg = (mail_print_t *) osMailAlloc(Print_Q_id, osWaitForever);\
+	if(printmsg == NULL)\
+	{\
+		NRF_LOG_INFO("failed to make mail\r\n");\
+		NRF_LOG_FLUSH();\
+	}\
+	testmsg->pld_s = pld_s;\
+	testmsg->pld = pld;\
+	osMailPut(Print_Q_id, testmsg);\
+	uartprint((uint8_t*)printbuf);\
 }
 void uart_print_init(void)
 {
-		nrf_drv_uart_config_t p_uart_config = NRF_DRV_UART_DEFAULT_CONFIG;
-	                           \
+			                           
 		p_uart_config.pseltxd            = TX_PIN_NUMBER;                           \
 		p_uart_config.pselrxd            = RX_PIN_NUMBER;                            \
 		p_uart_config.pselcts            = CTS_PIN_NUMBER;                            \
 		p_uart_config.pselrts            = RTS_PIN_NUMBER;   
 	
-    nrf_drv_uart_uninit(&p_uart);
     nrf_drv_uart_init(&p_uart, &p_uart_config, NULL);
 }
 

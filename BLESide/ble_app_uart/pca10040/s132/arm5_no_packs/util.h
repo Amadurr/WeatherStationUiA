@@ -1,3 +1,12 @@
+#ifndef U_PRINT
+#define U_PRINT
+#define uprint(...)\
+{\
+	snprintf((char*)printbuf,sizeof(printbuf),__VA_ARGS__);\
+	uartprint((uint8_t*)printbuf);\
+}
+#endif //U_PRINT
+
 #ifndef __UTIL_H
 #define __UTIL_H
 #include <stdio.h>
@@ -9,6 +18,13 @@ void spi_app_init(void);
 void spi_handler(void);
 void add_fifo(uint8_t *Data);
 void butt_init(void);
+
+
+void uart_print_init(void);
+void uartprint(uint8_t *ch);
+
+extern uint8_t printbuf[50];
+
 typedef struct Data
 {
   uint8_t         max_size;    
@@ -19,3 +35,6 @@ typedef struct Data
 } fifo_list;
 
 #endif
+
+
+

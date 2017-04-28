@@ -71,10 +71,11 @@
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_common.h
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_os.h
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_macros.h
-.\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log.h
-.\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_internal.h
-.\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log_ctrl.h
-.\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_ctrl_internal.h
 .\_build\util.o: util.h
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote\nrf_drv_gpiote.h
 .\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_gpiote.h
+.\_build\util.o: BLEFunctions.h
+.\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\drivers_nrf\uart\nrf_drv_uart.h
+.\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_uart.h
+.\_build\util.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_uarte.h
+.\_build\util.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

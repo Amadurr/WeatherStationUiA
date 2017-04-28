@@ -71,10 +71,6 @@
 .\_build\buttjob.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_common.h
 .\_build\buttjob.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_os.h
 .\_build\buttjob.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_macros.h
-.\_build\buttjob.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log.h
-.\_build\buttjob.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_internal.h
-.\_build\buttjob.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log_ctrl.h
-.\_build\buttjob.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_ctrl_internal.h
 .\_build\buttjob.o: util.h
 .\_build\buttjob.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote\nrf_drv_gpiote.h
 .\_build\buttjob.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_gpiote.h

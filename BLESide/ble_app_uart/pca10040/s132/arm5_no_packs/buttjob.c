@@ -21,8 +21,7 @@ void butt_handler(nrf_drv_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
 {
 	command = 1;
 	add_fifo(data);
-	NRF_LOG_INFO("send request data: %s\r\n", (uint32_t)data);
-	NRF_LOG_FLUSH();
+	uprint("send request data: %s\r\n", (uint32_t)data);
 }
 
 void butt_init(void)

@@ -29,9 +29,3 @@
 .\_build\app_error.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_macros.h
 .\_build\app_error.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log_ctrl.h
 .\_build\app_error.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_ctrl_internal.h
-.\_build\app_error.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util_platform.h
-.\_build\app_error.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\softdevice\s132\headers\nrf_soc.h
-.\_build\app_error.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\softdevice\s132\headers\nrf_svc.h
-.\_build\app_error.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\softdevice\s132\headers\nrf_error_soc.h
-.\_build\app_error.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\softdevice\s132\headers\nrf_nvic.h
-.\_build\app_error.o: ..\..\..\..\..\..\nRF5_SDK_12.2.0\components\libraries\util\nrf_assert.h

@@ -22,9 +22,6 @@
 #include "nrf_gpio.h"
 #include "boards.h"
 #include "app_error.h"
-#define NRF_LOG_MODULE_NAME "APP"
-#include "nrf_log.h"
-#include "nrf_log_ctrl.h"
 
 #define IS_SRVC_CHANGED_CHARACT_PRESENT 0                                           /**< Include the service_changed characteristic. If not enabled, the server's database cannot be changed for the lifetime of the device. */
 

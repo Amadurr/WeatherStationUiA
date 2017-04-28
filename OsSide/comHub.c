@@ -35,7 +35,7 @@ void comhub(void const *argument)
 		{
 			mail_protocol_t *received = (mail_protocol_t *)evt.value.p;
 			
-			NRF_LOG_INFO("mail %x recieved from, %i, sending to %i\r\n" ,*received->pld ,received->rid,received->sid);
+			NRF_LOG_INFO("mail %s recieved from, %i, sending to %i\r\n" ,*received->pld ,received->rid,received->sid);
 
 			osMailPut(mail_q_id[1], received);			
 			if(!received)
@@ -67,3 +67,22 @@ uint8_t sendMail(uint8_t flags, uint8_t *package, mail_protocol_t *sptr, uint8_t
 	sptr->flg = flags;
 	osMailPut(PcalQ_Id, sptr);
 }*/
+
+void send_mail(osMailQId q_id, uint8_t sid, uint8_t rid, uint8_t flg, uint8_t pld_s, uint8_t *pld)
+{
+	mail_protocol_t *testmsg;
+	testmsg = (mail_protocol_t *) osMailAlloc(q_id, osWaitForever);
+	if(testmsg == NULL)
+	{
+		
+		NRF_LOG_INFO("failed to make mail\r\n");
+		NRF_LOG_FLUSH();
+		
+	}
+	testmsg->sid = sid;
+	testmsg->rid = rid;
+	testmsg->flg = flg;
+	testmsg->pld_s = pld_s;
+	testmsg->pld = pld;
+	osMailPut(q_id, testmsg);
+}
