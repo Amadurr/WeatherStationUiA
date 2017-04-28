@@ -36,8 +36,8 @@ void spis_event_handler(nrf_drv_spis_event_t event)
     if (event.evt_type == NRF_DRV_SPIS_XFER_DONE)
     {
 			spis_xfer_done = true;
-        NRF_LOG_INFO(" Transfer completed. Received: %s\r\n",(uint32_t)m_rx_buf);
-				NRF_LOG_FLUSH();
+        //NRF_LOG_INFO(" Transfer completed. Received: %s\r\n",(uint32_t)m_rx_buf);
+				//NRF_LOG_FLUSH();
 		}
 } 
 
@@ -62,14 +62,14 @@ void SynHandler(nrf_drv_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
 	if((pin == PIN_SYN) && (action == NRF_GPIOTE_POLARITY_TOGGLE))
 	{
 		syn = nrf_drv_gpiote_in_is_set(pin);
-		NRF_LOG_INFO("syn = %i\r\n", syn);
+		//NRF_LOG_INFO("syn = %i\r\n", syn);
 	}
 }
 		
 void spi_app_init(void)
 {
-		NRF_LOG_INFO("test_shit\r\n");
-		NRF_LOG_FLUSH();
+		//NRF_LOG_INFO("test_shit\r\n");
+		//NRF_LOG_FLUSH();
 
     nrf_drv_spis_config_t spis_config = NRF_DRV_SPIS_DEFAULT_CONFIG;
     spis_config.csn_pin               = APP_SPIS_CS_PIN;
@@ -104,8 +104,8 @@ void spi_app_init(void)
 		err_code = nrf_drv_gpiote_out_init(PIN_ACK, &out_config);
 		if(err_code != NRF_SUCCESS)
 		{
-			NRF_LOG_INFO("failed to init ACK\r\n");
-			NRF_LOG_FLUSH();
+			//NRF_LOG_INFO("failed to init ACK\r\n");
+			//NRF_LOG_FLUSH();
 			return;
 		}
 }
@@ -130,25 +130,25 @@ void spi_handler(void)
 	uint8_t temp_buf[3];
 	while(1)
 	{
-		NRF_LOG_INFO("stating new cycle\r\n");
-		NRF_LOG_FLUSH();
+		//NRF_LOG_INFO("stating new cycle\r\n");
+		//NRF_LOG_FLUSH();
 		//int ack = 0;
 		while((!syn) && (!command))
 		{
 			__WFE();
-			NRF_LOG_FLUSH();
+			//NRF_LOG_FLUSH();
 		}
 		
-		NRF_LOG_INFO("syn: %x, com: %x\r\n",syn,command);
-		NRF_LOG_FLUSH();
+		//NRF_LOG_INFO("syn: %x, com: %x\r\n",syn,command);
+		//NRF_LOG_FLUSH();
 		if(command)
 		{
 			command = 0;
 			//set timer to some time t
 			nrf_drv_gpiote_out_set(PIN_ACK);
 			nrf_drv_timer_enable(&TIMER);
-			NRF_LOG_INFO("sedning mode\r\n");
-			NRF_LOG_FLUSH();
+			//NRF_LOG_INFO("sedning mode\r\n");
+			//NRF_LOG_FLUSH();
 			
 			while(( !syn ) && ( !timer_ ))
 			{
@@ -156,8 +156,8 @@ void spi_handler(void)
 			}
 			if(timer_)
 			{
-				NRF_LOG_INFO("syn timeout, waiting to recieve package\r\n");
-				NRF_LOG_FLUSH();
+				//NRF_LOG_INFO("syn timeout, waiting to recieve package\r\n");
+				//NRF_LOG_FLUSH();
 				
 				tx_clear(m_rx_buf, sizeof(m_rx_buf));
 				tx_clear(m_tx_buf, sizeof(m_tx_buf));
@@ -173,11 +173,11 @@ void spi_handler(void)
 			nrf_delay_ms(100);
 			uint8_t *ttp = m_tx_buf;	//pointer to tx buffer
 			
-			NRF_LOG_INFO("blep\r\n");
-			NRF_LOG_FLUSH();
+			//NRF_LOG_INFO("blep\r\n");
+			//NRF_LOG_FLUSH();
 			read_fifo(ttp);
-			NRF_LOG_INFO("sending data: %.3s\r\n", (uint32_t)m_tx_buf);
-			NRF_LOG_FLUSH();
+			//NRF_LOG_INFO("sending data: %.3s\r\n", (uint32_t)m_tx_buf);
+			//NRF_LOG_FLUSH();
 			
       memset(m_rx_buf, 0, m_length);
 			spis_xfer_done = false;
@@ -187,14 +187,14 @@ void spi_handler(void)
 			//NRF_LOG_FLUSH();
 			nrf_drv_gpiote_out_clear(PIN_ACK);
 							
-			NRF_LOG_INFO("waiting for spi transfer\r\n", (uint32_t)m_tx_buf);
-			NRF_LOG_FLUSH();
+			//NRF_LOG_INFO("waiting for spi transfer\r\n", (uint32_t)m_tx_buf);
+			//NRF_LOG_FLUSH();
 			while(!spis_xfer_done)
 			{
 				__WFE();
 			}
-			NRF_LOG_INFO("transfer done\r\n", (uint32_t)m_tx_buf);
-			NRF_LOG_FLUSH();
+			//NRF_LOG_INFO("transfer done\r\n", (uint32_t)m_tx_buf);
+			//NRF_LOG_FLUSH();
 			
 			
 			continue;
@@ -222,8 +222,8 @@ void spi_handler(void)
 				__WFE();
 			}
 			nrf_drv_gpiote_out_clear(PIN_ACK);
-			NRF_LOG_INFO("ack low\r\n");
-			NRF_LOG_FLUSH();
+			//NRF_LOG_INFO("ack low\r\n");
+			//NRF_LOG_FLUSH();
 			//ack = 0;			
 		}
 		//transfer ok?
