@@ -50,6 +50,3 @@
 .\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_ctrl_internal.h
 .\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util_platform.h
 .\objects\util.o: util.h
-.\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\uart\nrf_drv_uart.h
-.\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_uart.h
-.\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_uarte.h

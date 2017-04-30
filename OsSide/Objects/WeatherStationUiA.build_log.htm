@@ -26,62 +26,12 @@ Project File Date:  04/27/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Rebuild target 'Weatherstation'
-compiling nrf_drv_common.c...
-compiling nrf_drv_spi.c...
-compiling nrf_drv_gpiote.c...
-compiling data_Transfer.c...
-Resources\data_Transfer.c(87): warning:  #188-D: enumerated type mixed with another type
-  	  in_config.pull = 
-PIO_PIN_CNF_PULL_Pullup;
-Resources\data_Transfer.c: 1 warning, 0 errors
+Build target 'Weatherstation'
 compiling main.c...
-util.h(37): warning:  #1-D: last line of file ends without a newline
-  #endif //U_PRINT
-main.c: 1 warning, 0 errors
-compiling util.c...
-util.h(37): warning:  #1-D: last line of file ends without a newline
-  #endif //U_PRINT
-util.c(28): warning:  #177-D: variable "msg"  was declared but never referenced
-  	uint8_t msg[] = {'A','B','C'}; 
-util.c(66): error:  #65: expected a ";"
-  	mail_print_t *printmsg;\
-util.c(67): error:  #20: identifier "testmsg" is undefined
-  	testmsg = (mail_print_t *) osMailAlloc(Print_Q_id, osWaitForever);\
-util.c(68): error:  #20: identifier "printmsg" is undefined
-  	if(printmsg == NULL)\
-util.c(73): error:  #20: identifier "pld_s" is undefined
-  	testmsg->pld_s = pld_s;\
-util.c(74): error:  #20: identifier "pld" is undefined
-  	testmsg->pld = pld;\
-util.c(76): warning:  #223-D: function "uartprint" declared implicitly
-  	uartprint((uint8_t*)printbuf);\
-util.c(76): error:  #20: identifier "printbuf" is undefined
-  	uartprint((uint8_t*)printbuf);\
-util.c(65): warning:  #177-D: variable "buff"  was declared but never referenced
-  	uint8_t* buff
-util.c(105): warning:  #1-D: last line of file ends without a newline
-  }
-util.c: 5 warnings, 6 errors
-compiling comHub.c...
-comHub.c(88): warning:  #1-D: last line of file ends without a newline
-  }
-comHub.c: 1 warning, 0 errors
-compiling app_util_platform.c...
-compiling drv_pcal.c...
-compiling app_error.c...
-compiling nrf_log_frontend.c...
-compiling sdk_errors.c...
-compiling nrf_log_backend_serial.c...
-compiling nrf_drv_twi.c...
-compiling RTX_Conf_CM.c...
-assembling arm_startup_nrf52.s...
-compiling nrf_drv_uart.c...
-compiling nrf_assert.c...
-compiling app_error_weak.c...
-compiling system_nrf52.c...
-compiling boards.c...
-".\Objects\WeatherStationUiA.axf" - 6 Error(s), 8 Warning(s).
+linking...
+Program Size: Code=19928 RO-data=1756 RW-data=128 ZI-data=22120  
+FromELF: creating hex file...
+".\Objects\WeatherStationUiA.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -112,26 +62,25 @@ Package Vendor: NordicSemiconductor
    * Component: ARM::CMSIS:CORE:5.0.1
 
    * Component: ARM::CMSIS:RTOS:Keil RTX:4.81.0
-      Include file:  CMSIS\RTOS\RTX\UserCodeTemplates\osObjects.h
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\main.c
-      Include file:  CMSIS\RTOS\RTX\INC\cmsis_os.h
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MailQueue.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MemPool.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Thread.c
-      Library file:  CMSIS\RTOS\RTX\LIB\ARM\RTX_CM4.lib
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MsgQueue.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Mutex.c
       Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Semaphore.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Thread.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MailQueue.c
+      Include file:  CMSIS\RTOS\RTX\INC\cmsis_os.h
       Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Timer.c
       Source file:   CMSIS\RTOS\RTX\SRC\ARM\SVC_Table.s
       Source file:   CMSIS\RTOS\RTX\Templates\RTX_Conf_CM.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Mutex.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MsgQueue.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\main.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MemPool.c
+      Include file:  CMSIS\RTOS\RTX\UserCodeTemplates\osObjects.h
+      Library file:  CMSIS\RTOS\RTX\LIB\ARM\RTX_CM4.lib
 
    * Component: NordicSemiconductor::Device:Startup:8.12.0
+      Source file:   Device\Source\arm\arm_startup_nrf52.s
       Source file:   Device\Source\system_nrf52.c
       Include file:  Device\Include\system_nrf52.h
-      Source file:   Device\Source\arm\arm_startup_nrf52.s
-Target not created.
-Build Time Elapsed:  00:00:06
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

@@ -183,6 +183,7 @@ void SPI_controller(void const *argument)
 			}
 			NRF_LOG_INFO("transfer done");
 			nrf_drv_gpiote_out_clear(PIN_ACK);
+			osMailFree(mail);
 		}
 	}
 }

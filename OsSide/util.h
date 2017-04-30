@@ -15,23 +15,8 @@
 #include "nrf_drv_gpiote.h"
 #include "string.h"
 
-extern osMailQId  (Print_Q_id);
-
-
-typedef struct{
-	uint8_t *str;
-}mail_print_t;
 
 void butt_init(void);
-void print_server(void const *arg);
-void printer(const char *fmt);
 
 #endif //UTIL_H__
 
-#ifndef U_PRINT
-#define U_PRINT
-#define uprint(...)\
-{\
-	printer(snprintf((char*)printbuf,sizeof(printbuf),__VA_ARGS__))\
-}
-#endif //U_PRINT

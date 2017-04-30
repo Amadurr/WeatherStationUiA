@@ -69,7 +69,7 @@ void gap_params_init(void)
 void nus_data_handler(ble_nus_t * p_nus, uint8_t * p_data, uint16_t length)
 {
 	uint8_t *str_ptr;
-	strcpy(str_ptr,p_data);
+	strcpy((char*)str_ptr,(char*)p_data);
 	add_fifo(str_ptr);
 	command = 1;
 	/*
