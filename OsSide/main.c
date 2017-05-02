@@ -25,6 +25,13 @@ osThreadDef (SPI_controller,osPriorityNormal,1,0);
 osThreadId tid_comhub;
 osThreadDef (comhub,osPriorityNormal,1,0);
 
+osThreadId tid_brn;
+osThreadDef (MainControlUnit,osPriorityNormal,1,0);
+
+osThreadId tid_TWI;
+osThreadDef (TWI_controller,osPriorityNormal,1,0);
+
+
 extern osMailQId  (mail_q_id[5]);
 
 /*
@@ -47,6 +54,8 @@ int main (void) {
 	NRF_LOG_FLUSH();
 	tid_comhub = osThreadCreate (osThread(comhub),NULL);
 	tid_SPI = osThreadCreate (osThread(SPI_controller),NULL);
+	tid_brn = osThreadCreate (osThread(MainControlUnit),NULL);
+	tid_TWI = osThreadCreate (osThread(TWI_controller),NULL);
 
   // create 'thread' functions that start executing,
   // example: tid_name = osThreadCreate (osThread(name), NULL);
@@ -68,6 +77,12 @@ int main (void) {
 	testmsg->pld_s = sizeof(msg);
 	testmsg->pld = msg;
 	osMailPut(mail_q_id[0], testmsg);*/
+	//twi();
+	
+  twi_init();
+	
+
+	
 	while(1)
 	{
 		//osSignalWait(0,0);

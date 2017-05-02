@@ -14,7 +14,6 @@
 #include "string.h"
 
 #include "nrf_drv_spi.h"
-#include "drv_pcal.h"
 #define NRF_LOG_MODULE_NAME "APP"
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"

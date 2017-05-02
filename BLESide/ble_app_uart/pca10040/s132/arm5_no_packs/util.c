@@ -141,6 +141,7 @@ void spi_handler(void)
 			__WFE();
 		}
 		
+		//Sending mode
 		uprint("syn: %x, com: %x\r\n",syn,command);
 		if(command)
 		{
@@ -194,6 +195,7 @@ void spi_handler(void)
 			
 			continue;
 		}
+		//Recieve mode
 		if(syn)
 		{
 //			NRF_LOG_INFO("SPIS start\r\n");
@@ -218,6 +220,8 @@ void spi_handler(void)
 			}
 			nrf_drv_gpiote_out_clear(PIN_ACK);
 			uprint("ack low\r\n");
+			ble_print(m_rx_buf);
+
 			//ack = 0;			
 		}
 		//transfer ok?

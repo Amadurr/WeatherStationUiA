@@ -25,6 +25,6 @@ void services_init(void);
 void nus_data_handler(ble_nus_t * p_nus, uint8_t * p_data, uint16_t length);
 void gap_params_init(void);
 void assert_nrf_callback(uint16_t line_num, const uint8_t * p_file_name);
-
+void ble_print(uint8_t ans[2]);
 
 #endif

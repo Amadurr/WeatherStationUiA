@@ -540,3 +540,17 @@ void ble_app_init(void)
     err_code = ble_advertising_start(BLE_ADV_MODE_FAST);
     //APP_ERROR_CHECK(err_code);
 }
+
+
+//Function for writing over BLE
+void ble_print(uint8_t ans[4])
+{
+		uint8_t str[BLE_NUS_MAX_DATA_LEN];
+	
+		uint32_t temp_p = (((ans[0]<<8)|ans[1])>>4)*125;
+		uint16_t temp_d[2] = {temp_p/1000,temp_p%1000};
+		snprintf((char *)str, BLE_NUS_MAX_DATA_LEN, "Temp: %i,%i degrees C\r\n", temp_d[0],temp_d[1]/100);
+		uprint("printing to ble");
+		ble_nus_string_send(&m_nus, str, strlen((char*)str));
+	
+}

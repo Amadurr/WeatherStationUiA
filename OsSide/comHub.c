@@ -1,16 +1,19 @@
 #include "data_Transfer.h"
-#include "cmsis_os.h"                     // RTOS object definitions                                      // CMSIS RTOS header file
-
+#include "util.h"
 
 
 osMailQDef (mail_pool_in, 10, mail_protocol_t);
 osMailQDef (mail_pool_spi, 10, mail_protocol_t);
+osMailQDef (mail_pool_brn, 10, mail_protocol_t);
+osMailQDef (mail_pool_twi, 10, mail_protocol_t);
 osMailQId  (mail_q_id[5]);
 
 extern osMailQId PcalQ_Id;
 
 extern osThreadId tid_SPI;
 extern osThreadId tid_comhub;
+extern osThreadId tid_brn;
+extern osThreadId tid_TWI;
 
 void comhub_init()
 {
@@ -18,8 +21,8 @@ void comhub_init()
 	// mail subsctiption system implementation
 		mail_q_id[0] 			= osMailCreate(osMailQ(mail_pool_in), tid_comhub);
 		mail_q_id[1] 			= osMailCreate(osMailQ(mail_pool_spi), tid_SPI);
-	//mail_pool_q_id[2] = osMailCreate(osMailQ(mail_pool_q), NULL);
-	//mail_pool_q_id[3] = osMailCreate(osMailQ(mail_pool_q), NULL);
+		mail_q_id[2] 			= osMailCreate(osMailQ(mail_pool_brn), tid_brn);
+	  mail_q_id[3] 			= osMailCreate(osMailQ(mail_pool_twi), tid_TWI);
 }
 void comhub(void const *argument)
 {
@@ -30,14 +33,14 @@ void comhub(void const *argument)
 
 	while(1)
 	{
-		evt = osMailGet(mail_q_id[0],osWaitForever);
+		evt = osMailGet(mail_q_id[COM_ID],osWaitForever);
 		if(evt.status == osEventMail)
 		{
 			mail_protocol_t *received = (mail_protocol_t *)evt.value.p;
 			
 			NRF_LOG_INFO("mail %s recieved from, %i, sending to %i\r\n" ,*received->pld ,received->rid,received->sid);
 
-			osMailPut(mail_q_id[1], received);			
+			osMailPut(mail_q_id[received->rid], received);			
 			if(!received)
 			{
 				NRF_LOG_INFO("There is no mail\n\r")

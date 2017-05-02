@@ -409,6 +409,16 @@
               <FileType>5</FileType>
               <FilePath>.\util.h</FilePath>
             </File>
+            <File>
+              <FileName>twi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\twi.c</FilePath>
+            </File>
+            <File>
+              <FileName>brain.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\brain.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -433,11 +443,6 @@
               <FileName>nrf_drv_twi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master\nrf_drv_twi.c</FilePath>
-            </File>
-            <File>
-              <FileName>drv_pcal.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Drivers\pcal\drv_pcal.c</FilePath>
             </File>
             <File>
               <FileName>nrf_drv_uart.c</FileName>
@@ -838,7 +843,7 @@
               <MiscControls></MiscControls>
               <Define>NRF52832 BOARD_PCA10040 NRF52_PAN_12 NRF52_PAN_15 NRF52_PAN_20 NRF52_PAN_30 NRF52_PAN_31 NRF52_PAN_36 NRF52_PAN_51 NRF52_PAN_53 NRF52_PAN_54 NRF52_PAN_55 NRF52_PAN_58 NRF52_PAN_62 NRF52_PAN_63 NRF52_PAN_64 CONFIG_GPIO_AS_PINRESET BSP_DEFINES_ONLY NRF52</Define>
               <Undefine></Undefine>
-              <IncludePath>.\config;..\..\nRF5_SDK_12.2.0\components;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\delay;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\timer;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\uart;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master;..\..\nRF5_SDK_12.2.0\components\libraries\log;..\..\nRF5_SDK_12.2.0\components\libraries\log\src;..\..\nRF5_SDK_12.2.0\components\libraries\util;..\..\nRF5_SDK_12.2.0\components\toolchain;..\..\nRF5_SDK_12.2.0\external\segger_rtt;..\..\nRF5_SDK_12.2.0;.\Drivers;.\Drivers\uart;.\Drivers\pcal;.\Drivers\bsp;.\Resources</IncludePath>
+              <IncludePath>.\config;..\..\nRF5_SDK_12.2.0\components;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\delay;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\nrf_soc_nosd;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\ppi;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\timer;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\uart;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master;..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master;..\..\nRF5_SDK_12.2.0\components\libraries\log;..\..\nRF5_SDK_12.2.0\components\libraries\log\src;..\..\nRF5_SDK_12.2.0\components\libraries\util;..\..\nRF5_SDK_12.2.0\components\toolchain;..\..\nRF5_SDK_12.2.0\external\segger_rtt;..\..\nRF5_SDK_12.2.0;.\Drivers;.\Drivers\uart;.\Drivers\bsp;.\Resources;-\</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -912,6 +917,16 @@
               <FileType>5</FileType>
               <FilePath>.\util.h</FilePath>
             </File>
+            <File>
+              <FileName>twi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\twi.c</FilePath>
+            </File>
+            <File>
+              <FileName>brain.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\brain.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -936,11 +951,6 @@
               <FileName>nrf_drv_twi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master\nrf_drv_twi.c</FilePath>
-            </File>
-            <File>
-              <FileName>drv_pcal.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Drivers\pcal\drv_pcal.c</FilePath>
             </File>
             <File>
               <FileName>nrf_drv_uart.c</FileName>

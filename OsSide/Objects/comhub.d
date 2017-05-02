@@ -34,10 +34,6 @@
 .\objects\comhub.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master\nrf_drv_spi.h
 .\objects\comhub.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_spi.h
 .\objects\comhub.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_spim.h
-.\objects\comhub.o: .\Drivers\pcal\drv_pcal.h
-.\objects\comhub.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master\nrf_drv_twi.h
-.\objects\comhub.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_twi.h
-.\objects\comhub.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_twim.h
 .\objects\comhub.o: ..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log.h
 .\objects\comhub.o: ..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_internal.h
 .\objects\comhub.o: ..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_common.h
@@ -47,4 +43,8 @@
 .\objects\comhub.o: ..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log_ctrl.h
 .\objects\comhub.o: ..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_ctrl_internal.h
 .\objects\comhub.o: ..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util_platform.h
+.\objects\comhub.o: util.h
 .\objects\comhub.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC\cmsis_os.h
+.\objects\comhub.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master\nrf_drv_twi.h
+.\objects\comhub.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_twi.h
+.\objects\comhub.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_twim.h

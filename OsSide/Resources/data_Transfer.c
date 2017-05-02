@@ -1,6 +1,5 @@
 #include "data_Transfer.h"
-#include "cmsis_os.h"                     // RTOS object definitions                                      // CMSIS RTOS header file
-
+#include "../util.h"
 
 
 
@@ -8,12 +7,12 @@
 static const nrf_drv_spi_t spi = NRF_DRV_SPI_INSTANCE(SPI_INSTANCE);  //< SPI instance.
 static volatile bool spi_xfer_done;  //< Flag used to indicate that SPI instance completed the transfer.
 void __svc(1) init_nothing(void);
-pcal_interface_t *p;
+
 
 extern osThreadId tid_SPI;
 
-static uint8_t       m_tx_buf[3];           //< TX buffer.
-static uint8_t       m_rx_buf[3+1];    //< RX buffer.
+static uint8_t       m_tx_buf[4];           //< TX buffer.
+static uint8_t       m_rx_buf[4+1];    //< RX buffer.
 static const uint8_t m_length = sizeof(m_tx_buf);        //< Transfer length.
 static uint8_t			 STA_SYN;		//Syn state
 #define PIN_SYN 30
@@ -149,6 +148,7 @@ void SPI_controller(void const *argument)
 					NRF_LOG_INFO("%c\r\n",m_rx_buf[i]);
 					i++;
 				}
+				send_mail(mail_q_id[0],SPI_ID,BRN_ID,0x00,3,m_rx_buf);
 			}
 			nrf_drv_gpiote_out_clear(PIN_ACK);
 			continue;
@@ -183,7 +183,7 @@ void SPI_controller(void const *argument)
 			}
 			NRF_LOG_INFO("transfer done");
 			nrf_drv_gpiote_out_clear(PIN_ACK);
-			osMailFree(mail);
+			osMailFree(mail_q_id[1],mail);
 		}
 	}
 }

@@ -36,10 +36,6 @@
 .\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master\nrf_drv_spi.h
 .\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_spi.h
 .\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_spim.h
-.\objects\util.o: .\Drivers\pcal\drv_pcal.h
-.\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master\nrf_drv_twi.h
-.\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_twi.h
-.\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_twim.h
 .\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log.h
 .\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_internal.h
 .\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_common.h
@@ -50,3 +46,6 @@
 .\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_ctrl_internal.h
 .\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util_platform.h
 .\objects\util.o: util.h
+.\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master\nrf_drv_twi.h
+.\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_twi.h
+.\objects\util.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_twim.h
