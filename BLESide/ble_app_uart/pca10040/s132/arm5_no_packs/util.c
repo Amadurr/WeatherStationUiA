@@ -28,9 +28,9 @@ volatile uint8_t timer_;
 
 void read_fifo(uint8_t buf[50]);
 uint8_t command;
-
-static uint8_t       m_tx_buf[3];           	/**< TX buffer. */
-static uint8_t       m_rx_buf[3 + 1];   /**< RX buffer. */
+uint8_t ble_msg[6];
+static uint8_t       m_tx_buf[7];           	/**< TX buffer. */
+static uint8_t       m_rx_buf[7 + 1];   /**< RX buffer. */
 static const uint8_t m_length = sizeof(m_tx_buf);        	/**< Transfer length. */
 static volatile bool spis_xfer_done; /**< Flag used to indicate that SPIS instance completed the transfer. */
 fifo_list d_list; 									 /**< Legger til struct fifo_list. */
@@ -44,7 +44,7 @@ void spis_event_handler(nrf_drv_spis_event_t event)
     if (event.evt_type == NRF_DRV_SPIS_XFER_DONE)
     {
 			spis_xfer_done = true;
-        uprint(" Transfer completed. Received: %s\r\n",(uint32_t)m_rx_buf);
+        uprint(" Transfer completed. Received: %s\r\n",(char*)m_rx_buf);
 		}
 } 
 
@@ -172,9 +172,9 @@ void spi_handler(void)
 			//prep transfer+
 			nrf_delay_ms(100);
 			uint8_t *ttp = m_tx_buf;	//pointer to tx buffer
+			read_fifo(ttp);
 			
 			uprint("blep\r\n");
-			read_fifo(ttp);
 			uprint("sending data: %s\r\n", (uint8_t*)m_tx_buf);
 			
       memset(m_rx_buf, 0, m_length);
@@ -221,12 +221,12 @@ void spi_handler(void)
 			nrf_drv_gpiote_out_clear(PIN_ACK);
 			uprint("ack low\r\n");
 			ble_print(m_rx_buf);
-
+				
 			//ack = 0;			
 		}
 		//transfer ok?
 		power_manage();
-	}
+	 }
 }
 
 void fifo_init(void)
@@ -245,9 +245,8 @@ void add_fifo(uint8_t *Data)
 			//BLE("plz stop! I am full")
 			return;
 		}
-		
 	d_list.array[d_list.head] = Data;
-	d_list.head = ((d_list.tail + 1) % d_list.max_size);
+	d_list.head = ((d_list.head + 1) % d_list.max_size);
 	d_list.used++;
 }
 
@@ -260,8 +259,8 @@ void read_fifo(uint8_t *buf)
 		return;
 	}
 	
-	memcpy(buf,d_list.array[d_list.tail],3);
-	d_list.array[d_list.tail] = 0;
+	memcpy(buf,d_list.array[d_list.tail],6);
+	d_list.array[d_list.tail] = NULL;
 	d_list.tail = ((d_list.tail + 1) % d_list.max_size);
 	d_list.used--;
 	return;

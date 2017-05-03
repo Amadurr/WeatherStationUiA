@@ -8,7 +8,7 @@ static uint16_t                         m_conn_handle = BLE_CONN_HANDLE_INVALID;
 
 static ble_uuid_t                       m_adv_uuids[] = {{BLE_UUID_NUS_SERVICE, NUS_SERVICE_UUID_TYPE}};  /**< Universally unique service identifier. */
 extern uint8_t command;
-
+extern uint8_t ble_msg;
 /**@brief Function for assert macro callback.
  *
  * @details This function will be called in case of an assert in the SoftDevice.
@@ -69,9 +69,11 @@ void gap_params_init(void)
 void nus_data_handler(ble_nus_t * p_nus, uint8_t * p_data, uint16_t length)
 {
 	uint8_t *str_ptr;
-	strcpy((char*)str_ptr,(char*)p_data);
+	uprint("ble message inc\r\n");
+	memcpy((char*)str_ptr,(char*)p_data, length);
 	add_fifo(str_ptr);
 	command = 1;
+	
 	/*
     for (uint32_t i = 0; i < length; i++)
     {
@@ -522,13 +524,12 @@ void power_manage(void)
 void ble_app_init(void)
 {
 	  uint32_t err_code;
-    bool erase_bonds;
 
     // Initialize.
     APP_TIMER_INIT(APP_TIMER_PRESCALER, APP_TIMER_OP_QUEUE_SIZE, false);
     //uart_init();
 
-    //buttons_leds_init(&erase_bonds);
+
     ble_stack_init();
     gap_params_init();
     services_init();
@@ -538,7 +539,7 @@ void ble_app_init(void)
 		uprint("BLESTART\r\n");
     
     err_code = ble_advertising_start(BLE_ADV_MODE_FAST);
-    //APP_ERROR_CHECK(err_code);
+    APP_ERROR_CHECK(err_code);
 }
 
 
@@ -547,10 +548,13 @@ void ble_print(uint8_t ans[4])
 {
 		uint8_t str[BLE_NUS_MAX_DATA_LEN];
 	
-		uint32_t temp_p = (((ans[0]<<8)|ans[1])>>4)*125;
-		uint16_t temp_d[2] = {temp_p/1000,temp_p%1000};
-		snprintf((char *)str, BLE_NUS_MAX_DATA_LEN, "Temp: %i,%i degrees C\r\n", temp_d[0],temp_d[1]/100);
-		uprint("printing to ble");
+		//uint32_t temp_p = (((ans[0]<<8)|ans[1])>>4)*125;
+		int16_t temp_p = ((ans[0]<<8)|ans[1]);
+
+		int32_t temp_d0 = (temp_p*125)/32;
+		int32_t temp_d1 = temp_d0/1000;
+		int32_t temp_d2 =	abs(temp_d0 - (temp_d1*1000));
+		snprintf((char *)str, BLE_NUS_MAX_DATA_LEN, "Temp: %i,%i degrees C\r\n", temp_d1,temp_d2);
+		uprint("printing to ble\r\n");
 		ble_nus_string_send(&m_nus, str, strlen((char*)str));
-	
 }

@@ -55,7 +55,6 @@ void MainControlUnit(const void *arguments);
 
 void send_mail
 (
-		osMailQId q_id,
 		uint8_t sid,
 		uint8_t rid,
 		uint8_t flg,

@@ -10,7 +10,7 @@ extern uint8_t command;
 
 extern osThreadId tid_comhub;
 extern osMailQId  (mail_q_id[5]);
-
+/*
 void butt_handler(nrf_drv_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
 {
 	//NRF_LOG_INFO("sending testmsg\r\n");
@@ -30,7 +30,7 @@ void butt_handler(nrf_drv_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
 	testmsg->flg = 0;
 	testmsg->pld_s = sizeof(msg);
 	testmsg->pld = msg;
-	osMailPut(mail_q_id[0], testmsg);
+	osMailPut(COM_Q, testmsg);
 }
 
 void butt_init(void)
@@ -45,7 +45,7 @@ void butt_init(void)
 
 	nrf_drv_gpiote_in_event_enable(BUTT, true);
 
-}
+}*/
 
 
 

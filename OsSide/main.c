@@ -50,7 +50,7 @@ int main (void) {
 	NRF_LOG_INFO("Log initialized\r\n");
 	SPI_init();
 	comhub_init();
-	butt_init();
+	//butt_init();
 	NRF_LOG_FLUSH();
 	tid_comhub = osThreadCreate (osThread(comhub),NULL);
 	tid_SPI = osThreadCreate (osThread(SPI_controller),NULL);

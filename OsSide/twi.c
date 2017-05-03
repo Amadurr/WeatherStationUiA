@@ -26,7 +26,7 @@
 #include "app_error.h"
 #include "nrf_drv_twi.h"
 #include "util.h"
-
+#include "data_Transfer.h"
 #define NRF_LOG_MODULE_NAME "APP"
 
 #include "nrf_log.h"
@@ -123,20 +123,20 @@ void pct_drv_init(pct_data_t *init)
 
 void pct_drv_write(pct_data_t package)
 {
-		if(package.reg != curr_reg)
-		{
-			curr_reg = package.reg;
-			nrf_drv_twi_tx(&m_twi, ((TWI_ADD<<1)|0x00), &curr_reg, sizeof(curr_reg), true);
-		}
-		uint8_t tempdata[2] = {package.reg,package.val[0]};
-		nrf_drv_twi_tx(&m_twi, ((TWI_ADD<<1)|0x00), tempdata, sizeof(tempdata),true);
+		curr_reg = package.reg;
+		uint8_t tempdata[3] = {curr_reg,package.val[0],package.val[1]};
+		nrf_drv_twi_tx(&m_twi, (TWI_ADD), &curr_reg, sizeof(tempdata), true);
 }
 
 
 void pct_drv_read(pct_data_t *package)
 {
 		curr_reg = package->reg;
-		nrf_drv_twi_tx(&m_twi, TWI_ADD, &curr_reg, 1, true);
+		if(package->reg != curr_reg)
+		{
+			nrf_drv_twi_tx(&m_twi, TWI_ADD, &curr_reg, 1, true);
+			curr_reg = package->reg;
+		}
 		nrf_drv_twi_rx(&m_twi, TWI_ADD, package->val, 2/*sizeof(package->val)*/);
 		
 }
@@ -150,16 +150,31 @@ void TWI_controller(const void *arguments)
 	pct_data_t *temp_ptr;
 	while(1)
 	{
-		evt = osSignalWait(1, osWaitForever);
+		evt = osSignalWait(0, osWaitForever);
 		if(evt.value.signals == 1)
 		{
-		temp_data.reg = TEMP_REG;
-		temp_ptr = &temp_data;
-		pct_drv_read(temp_ptr);
-		uint32_t temp_p = (((temp_data.val[0]<<8)|temp_data.val[1])>>4)*125;
-		uint16_t temp_d[2] = {temp_p/1000,temp_p%1000};
-		NRF_LOG_INFO("Temp: %x\r\n",(temp_data.val[0]<<8)|temp_data.val[1]);
-		send_mail(mail_q_id[0],TWI_ID,SPI_ID,0x00,2,temp_data.val);
+			temp_data.reg = TEMP_REG;
+			temp_ptr = &temp_data;
+			pct_drv_read(temp_ptr);
+			//temp_data.val[0] = 0xC9;
+			//temp_data.val[1] = 0x20;
+			uint32_t temp_p = (((temp_data.val[0]<<8)|temp_data.val[1])>>4)*125;
+			uint16_t temp_d[2] = {temp_p/1000,temp_p%1000};
+			NRF_LOG_INFO("Temp: %x\r\n",(temp_data.val[0]<<8)|temp_data.val[1]);
+			send_mail(TWI_ID,SPI_ID,0x00,2,temp_data.val);
+		}
+		//setting Tos temp
+		else if(evt.value.signals == 2)
+		{
+			evt = osMailGet(TWI_Q,50);
+			if(evt.status == osEventMail)
+			{
+				NRF_LOG_INFO("Setting TOS");
+				mail_protocol_t *received = (mail_protocol_t *)evt.value.p;
+				pct_data_t tos_pack =  {TOS, received->pld[0]};
+				pct_drv_write(tos_pack);
+				osMailFree(TWI_Q,received);
+			}
 		}
 	}
 }

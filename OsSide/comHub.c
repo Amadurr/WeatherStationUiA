@@ -2,11 +2,12 @@
 #include "util.h"
 
 
-osMailQDef (mail_pool_in, 10, mail_protocol_t);
+osMailQDef (mail_pool_in, 20, mail_protocol_t);
 osMailQDef (mail_pool_spi, 10, mail_protocol_t);
 osMailQDef (mail_pool_brn, 10, mail_protocol_t);
 osMailQDef (mail_pool_twi, 10, mail_protocol_t);
 osMailQId  (mail_q_id[5]);
+
 
 extern osMailQId PcalQ_Id;
 
@@ -33,7 +34,7 @@ void comhub(void const *argument)
 
 	while(1)
 	{
-		evt = osMailGet(mail_q_id[COM_ID],osWaitForever);
+		evt = osMailGet(COM_Q,osWaitForever);
 		if(evt.status == osEventMail)
 		{
 			mail_protocol_t *received = (mail_protocol_t *)evt.value.p;
@@ -45,7 +46,7 @@ void comhub(void const *argument)
 			{
 				NRF_LOG_INFO("There is no mail\n\r")
 			}
-			
+			osMailFree(COM_Q,received);
 			NRF_LOG_INFO("sending to mail queue %x\r\n", (uint32_t)&mail_q_id[1]);
 		}
 	}
@@ -71,10 +72,10 @@ uint8_t sendMail(uint8_t flags, uint8_t *package, mail_protocol_t *sptr, uint8_t
 	osMailPut(PcalQ_Id, sptr);
 }*/
 
-void send_mail(osMailQId q_id, uint8_t sid, uint8_t rid, uint8_t flg, uint8_t pld_s, uint8_t *pld)
+void send_mail(uint8_t sid, uint8_t rid, uint8_t flg, uint8_t pld_s, uint8_t *pld)
 {
 	mail_protocol_t *testmsg;
-	testmsg = (mail_protocol_t *) osMailAlloc(q_id, osWaitForever);
+	testmsg = (mail_protocol_t *) osMailAlloc(COM_Q, osWaitForever);
 	if(testmsg == NULL)
 	{
 		
@@ -87,5 +88,5 @@ void send_mail(osMailQId q_id, uint8_t sid, uint8_t rid, uint8_t flg, uint8_t pl
 	testmsg->flg = flg;
 	testmsg->pld_s = pld_s;
 	testmsg->pld = pld;
-	osMailPut(q_id, testmsg);
+	osMailPut(COM_Q, testmsg);
 }

@@ -21,22 +21,21 @@ Target DLL:      Segger\JL2CM3.dll V2.99.23.0
 Dialog DLL:      TCM.DLL V1.27.0.0
  
 <h2>Project:</h2>
-I:\ele 217\WeatherStationUiA\OsSide\test.uvprojx
-Project File Date:  04/30/2017
+C:\school\Ele217\WeatherStationUiA\OsSide\test.uvprojx
+Project File Date:  05/03/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Weatherstation'
-compiling twi.c...
-twi.c(160): warning:  #177-D: variable "temp_d"  was declared but never referenced
-  		uint16_t temp_d[2] = {temp_p/1000,temp_p%1000};
-twi.c(165): warning:  #1-D: last line of file ends without a newline
-  }
-twi.c: 2 warnings, 0 errors
+compiling data_Transfer.c...
+Resources\data_Transfer.c(87): warning:  #188-D: enumerated type mixed with another type
+  	  in_config.pull = 
+PIO_PIN_CNF_PULL_Pullup;
+Resources\data_Transfer.c: 1 warning, 0 errors
 linking...
-Program Size: Code=21980 RO-data=1892 RW-data=152 ZI-data=22416  
+Program Size: Code=23720 RO-data=1892 RW-data=160 ZI-data=36936  
 FromELF: creating hex file...
-".\Objects\WeatherStationUiA.axf" - 0 Error(s), 2 Warning(s).
+".\Objects\WeatherStationUiA.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -67,25 +66,25 @@ Package Vendor: NordicSemiconductor
    * Component: ARM::CMSIS:CORE:5.0.1
 
    * Component: ARM::CMSIS:RTOS:Keil RTX:4.81.0
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Semaphore.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Timer.c
-      Source file:   CMSIS\RTOS\RTX\SRC\ARM\SVC_Table.s
-      Library file:  CMSIS\RTOS\RTX\LIB\ARM\RTX_CM4.lib
-      Source file:   CMSIS\RTOS\RTX\Templates\RTX_Conf_CM.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MailQueue.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Thread.c
-      Include file:  CMSIS\RTOS\RTX\UserCodeTemplates\osObjects.h
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\main.c
-      Include file:  CMSIS\RTOS\RTX\INC\cmsis_os.h
       Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MemPool.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Semaphore.c
+      Library file:  CMSIS\RTOS\RTX\LIB\ARM\RTX_CM4.lib
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\main.c
       Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MsgQueue.c
+      Source file:   CMSIS\RTOS\RTX\Templates\RTX_Conf_CM.c
       Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Mutex.c
+      Include file:  CMSIS\RTOS\RTX\INC\cmsis_os.h
+      Include file:  CMSIS\RTOS\RTX\UserCodeTemplates\osObjects.h
+      Source file:   CMSIS\RTOS\RTX\SRC\ARM\SVC_Table.s
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Timer.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Thread.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MailQueue.c
 
    * Component: NordicSemiconductor::Device:Startup:8.12.0
-      Include file:  Device\Include\system_nrf52.h
       Source file:   Device\Source\system_nrf52.c
+      Include file:  Device\Include\system_nrf52.h
       Source file:   Device\Source\arm\arm_startup_nrf52.s
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

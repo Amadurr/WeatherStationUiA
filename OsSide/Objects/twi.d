@@ -36,6 +36,10 @@
 .\objects\twi.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\gpiote\nrf_drv_gpiote.h
 .\objects\twi.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_gpiote.h
 .\objects\twi.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\twi.o: .\Resources\data_Transfer.h
+.\objects\twi.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\spi_master\nrf_drv_spi.h
+.\objects\twi.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_spi.h
+.\objects\twi.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_spim.h
 .\objects\twi.o: ..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log.h
 .\objects\twi.o: ..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_internal.h
 .\objects\twi.o: ..\..\nRF5_SDK_12.2.0\components\libraries\util\sdk_common.h

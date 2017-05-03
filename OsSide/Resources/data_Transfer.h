@@ -18,7 +18,10 @@
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
 
-
+#define COM_Q  mail_q_id[0]
+#define	SPI_Q  mail_q_id[1]
+#define	BRN_Q  mail_q_id[2]
+#define	TWI_Q  mail_q_id[3]
 
 typedef struct{
 	uint8_t sid;	// sender ID

@@ -11,8 +11,8 @@ void __svc(1) init_nothing(void);
 
 extern osThreadId tid_SPI;
 
-static uint8_t       m_tx_buf[4];           //< TX buffer.
-static uint8_t       m_rx_buf[4+1];    //< RX buffer.
+static uint8_t       m_tx_buf[7];           //< TX buffer.  6 data bytes + flags
+static uint8_t       m_rx_buf[7+1];    //< RX buffer.
 static const uint8_t m_length = sizeof(m_tx_buf);        //< Transfer length.
 static uint8_t			 STA_SYN;		//Syn state
 #define PIN_SYN 30
@@ -54,6 +54,7 @@ void tx_set( uint8_t* tx, uint8_t* buff, uint8_t size)
 	{
 		tx[i] = buff[i];
 	}
+	
 }
 void tx_clr (uint8_t* tx, uint8_t size)
 {
@@ -148,12 +149,12 @@ void SPI_controller(void const *argument)
 					NRF_LOG_INFO("%c\r\n",m_rx_buf[i]);
 					i++;
 				}
-				send_mail(mail_q_id[0],SPI_ID,BRN_ID,0x00,3,m_rx_buf);
+				send_mail(SPI_ID,BRN_ID,m_rx_buf[m_length-1],6,m_rx_buf);
 			}
 			nrf_drv_gpiote_out_clear(PIN_ACK);
 			continue;
 		}
-		event_m = osMailGet(mail_q_id[1],50);
+		event_m = osMailGet(SPI_Q,50);
 		if (event_m.status == osEventMail)  //send code
 		{
 			NRF_LOG_INFO("Send mode\r\n");
@@ -183,7 +184,7 @@ void SPI_controller(void const *argument)
 			}
 			NRF_LOG_INFO("transfer done");
 			nrf_drv_gpiote_out_clear(PIN_ACK);
-			osMailFree(mail_q_id[1],mail);
+			osMailFree(SPI_Q,mail);
 		}
 	}
 }
