@@ -16,7 +16,7 @@ uint8_t data[] =	"ABC";
 extern uint8_t command;
 #define BUTT 13
 
-
+/*
 void butt_handler(nrf_drv_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
 {
 	command = 1;
@@ -36,4 +36,4 @@ void butt_init(void)
 
 	nrf_drv_gpiote_in_event_enable(BUTT, true);
 
-}
+}*/

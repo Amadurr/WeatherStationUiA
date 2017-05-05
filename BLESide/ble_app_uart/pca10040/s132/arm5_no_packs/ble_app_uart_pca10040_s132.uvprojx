@@ -404,6 +404,11 @@
               <FileType>1</FileType>
               <FilePath>.\buttjob.c</FilePath>
             </File>
+            <File>
+              <FileName>spi_drv.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\spi_drv.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1031,6 +1036,11 @@
               <FileName>buttjob.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\buttjob.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi_drv.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\spi_drv.c</FilePath>
             </File>
           </Files>
         </Group>

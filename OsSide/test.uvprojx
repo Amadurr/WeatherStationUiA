@@ -415,9 +415,19 @@
               <FilePath>.\twi.c</FilePath>
             </File>
             <File>
+              <FileName>saadc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\saadc.c</FilePath>
+            </File>
+            <File>
               <FileName>brain.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\brain.c</FilePath>
+            </File>
+            <File>
+              <FileName>saadc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\saadc.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -448,6 +458,16 @@
               <FileName>nrf_drv_uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\nRF5_SDK_12.2.0\components\drivers_nrf\uart\nrf_drv_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf_drv_saadc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc\nrf_drv_saadc.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf_saadc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_saadc.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -923,9 +943,19 @@
               <FilePath>.\twi.c</FilePath>
             </File>
             <File>
+              <FileName>saadc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\saadc.c</FilePath>
+            </File>
+            <File>
               <FileName>brain.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\brain.c</FilePath>
+            </File>
+            <File>
+              <FileName>saadc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\saadc.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -956,6 +986,16 @@
               <FileName>nrf_drv_uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\nRF5_SDK_12.2.0\components\drivers_nrf\uart\nrf_drv_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf_drv_saadc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc\nrf_drv_saadc.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf_saadc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_saadc.c</FilePath>
             </File>
           </Files>
         </Group>

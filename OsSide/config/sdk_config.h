@@ -465,6 +465,246 @@
 #endif //UART_ENABLED
 // </e>
 
+
+//==========================================================
+// <e> PERIPHERAL_RESOURCE_SHARING_ENABLED - nrf_drv_common - Peripheral drivers common module
+//==========================================================
+#ifndef PERIPHERAL_RESOURCE_SHARING_ENABLED
+#define PERIPHERAL_RESOURCE_SHARING_ENABLED 0
+#endif
+#if  PERIPHERAL_RESOURCE_SHARING_ENABLED
+// <e> COMMON_CONFIG_LOG_ENABLED - Enables logging in the module.
+//==========================================================
+#ifndef COMMON_CONFIG_LOG_ENABLED
+#define COMMON_CONFIG_LOG_ENABLED 0
+#endif
+#if  COMMON_CONFIG_LOG_ENABLED
+// <o> COMMON_CONFIG_LOG_LEVEL  - Default Severity level
+ 
+// <0=> Off 
+// <1=> Error 
+// <2=> Warning 
+// <3=> Info 
+// <4=> Debug 
+
+#ifndef COMMON_CONFIG_LOG_LEVEL
+#define COMMON_CONFIG_LOG_LEVEL 3
+#endif
+
+// <o> COMMON_CONFIG_INFO_COLOR  - ANSI escape code prefix.
+ 
+// <0=> Default 
+// <1=> Black 
+// <2=> Red 
+// <3=> Green 
+// <4=> Yellow 
+// <5=> Blue 
+// <6=> Magenta 
+// <7=> Cyan 
+// <8=> White 
+
+#ifndef COMMON_CONFIG_INFO_COLOR
+#define COMMON_CONFIG_INFO_COLOR 0
+#endif
+
+// <o> COMMON_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
+ 
+// <0=> Default 
+// <1=> Black 
+// <2=> Red 
+// <3=> Green 
+// <4=> Yellow 
+// <5=> Blue 
+// <6=> Magenta 
+// <7=> Cyan 
+// <8=> White 
+
+#ifndef COMMON_CONFIG_DEBUG_COLOR
+#define COMMON_CONFIG_DEBUG_COLOR 0
+#endif
+
+#endif //COMMON_CONFIG_LOG_ENABLED
+// </e>
+
+#endif //PERIPHERAL_RESOURCE_SHARING_ENABLED
+// </e>
+
+// <e> PPI_ENABLED - nrf_drv_ppi - PPI peripheral driver
+//==========================================================
+#ifndef PPI_ENABLED
+#define PPI_ENABLED 1
+#endif
+#if  PPI_ENABLED
+// <e> PPI_CONFIG_LOG_ENABLED - Enables logging in the module.
+//==========================================================
+#ifndef PPI_CONFIG_LOG_ENABLED
+#define PPI_CONFIG_LOG_ENABLED 0
+#endif
+#if  PPI_CONFIG_LOG_ENABLED
+// <o> PPI_CONFIG_LOG_LEVEL  - Default Severity level
+ 
+// <0=> Off 
+// <1=> Error 
+// <2=> Warning 
+// <3=> Info 
+// <4=> Debug 
+
+#ifndef PPI_CONFIG_LOG_LEVEL
+#define PPI_CONFIG_LOG_LEVEL 3
+#endif
+
+// <o> PPI_CONFIG_INFO_COLOR  - ANSI escape code prefix.
+ 
+// <0=> Default 
+// <1=> Black 
+// <2=> Red 
+// <3=> Green 
+// <4=> Yellow 
+// <5=> Blue 
+// <6=> Magenta 
+// <7=> Cyan 
+// <8=> White 
+
+#ifndef PPI_CONFIG_INFO_COLOR
+#define PPI_CONFIG_INFO_COLOR 0
+#endif
+
+// <o> PPI_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
+ 
+// <0=> Default 
+// <1=> Black 
+// <2=> Red 
+// <3=> Green 
+// <4=> Yellow 
+// <5=> Blue 
+// <6=> Magenta 
+// <7=> Cyan 
+// <8=> White 
+
+#ifndef PPI_CONFIG_DEBUG_COLOR
+#define PPI_CONFIG_DEBUG_COLOR 0
+#endif
+
+#endif //PPI_CONFIG_LOG_ENABLED
+// </e>
+
+#endif //PPI_ENABLED
+// </e>
+
+// <e> SAADC_ENABLED - nrf_drv_saadc - SAADC peripheral driver
+//==========================================================
+#ifndef SAADC_ENABLED
+#define SAADC_ENABLED 1
+#endif
+#if  SAADC_ENABLED
+// <o> SAADC_CONFIG_RESOLUTION  - Resolution
+ 
+// <0=> 8 bit 
+// <1=> 10 bit 
+// <2=> 12 bit 
+// <3=> 14 bit 
+
+#ifndef SAADC_CONFIG_RESOLUTION
+#define SAADC_CONFIG_RESOLUTION 1
+#endif
+
+// <o> SAADC_CONFIG_OVERSAMPLE  - Sample period
+ 
+// <0=> Disabled 
+// <1=> 2x 
+// <2=> 4x 
+// <3=> 8x 
+// <4=> 16x 
+// <5=> 32x 
+// <6=> 64x 
+// <7=> 128x 
+// <8=> 256x 
+
+#ifndef SAADC_CONFIG_OVERSAMPLE
+#define SAADC_CONFIG_OVERSAMPLE 0
+#endif
+
+// <q> SAADC_CONFIG_LP_MODE  - Enabling low power mode
+ 
+
+#ifndef SAADC_CONFIG_LP_MODE
+#define SAADC_CONFIG_LP_MODE 0
+#endif
+
+// <o> SAADC_CONFIG_IRQ_PRIORITY  - Interrupt priority
+ 
+
+// <i> Priorities 0,2 (nRF51) and 0,1,4,5 (nRF52) are reserved for SoftDevice
+// <0=> 0 (highest) 
+// <1=> 1 
+// <2=> 2 
+// <3=> 3 
+// <4=> 4 
+// <5=> 5 
+// <6=> 6 
+// <7=> 7 
+
+#ifndef SAADC_CONFIG_IRQ_PRIORITY
+#define SAADC_CONFIG_IRQ_PRIORITY 7
+#endif
+
+// <e> SAADC_CONFIG_LOG_ENABLED - Enables logging in the module.
+//==========================================================
+#ifndef SAADC_CONFIG_LOG_ENABLED
+#define SAADC_CONFIG_LOG_ENABLED 0
+#endif
+#if  SAADC_CONFIG_LOG_ENABLED
+// <o> SAADC_CONFIG_LOG_LEVEL  - Default Severity level
+ 
+// <0=> Off 
+// <1=> Error 
+// <2=> Warning 
+// <3=> Info 
+// <4=> Debug 
+
+#ifndef SAADC_CONFIG_LOG_LEVEL
+#define SAADC_CONFIG_LOG_LEVEL 3
+#endif
+
+// <o> SAADC_CONFIG_INFO_COLOR  - ANSI escape code prefix.
+ 
+// <0=> Default 
+// <1=> Black 
+// <2=> Red 
+// <3=> Green 
+// <4=> Yellow 
+// <5=> Blue 
+// <6=> Magenta 
+// <7=> Cyan 
+// <8=> White 
+
+#ifndef SAADC_CONFIG_INFO_COLOR
+#define SAADC_CONFIG_INFO_COLOR 0
+#endif
+
+// <o> SAADC_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
+ 
+// <0=> Default 
+// <1=> Black 
+// <2=> Red 
+// <3=> Green 
+// <4=> Yellow 
+// <5=> Blue 
+// <6=> Magenta 
+// <7=> Cyan 
+// <8=> White 
+
+#ifndef SAADC_CONFIG_DEBUG_COLOR
+#define SAADC_CONFIG_DEBUG_COLOR 0
+#endif
+
+#endif //SAADC_CONFIG_LOG_ENABLED
+// </e>
+
+#endif //SAADC_ENABLED
+// </e>
+
+
 // </h> 
 //==========================================================
 

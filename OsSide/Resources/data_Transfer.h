@@ -23,14 +23,26 @@
 #define	BRN_Q  mail_q_id[2]
 #define	TWI_Q  mail_q_id[3]
 
-typedef struct{
+typedef struct
+{
 	uint8_t sid;	// sender ID
 	uint8_t rid;	// reciever ID
-	uint8_t flg;  // flags
 	uint8_t pld_s;// size of payload array
+	uint8_t flg;  // flags
 	uint8_t *pld;	// pointer to payload
-}	mail_protocol_t;
-
+}	mail_ptc_t;		//mail protocol type
+typedef struct
+{
+	uint8_t flgs;
+	uint8_t pld[6];
+	/* flags
+	0x80 = to ble
+	0x40 = to uart
+	0x01 = temp data
+	0x02 = temp_thresh
+	
+	*/
+}spi_ptc_t;			//spi protocol type
 
 //init functions
 void SPI_init(void);
@@ -38,4 +50,10 @@ void comhub_init(void);
 //thread functions
 void SPI_controller(void const *argument);
 void comhub(void const *argument);
+void start_spi_transfer(nrf_drv_spi_t const * const p_instance,
+																		uint8_t 				p_CS,
+																		uint8_t const * p_tx_buffer,
+																		uint8_t         tx_buffer_length,
+																		uint8_t       * p_rx_buffer,
+																		uint8_t         rx_buffer_length);
 #endif //DATA_TRANSFER_H__

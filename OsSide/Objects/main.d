@@ -49,3 +49,7 @@
 .\objects\main.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\twi_master\nrf_drv_twi.h
 .\objects\main.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_twi.h
 .\objects\main.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_twim.h
+.\objects\main.o: saadc.h
+.\objects\main.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc\nrf_drv_saadc.h
+.\objects\main.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_saadc.h
+.\objects\main.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common\nrf_drv_common.h

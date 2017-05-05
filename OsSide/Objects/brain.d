@@ -48,3 +48,7 @@
 .\objects\brain.o: ..\..\nRF5_SDK_12.2.0\components\libraries\log\nrf_log_ctrl.h
 .\objects\brain.o: ..\..\nRF5_SDK_12.2.0\components\libraries\log\src\nrf_log_ctrl_internal.h
 .\objects\brain.o: ..\..\nRF5_SDK_12.2.0\components\libraries\util\app_util_platform.h
+.\objects\brain.o: saadc.h
+.\objects\brain.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\saadc\nrf_drv_saadc.h
+.\objects\brain.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\hal\nrf_saadc.h
+.\objects\brain.o: ..\..\nRF5_SDK_12.2.0\components\drivers_nrf\common\nrf_drv_common.h

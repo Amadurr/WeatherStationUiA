@@ -3,6 +3,7 @@
 ".\_build\blefunctions.o"
 ".\_build\util.o"
 ".\_build\buttjob.o"
+".\_build\spi_drv.o"
 ".\_build\boards.o"
 ".\_build\bsp.o"
 ".\_build\bsp_btn_ble.o"

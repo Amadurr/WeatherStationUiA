@@ -36,15 +36,18 @@
 #define TWI_INSTANCE_ID     0
 
 /* Number of possible TWI addresses. */
-#define TWI_ADDRESSES      127
-#define TWI_ADD 			 0x37
+#define TWI_ADDRESSES  	127
+#define TWI_ADD 			 	0x37
+#define TWI_SDA					26
+#define TWI_SCL					27
+#define PCT_IRQ					02
 /* TWI instance. */
 static const nrf_drv_twi_t m_twi = NRF_DRV_TWI_INSTANCE(TWI_INSTANCE_ID);
 
 
 uint8_t curr_reg = 0xFF;
 extern osMailQId mail_q_id[5];
-
+extern osMutexId Print_Mutex;
 
 /**
  * @brief TWI initialization.
@@ -54,8 +57,8 @@ void twi_init (void)
     ret_code_t err_code;
 
     const nrf_drv_twi_config_t twi_config = {
-       .scl                = 27,
-       .sda                = 26,
+       .scl                = TWI_SCL,
+       .sda                = TWI_SDA,
        .frequency          = NRF_TWI_FREQ_100K,
        .interrupt_priority = APP_IRQ_PRIORITY_HIGH,
        .clear_bus_init     = false
@@ -72,6 +75,7 @@ void twi_init (void)
 /**
  * @brief Function for main application entry.
  */
+/*
 void twi(void)
 {
     ret_code_t err_code;
@@ -103,9 +107,10 @@ void twi(void)
 
     while (true)
     {
-        /* Empty loop. */
+       
     }
 }
+*/
 
 void pct_drv_init(pct_data_t *init)
 {
@@ -148,10 +153,12 @@ void TWI_controller(const void *arguments)
 	osEvent evt;
 	pct_data_t temp_data;
 	pct_data_t *temp_ptr;
+	mail_ptc_t *rcvd;			// recieved package
 	while(1)
 	{
-		evt = osSignalWait(0, osWaitForever);
-		if(evt.value.signals == 1)
+		evt = osMailGet(TWI_Q,osWaitForever);
+		rcvd = (mail_ptc_t *)evt.value.p;
+		if(rcvd->flg&0x01)
 		{
 			temp_data.reg = TEMP_REG;
 			temp_ptr = &temp_data;
@@ -160,21 +167,28 @@ void TWI_controller(const void *arguments)
 			//temp_data.val[1] = 0x20;
 			uint32_t temp_p = (((temp_data.val[0]<<8)|temp_data.val[1])>>4)*125;
 			uint16_t temp_d[2] = {temp_p/1000,temp_p%1000};
+			
+			osMutexWait(Print_Mutex,osWaitForever);
 			NRF_LOG_INFO("Temp: %x\r\n",(temp_data.val[0]<<8)|temp_data.val[1]);
-			send_mail(TWI_ID,SPI_ID,0x00,2,temp_data.val);
+			osMutexRelease(Print_Mutex);
+			
+			send_mail(TWI_ID,SPI_ID,rcvd->flg,2,temp_data.val);
+			osMailFree(TWI_Q,rcvd);
 		}
 		//setting Tos temp
-		else if(evt.value.signals == 2)
+		else if(rcvd->flg&0x02)
 		{
 			evt = osMailGet(TWI_Q,50);
 			if(evt.status == osEventMail)
 			{
+				osMutexWait(Print_Mutex,osWaitForever);
 				NRF_LOG_INFO("Setting TOS");
-				mail_protocol_t *received = (mail_protocol_t *)evt.value.p;
-				pct_data_t tos_pack =  {TOS, received->pld[0]};
+				osMutexRelease(Print_Mutex);
+				rcvd = (mail_ptc_t *)evt.value.p;
+				pct_data_t tos_pack =  {TOS, rcvd->pld[0]};
 				pct_drv_write(tos_pack);
-				osMailFree(TWI_Q,received);
 			}
+			osMailFree(TWI_Q,rcvd);
 		}
 	}
 }

@@ -26,14 +26,18 @@ static const nrf_drv_spis_t spis = NRF_DRV_SPIS_INSTANCE(SPIS_INSTANCE);/**< SPI
 const nrf_drv_timer_t TIMER = NRF_DRV_TIMER_INSTANCE(1);
 volatile uint8_t timer_;
 
-void read_fifo(uint8_t buf[50]);
 uint8_t command;
 uint8_t ble_msg[6];
-static uint8_t       m_tx_buf[7];           	/**< TX buffer. */
-static uint8_t       m_rx_buf[7 + 1];   /**< RX buffer. */
-static const uint8_t m_length = sizeof(m_tx_buf);        	/**< Transfer length. */
+
+
+static const uint8_t m_length = sizeof(spi_ptc_t);        	/**< Transfer length. */
+static uint8_t       m_tx_buf[m_length];           					/**< TX buffer. */
+static uint8_t       m_rx_buf[m_length + 1];   							/**< RX buffer. */
 static volatile bool spis_xfer_done; /**< Flag used to indicate that SPIS instance completed the transfer. */
-fifo_list d_list; 									 /**< Legger til struct fifo_list. */
+spi_ptc_t rx_ptc_buf;
+spi_ptc_t tx_ptc_buf;
+
+fifo_list_t d_list; 									 /**< Legger til struct fifo_list. */
 uint8_t syn = 0x00;
 #define PIN_SYN 31
 #define PIN_ACK 30
@@ -131,7 +135,9 @@ void tx_clear (uint8_t* tx, uint8_t size) //Clearing buffer
 
 void spi_handler(void)
 {
-	uint8_t temp_buf[3];
+	
+	fifo_data_t tmp_data;
+	fifo_data_t *ttp = &tmp_data;		
 	while(1)
 	{
 		uprint("stating new cycle\r\n");
@@ -159,8 +165,6 @@ void spi_handler(void)
 			{
 				uprint("syn timeout, waiting to recieve package\r\n");
 				
-				tx_clear(m_rx_buf, sizeof(m_rx_buf));
-				tx_clear(m_tx_buf, sizeof(m_tx_buf));
 				spis_xfer_done = false;
 
 				nrf_drv_spis_buffers_set(&spis, m_tx_buf, m_length, m_rx_buf, m_length);
@@ -169,18 +173,21 @@ void spi_handler(void)
 					__WFE();
 				}
 			}
-			//prep transfer+
+			//prep transfer
 			nrf_delay_ms(100);
-			uint8_t *ttp = m_tx_buf;	//pointer to tx buffer
+			//pointer to retrieve data from fifo	
 			read_fifo(ttp);
+			//inserting data to the spi protocol
+			memcpy(&tx_ptc_buf,&tmp_data,m_length);	//pointer to tx buffer
+			//copying the data from the spi protocol buffer to the transfer buffer
+			memset(&rx_ptc_buf,0,m_length);
 			
 			uprint("blep\r\n");
 			uprint("sending data: %s\r\n", (uint8_t*)m_tx_buf);
 			
-      memset(m_rx_buf, 0, m_length);
 			spis_xfer_done = false;
 
-			nrf_drv_spis_buffers_set(&spis, m_tx_buf, m_length, m_rx_buf, m_length);
+			nrf_drv_spis_buffers_set(&spis, (uint8_t*)&tx_ptc_buf, m_length, (uint8_t*)&rx_ptc_buf, m_length);
 			//NRF_LOG_INFO("buffers set\r\n", (uint32_t)m_tx_buf);
 			//NRF_LOG_FLUSH();
 			nrf_drv_gpiote_out_clear(PIN_ACK);
@@ -206,11 +213,14 @@ void spi_handler(void)
 			{			
 				continue;
 			}
-			tx_set(m_tx_buf, temp_buf, sizeof(temp_buf));
-			tx_clear(m_rx_buf, sizeof(m_rx_buf));
+			//tx_clear(m_tx_buf, m_length);
+			//tx_clear(m_rx_buf, sizeof(m_rx_buf));
+			memset(&tx_ptc_buf,0,m_length);
+			memset(&rx_ptc_buf,0,m_length);
+			
 			spis_xfer_done = false;
 			//ack = 1;
-			APP_ERROR_CHECK(nrf_drv_spis_buffers_set(&spis, m_tx_buf, m_length, m_rx_buf, m_length));
+			APP_ERROR_CHECK(nrf_drv_spis_buffers_set(&spis, (uint8_t*)&tx_ptc_buf, m_length, (uint8_t*)&rx_ptc_buf, m_length));
 			nrf_drv_gpiote_out_set(PIN_ACK);
 			nrf_delay_ms(50);
 
@@ -220,7 +230,8 @@ void spi_handler(void)
 			}
 			nrf_drv_gpiote_out_clear(PIN_ACK);
 			uprint("ack low\r\n");
-			ble_print(m_rx_buf);
+			spi_eval(rx_ptc_buf);
+			//ble_print(m_rx_buf);
 				
 			//ack = 0;			
 		}
@@ -231,39 +242,39 @@ void spi_handler(void)
 
 void fifo_init(void)
 {
-	d_list.max_size = 1;
-	d_list.array = (uint8_t**)malloc(sizeof(uint8_t*)*d_list.max_size);
-	d_list.head = d_list.tail = 0;
+	d_list.max_size = 6;
+	d_list.array = (fifo_data_t*)malloc(sizeof(fifo_data_t)*d_list.max_size);
+	d_list.head = 0;
+	d_list.tail = 0;
 	d_list.used = 0;
 }
 
-void add_fifo(uint8_t *Data)
+void add_fifo(fifo_data_t *buf)
 {
 
-	if(d_list.used >= d_list.max_size)
-		{
-			//BLE("plz stop! I am full")
-			return;
-		}
-	d_list.array[d_list.head] = Data;
-	d_list.head = ((d_list.head + 1) % d_list.max_size);
-	d_list.used++;
+		if(d_list.used >= d_list.max_size)
+			{
+				//BLE("plz stop! I am full")
+				return;
+			}
+		memcpy(&d_list.array[d_list.head],buf,m_length);
+		d_list.head = ((d_list.head + 1) % d_list.max_size);
+		d_list.used++;
 }
 
-void read_fifo(uint8_t *buf)
+void read_fifo(fifo_data_t *buf)
 {
-	//check if empty
-	if(d_list.used == 0)
-	{
-		//print to debugger - "Nothing to read"
+		//check if empty
+		if(d_list.used == 0)
+		{
+			//print to debugger - "Nothing to read"
+			return;
+		}
+		
+		memcpy(buf,&(d_list.array[d_list.tail]),7);
+		d_list.tail = ((d_list.tail + 1) % d_list.max_size);
+		d_list.used--;
 		return;
-	}
-	
-	memcpy(buf,d_list.array[d_list.tail],6);
-	d_list.array[d_list.tail] = NULL;
-	d_list.tail = ((d_list.tail + 1) % d_list.max_size);
-	d_list.used--;
-	return;
 }
 void uart_print_init(void)
 {
@@ -278,8 +289,12 @@ void uart_print_init(void)
 
 void uartprint(uint8_t *str)
 {
-
-	nrf_drv_uart_tx(&p_uart, (const uint8_t *)str, strlen((char*)str));
-	printbuf[0] = '\0';
+	/*
+		for (uint32_t i = 0; i < strlen((char*)str); i++)
+		{
+				while (app_uart_put(str[i]) != NRF_SUCCESS);
+		}*/
+	//nrf_drv_uart_tx(&p_uart, (const uint8_t *)str, strlen((char*)str));
+	//printbuf[0] = '\0';
 	
 }

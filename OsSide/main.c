@@ -6,10 +6,11 @@
 #include "osObjects.h"                      // RTOS object definitions       
 #include "data_Transfer.h"
 #include "util.h"
-
+#include "saadc.h"
 
 // CMSIS RTOS header file
-
+osMutexDef(Print_Mut);
+osMutexId (Print_Mutex);
  
 
 /*
@@ -46,8 +47,10 @@ int main (void) {
 
   
 	APP_ERROR_CHECK(NRF_LOG_INIT(NULL));
-	
+	Print_Mutex = osMutexCreate(osMutex(Print_Mut));
+	osMutexWait(Print_Mutex,osWaitForever);
 	NRF_LOG_INFO("Log initialized\r\n");
+	osMutexRelease(Print_Mutex);
 	SPI_init();
 	comhub_init();
 	//butt_init();
@@ -80,7 +83,10 @@ int main (void) {
 	//twi();
 	
   twi_init();
-	
+	nrf_drv_gpiote_out_config_t test_pin = GPIOTE_CONFIG_OUT_TASK_HIGH;
+	nrf_drv_gpiote_out_init(7, &test_pin);
+	nrf_drv_gpiote_out_set(7);
+	saadc_main();
 
 	
 	while(1)

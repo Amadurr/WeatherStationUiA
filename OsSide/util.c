@@ -16,7 +16,7 @@ void butt_handler(nrf_drv_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
 	//NRF_LOG_INFO("sending testmsg\r\n");
 	uint8_t msg[] = {'A','B','C'}; 
 	
-	mail_protocol_t *testmsg;
+	mail_ptc_t *testmsg;
 	testmsg = (mail_protocol_t *) osMailAlloc(mail_q_id[0], osWaitForever);
 	if(testmsg == NULL)
 	{
@@ -46,6 +46,5 @@ void butt_init(void)
 	nrf_drv_gpiote_in_event_enable(BUTT, true);
 
 }*/
-
 
 
