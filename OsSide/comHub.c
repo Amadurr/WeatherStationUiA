@@ -6,6 +6,7 @@ osMailQDef (mail_pool_in, 20, mail_ptc_t);
 osMailQDef (mail_pool_spi, 10, mail_ptc_t);
 osMailQDef (mail_pool_brn, 10, mail_ptc_t);
 osMailQDef (mail_pool_twi, 10, mail_ptc_t);
+osMailQDef (mail_pool_dac, 10, mail_ptc_t);
 osMailQId  (mail_q_id[5]);
 
 extern osMutexId Print_Mutex;
@@ -15,6 +16,7 @@ extern osThreadId tid_SPI;
 extern osThreadId tid_comhub;
 extern osThreadId tid_brn;
 extern osThreadId tid_TWI;
+extern osThreadId tid_DAC;
 
 void comhub_init()
 {
@@ -26,6 +28,7 @@ void comhub_init()
 		mail_q_id[1] 			= osMailCreate(osMailQ(mail_pool_spi), tid_SPI);
 		mail_q_id[2] 			= osMailCreate(osMailQ(mail_pool_brn), tid_brn);
 	  mail_q_id[3] 			= osMailCreate(osMailQ(mail_pool_twi), tid_TWI);
+	  mail_q_id[4] 			= osMailCreate(osMailQ(mail_pool_dac), tid_DAC);
 }
 void comhub(void const *argument)
 {

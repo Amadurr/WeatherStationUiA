@@ -253,7 +253,7 @@ void start_spi_transfer(nrf_drv_spi_t const * const p_instance,
 	{
 		
 		nrf_drv_gpiote_out_clear(p_CS);
-		nrf_drv_spi_transfer(&spi, (uint8_t*)&tx_ptc_buf, m_length, (uint8_t*)&rx_ptc_buf, m_length);
+		nrf_drv_spi_transfer(&spi, p_tx_buffer, tx_buffer_length, p_rx_buffer, rx_buffer_length);
 		while (!spi_xfer_done)
 			{
 					osDelay(50);
@@ -265,3 +265,24 @@ void start_spi_transfer(nrf_drv_spi_t const * const p_instance,
 		NRF_LOG_INFO("transfer done");
 		osMutexRelease(Print_Mutex);
 	}
+	
+	void DAC_controller(void const *argument)
+{
+	osEvent evt;
+	uint8_t temp_data[2];
+	mail_ptc_t *rcvd;			// recieved package
+	while(1)
+	{
+		evt = osMailGet(DAC_Q,osWaitForever);
+		rcvd = (mail_ptc_t *)evt.value.p;
+		
+		spi_xfer_done = false;
+		temp_data[0] = 0x70|rcvd->pld[0]; //0111xxxx
+		temp_data[1] = rcvd->pld[1];
+		start_spi_transfer(&spi, CS_dac,(uint8_t*)temp_data, 2, (uint8_t*)NULL, 2);
+		osMailFree(DAC_Q,rcvd);
+			
+		
+		
+	}
+}

@@ -22,6 +22,7 @@
 #define	SPI_Q  mail_q_id[1]
 #define	BRN_Q  mail_q_id[2]
 #define	TWI_Q  mail_q_id[3]
+#define	DAC_Q  mail_q_id[4]
 
 typedef struct
 {
@@ -50,6 +51,8 @@ void comhub_init(void);
 //thread functions
 void SPI_controller(void const *argument);
 void comhub(void const *argument);
+void DAC_controller(void const *argument);
+
 void start_spi_transfer(nrf_drv_spi_t const * const p_instance,
 																		uint8_t 				p_CS,
 																		uint8_t const * p_tx_buffer,

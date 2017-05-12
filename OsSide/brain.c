@@ -6,6 +6,7 @@ extern osThreadId tid_SPI;
 extern osThreadId tid_comhub;
 extern osThreadId tid_brn;
 extern osThreadId tid_TWI;
+extern osThreadId tid_DAC;
 extern osMailQId mail_q_id[5];
 
 #define ADC_PIN 05
@@ -16,6 +17,7 @@ void MainControlUnit(const void *arguments)
 {
 	osEvent evt;
 	int8_t lim[1];
+	uint16_t v_set;
 	while(1)
 	{
 		evt = osMailGet(BRN_Q,osWaitForever);
@@ -70,6 +72,16 @@ void MainControlUnit(const void *arguments)
 						break;
 						case ('s'):
 						case ('S'):
+							sscanf((char*)received->pld,"%*s %i",&v_set);
+						
+							//lim[0] = (4096 * lim[0])/36;
+						
+							v_set = (4095 * v_set)/28;
+							lim[0] = v_set>>8;
+							lim[1] = v_set&0xFF;
+							send_mail(BRN_ID,DAC_ID,0x04,2,(uint8_t*)lim);
+							osMailFree(BRN_Q,received);
+							
 							break;
 					}
 					default:

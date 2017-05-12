@@ -38,8 +38,8 @@
 /* Number of possible TWI addresses. */
 #define TWI_ADDRESSES  	127
 #define TWI_ADD 			 	0x37
-#define TWI_SDA					26
-#define TWI_SCL					27
+#define TWI_SDA					27
+#define TWI_SCL					26
 #define PCT_IRQ					02
 /* TWI instance. */
 static const nrf_drv_twi_t m_twi = NRF_DRV_TWI_INSTANCE(TWI_INSTANCE_ID);

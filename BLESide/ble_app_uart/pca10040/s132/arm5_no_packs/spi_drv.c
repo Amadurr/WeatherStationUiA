@@ -46,6 +46,17 @@ void spi_eval(spi_ptc_t msg)
 			}
 		}
 		case (0x04):
+		{
+			snprintf((char *)str, BLE_NUS_MAX_DATA_LEN, "V_tresh reached\r\n");
+			
+			ble_nus_string_send(&m_nus, str, strlen((char*)str));
+			
+			for (uint32_t i = 0; i < strlen((char*)str)+1; i++)
+			{
+				while (app_uart_put(str[i]) != NRF_SUCCESS);
+			}	
+			
+		}
 		case (0x08):
 		default:
 			break;

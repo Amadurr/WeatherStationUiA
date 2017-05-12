@@ -67,7 +67,8 @@ typedef enum
 	COM_ID    = 0x00,
 	SPI_ID		= 0x01,
 	BRN_ID		= 0x02,
-	TWI_ID		= 0x03
+	TWI_ID		= 0x03,
+	DAC_ID		= 0x04
 }mail_id_t;
 /*
 mail IDs

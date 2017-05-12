@@ -32,6 +32,9 @@ osThreadDef (MainControlUnit,osPriorityNormal,1,0);
 osThreadId tid_TWI;
 osThreadDef (TWI_controller,osPriorityNormal,1,0);
 
+osThreadId tid_DAC;
+osThreadDef (DAC_controller,osPriorityNormal,1,0);
+
 
 extern osMailQId  (mail_q_id[5]);
 
@@ -59,7 +62,8 @@ int main (void) {
 	tid_SPI = osThreadCreate (osThread(SPI_controller),NULL);
 	tid_brn = osThreadCreate (osThread(MainControlUnit),NULL);
 	tid_TWI = osThreadCreate (osThread(TWI_controller),NULL);
-
+	tid_DAC = osThreadCreate (osThread(DAC_controller),NULL);
+	
   // create 'thread' functions that start executing,
   // example: tid_name = osThreadCreate (osThread(name), NULL);
 	
